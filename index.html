@@ -798,7 +798,15 @@
                 const positions = new Float32Array(particlesCount * 3);
                 const colors = new Float32Array(particlesCount * 3);
 
-                const colorPalette = [new THREE.Color(0x58a6ff), new THREE.Color(0x3fb950), new THREE.Color(0xffa658), new THREE.Color(0xed6f7d)];
+                // Updated color palette for nodes: more blues, greens, emeralds, violets
+                const colorPalette = [
+                    new THREE.Color(0x007bff), // Bright Blue
+                    new THREE.Color(0x00c853), // Emerald Green
+                    new THREE.Color(0x6200ea), // Deep Violet
+                    new THREE.Color(0x00bcd4), // Cyan/Turquoise
+                    new THREE.Color(0x3f51b5), // Indigo
+                    new THREE.Color(0x4caf50)  // Green
+                ];
 
                 for (let i = 0; i < particlesCount; i++) {
                     const x = Math.random() * boxSize - boxSize / 2;
@@ -839,7 +847,7 @@
                     vertexColors: true,
                     blending: THREE.AdditiveBlending,
                     transparent: true,
-                    opacity: 0.2
+                    opacity: 0.5 // Increased opacity for connections to be more noticeable
                 });
                 lines = new THREE.LineSegments(lineGeometry, lineMaterial);
                 scene.add(lines);
