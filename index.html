@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synerg IA – Agencia Creativa de IA</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+    <script defer src="https://unpkg.com/alpinejs"></script>
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+      .square-img {
+        width: 100%;
+        padding-top: 100%;
+        position: relative;
+      }
+      .square-img img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 font-Montserrat">
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        if (typeof AOS !== "undefined") {
+          AOS.init();
+        } else {
+          const aosScript = document.createElement("script");
+          aosScript.src = "https://unpkg.com/aos@2.3.1/dist/aos.js";
+          aosScript.onload = () => AOS.init();
+          document.head.appendChild(aosScript);
+        }
+      });
+
+      const translations = {
+        es: {
+          "header.title": "Synerg IA",
+          "header.subtitle": "Agencia creativa con inteligencia artificial"
+        },
+        en: {
+          "header.title": "Synerg AI",
+          "header.subtitle": "Creative agency with artificial intelligence"
+        }
+      };
+
+      function toggleLanguage(lang = "es") {
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+      }
+    </script>
+
+    <!-- Aquí comienza el contenido del sitio -->
+    <header class="relative">
+      <img src="IMG/Redes neuronales.jpg" alt="Banner IA" class="w-full h-64 sm:h-96 object-cover brightness-75" />
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+        <h1 class="text-7xl sm:text-9xl font-bold drop-shadow-lg">Synerg IA</h1>
+        <p class="text-lg sm:text-2xl mt-6 font-light drop-shadow">Agencia creativa con inteligencia artificial</p>
+      </div>
+    </header>
+
+    <div class="flex justify-end px-6 py-4 space-x-3">
+      <button onclick="toggleLanguage()" class="text-sm border rounded px-3 py-1 hover:bg-purple">ES / EN</button>
+      <button onclick="toggleAccessibilityMenu()" class="text-sm border rounded px-3 py-1 hover:bg-purple">
+        Accesibilidad
+      </button>
+    </div>
+
+    <!-- Menú de accesibilidad -->
+    <div id="accessibilityMenu" class="hidden fixed bottom-36 right-5 bg-white p-4 shadow-lg rounded-lg w-72 z-50">
+      <h4 class="text-lg font-semibold mb-2 text-purple-700">Opciones de Accesibilidad</h4>
+      <button
+        onclick="startVoiceAssistant()"
+        class="w-full mb-2 bg-purple-700 text-white py-2 rounded hover:bg-purple-800">
+        🎙️ Asistente por voz
+      </button>
+      <button onclick="speakPageContent()" class="w-full mb-2 bg-gray-100 text-black py-2 rounded hover:bg-gray-200">
+        🔊 Leer contenido
+      </button>
+      <button onclick="toggleContrast()" class="w-full bg-gray-100 text-black py-2 rounded hover:bg-gray-200">
+        🌓 Modo Alto Contraste
+      </button>
+    </div>
+
+    <script>
+      function toggleAccessibilityMenu() {
+        const menu = document.getElementById("accessibilityMenu");
+        menu.classList.toggle("hidden");
+      }
+      function speakPageContent() {
+        const content = document.body.innerText;
+        const utterance = new SpeechSynthesisUtterance(content);
+        utterance.lang = "es-ES";
+        speechSynthesis.speak(utterance);
+      }
+      function startVoiceAssistant() {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = "es-ES";
+        recognition.start();
+        recognition.onresult = (event) => {
+          const transcript = event.results[0][0].transcript.toLowerCase();
+          const response = new SpeechSynthesisUtterance("Has dicho: " + transcript);
+          response.lang = "es-ES";
+          speechSynthesis.speak(response);
+          if (transcript.includes("servicios")) window.location.href = "#servicios";
+          else if (transcript.includes("contacto")) window.location.href = "#contacto";
+        };
+      }
+      function toggleContrast() {
+        document.body.classList.toggle("invert");
+      }
+      function toggleLanguage() {
+        alert(
+          "La funcionalidad multilingüe estará disponible próximamente. Para versiones en inglés, contáctanos directamente."
+        );
+      }
+    </script>
+
+    <!-- Sección: Manifiesto IA -->
+    <section class="py-20 bg-gray-100 px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-purple-800 mb-4">Nuestro Manifiesto</h2>
+        <p class="text-lg text-gray-700">
+          Creemos en una IA ética, inclusiva y transformadora. Nuestras soluciones combinan innovación tecnológica y
+          sensibilidad humana. El futuro es colaborativo: humano + máquina + arte.
+        </p>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-20 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <h3 class="text-3xl font-bold text-center text-black mb-12">¿Qué hacemos?</h3>
+        <div class="grid gap-12 md:grid-cols-3">
+          <!-- Servicio 1 -->
+          <div class="text-center">
+            <img
+              src="IMG/Leonardo_Phoenix_a_breathtakingly_detailed_ultrahighresolution_2.jpg"
+              class="rounded shadow mb-4 w-full h-48 object-cover"
+              alt="Consultoría IA" />
+            <h4 class="text-xl font-semibold text-purple-700 mb-2">Consultoría en IA Creativa</h4>
+            <p class="text-gray-600">
+              Asesoramos en implementación de IA en proyectos culturales, artísticos y de innovación.
+            </p>
+          </div>
+          <!-- Servicio 2 -->
+          <div class="text-center">
+            <img
+              src="IMG/Leonardo_Phoenix_a_breathtakingly_detailed_ultrahighresolution_3.jpg"
+              class="rounded shadow mb-4 w-full h-48 object-cover"
+              alt="Desarrollo Web y Chatbots" />
+            <h4 class="text-xl font-semibold text-purple-700 mb-2">Web + Chatbots</h4>
+            <p class="text-gray-600">
+              Creamos plataformas digitales inteligentes para artistas, colectivos y empresas.
+            </p>
+          </div>
+          <!-- Servicio 3 -->
+          <div class="text-center">
+            <img
+              src="IMG/Leonardo_Phoenix_a_breathtakingly_detailed_ultrahighresolution_0.jpg"
+              class="rounded shadow mb-4 w-full h-48 object-cover"
+              alt="Educación en IA" />
+            <h4 class="text-xl font-semibold text-purple-700 mb-2">Educación y Talleres</h4>
+            <p class="text-gray-600">Formamos en IA, ética y tecnología creativa a comunidades y profesionales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Tienda Creativa -->
+    <section id="tienda" class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Tienda Creativa</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Producto Ejemplo -->
+          <div class="border rounded-xl p-4 shadow bg-white">
+            <img
+              src="IMG/-Camiseta con Arte Abstracto (1).png"
+              alt="Camiseta Arte Libre"
+              class="w-full h-48 object-cover rounded" />
+            <h3 class="text-xl font-bold mt-4">Camiseta Arte Libre</h3>
+            <p class="text-sm text-gray-600">Merchandising - Camiseta de algodón 100% con estampado artístico.</p>
+            <p class="text-purple-700 font-bold mt-2">$55.000 COP</p>
+            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
+          </div>
+
+          <!-- Repite para los demás productos -->
+          <div class="border rounded-xl p-4 shadow bg-white">
+            <img
+              src="IMG/AUDIOLIBROS.png "
+              alt="Audiolibro Visiones Sonoras"
+              class="w-full h-48 object-cover rounded" />
+            <h3 class="text-xl font-bold mt-4">Audiolibro Visiones Sonoras</h3>
+            <p class="text-sm text-gray-600">Audiolibros - Narración artística en formato digital.</p>
+            <p class="text-purple-700 font-bold mt-2">$20.000 COP</p>
+            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
+          </div>
+
+          <div class="border rounded-xl p-4 shadow bg-white">
+            <img
+              src="IMG/-Manifiesto Creativo_ Arte y Sociedad.png"
+              alt="Libro Manifiesto Creativo"
+              class="w-full h-48 object-cover rounded" />
+            <h3 class="text-xl font-bold mt-4">Libro Manifiesto Creativo</h3>
+            <p class="text-sm text-gray-600">Libros - Ensayo ilustrado sobre arte y sociedad.</p>
+            <p class="text-purple-700 font-bold mt-2">$35.000 COP</p>
+            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
+          </div>
+
+          <div class="border rounded-xl p-4 shadow bg-white">
+            <img
+              src="IMG/-Juego de Cartas Creativas.png"
+              alt="Juego de Cartas Creativas"
+              class="w-full h-48 object-cover rounded" />
+            <h3 class="text-xl font-bold mt-4">Juego de Cartas Creativas</h3>
+            <p class="text-sm text-gray-600">Juegos - Dinámicas para talleres y grupos.</p>
+            <p class="text-purple-700 font-bold mt-2">$45.000 COP</p>
+            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
+          </div>
+
+          <div class="border rounded-xl p-4 shadow bg-white">
+            <img
+              src="IMG/-Juego de Cartas CreativaS2.png"
+              alt="Juego de Cartas Creativas"
+              class="w-full h-48 object-cover rounded" />
+            <h3 class="text-xl font-bold mt-4">Juego de Cartas Creativas</h3>
+            <p class="text-sm text-gray-600">Juegos - Dinámicas para talleres y grupos.</p>
+            <p class="text-purple-700 font-bold mt-2">$45.000 COP</p>
+            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
+          </div>
+
+          <div class="border rounded-xl p-4 shadow bg-white">
+            <img src="IMG/-Llama.png" alt="NFT: Llama Cósmica" class="w-full h-48 object-cover rounded" />
+            <h3 class="text-xl font-bold mt-4">NFT: Llama Cósmica</h3>
+            <p class="text-sm text-gray-600">Arte Digital - Obra exclusiva en blockchain.</p>
+            <p class="text-purple-700 font-bold mt-2">0.03 ETH</p>
+            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Ver NFT</button>
+          </div>
+
+          <!-- Botones funcionales -->
+          <div class="flex justify-end px-6 py-4 space-x-3">
+            <button onclick="toggleLanguage()" class="text-sm border rounded px-3 py-1 hover:bg-gray-100">
+              ES / EN
+            </button>
+            <button onclick="toggleAccessibility()" class="text-sm border rounded px-3 py-1 hover:bg-gray-100">
+              Accesibilidad
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Laboratorio Creativo -->
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-black mb-12">Laboratorio Creativo</h2>
+        <div class="grid gap-12 md:grid-cols-2">
+          <div>
+            <img
+              src="IMG/Arte Digital Generativo y Creativo.png"
+              class="rounded shadow mb-4 w-full h-48 object-cover"
+              alt="Arte Generativo IA" />
+            <h3 class="text-2xl font-semibold text-purple-700 mb-2">Arte Generativo</h3>
+            <p class="text-gray-600 mb-4">
+              Experimenta con modelos de generación de imágenes y texto para crear obras únicas impulsadas por redes
+              neuronales.
+            </p>
+          </div>
+          <div>
+            <img
+              src="IMG/NARRADOR IA_ Transformando ideas en voz.png"
+              class="rounded shadow mb-4 w-full h-48 object-cover"
+              alt="Narrador IA" />
+            <h3 class="text-2xl font-semibold text-purple-700 mb-2">Narrador IA</h3>
+            <p class="text-gray-600 mb-4">
+              Transforma ideas en relatos con voz generada por IA. Pulsa para escuchar una demostración en voz.
+            </p>
+            <button onclick="launchNarrator()" class="bg-purple-700 text-white px-6 py-3 rounded hover:bg-purple-800">
+              🎧 Escuchar demo
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Proyectos reales -->
+    <section class="bg-gray-50 py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-black mb-12">IA en Acción</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-4 rounded shadow">
+            <h4 class="text-xl font-semibold text-purple-700 mb-2">Talleres con comunidades</h4>
+            <p class="text-gray-600">Llevamos educación en IA a artistas emergentes y colectivos culturales.</p>
+          </div>
+          <div class="bg-white p-4 rounded shadow">
+            <h4 class="text-xl font-semibold text-purple-700 mb-2">Performance generativo</h4>
+            <p class="text-gray-600">Espectáculos en vivo usando modelos generativos para música y visuales.</p>
+          </div>
+          <div class="bg-white p-4 rounded shadow">
+            <h4 class="text-xl font-semibold text-purple-700 mb-2">IA editorial</h4>
+            <p class="text-gray-600">Libros co-creados con modelos de lenguaje y artistas digitales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Blog funcional -->
+    <section id="blog" class="py-20 px-6 bg-gray-50">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-black mb-12">Blog de Conocimiento</h2>
+        <div class="grid md:grid-cols-2 gap-10">
+          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-purple-700 mb-2">¿Qué es el arte generativo?</h3>
+            <p class="text-gray-600 mb-4">
+              Exploramos cómo los algoritmos y modelos de IA están transformando el mundo artístico con creatividad
+              emergente.
+            </p>
+            <a href="#" class="text-purple-600 font-semibold underline">Leer más</a>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition"
+            data-aos="fade-up"
+            data-aos-delay="100">
+            <h3 class="text-xl font-bold text-purple-700 mb-2">Ética y responsabilidad en la IA</h3>
+            <p class="text-gray-600 mb-4">
+              Una reflexión sobre los límites, sesgos y compromisos que deben acompañar al desarrollo tecnológico con
+              impacto social.
+            </p>
+            <a href="#" class="text-purple-600 font-semibold underline">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="bg-gray-50 py-20 px-6">
+      <div class="max-w-2xl mx-auto text-center">
+        <h3 class="text-3xl font-bold text-black mb-4">Contáctanos</h3>
+        <p class="text-gray-700 mb-6">¿Tienes un proyecto o idea? ¡Conversemos!</p>
+        <a
+          href="mailto:info@phcode.dev"
+          class="inline-block px-6 py-3 bg-black text-white rounded shadow hover:bg-gray-800"
+          >Enviar correo</a
+        >
+      </div>
+    </section>
+
+    <!-- Botones Flotantes -->
+    <div class="fixed bottom-5 right-5 space-y-3 z-50">
+      <button
+        onclick="openChatbot()"
+        class="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-3 rounded-full shadow-xl">
+        💬 SynBot
+      </button>
+      <a
+        href="https://wa.me/573001112233"
+        target="_blank"
+        class="block bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-xl text-center"
+        >WhatsApp</a
+      >
+    </div>
+
+    <!-- Botón narrador IA -->
+    <div class="fixed bottom-5 right-36 z-48">
+      <button
+        onclick="launchNarrator()"
+        class="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-3 rounded-full shadow-xl">
+        🔊 Narrador IA
+      </button>
+    </div>
+
+    <!-- Chatbot oculto -->
+    <div
+      id="landbot-chat"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 350px;
+        height: 500px;
+        z-index: 100;
+      "></div>
+
+    <!-- Scripts -->
+    <script>
+      function toggleLanguage() {
+        alert("La funcionalidad multilingüe estará disponible próximamente.");
+      }
+
+      function toggleAccessibilityMenu() {
+        const menu = document.getElementById("accessibilityMenu");
+        menu.classList.toggle("hidden");
+      }
+
+      function toggleContrast() {
+        document.body.classList.toggle("invert");
+      }
+
+      function speakPageContent() {
+        const content = document.body.innerText;
+        const utterance = new SpeechSynthesisUtterance(content);
+        utterance.lang = "es-ES";
+        speechSynthesis.speak(utterance);
+      }
+
+      function startVoiceAssistant() {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = "es-ES";
+        recognition.start();
+        recognition.onresult = (event) => {
+          const transcript = event.results[0][0].transcript.toLowerCase();
+          const response = new SpeechSynthesisUtterance("Has dicho: " + transcript);
+          response.lang = "es-ES";
+          speechSynthesis.speak(response);
+
+          if (transcript.includes("servicios")) window.location.href = "#servicios";
+          else if (transcript.includes("contacto")) window.location.href = "#contacto";
+        };
+      }
+
+      function launchNarrator() {
+        const msg = new SpeechSynthesisUtterance(
+          "Bienvenido a Synerg IA. Aquí la inteligencia artificial y la creatividad se fusionan para transformar el mundo."
+        );
+        msg.lang = "es-ES";
+        window.speechSynthesis.speak(msg);
+      }
+
+      function openChatbot() {
+        const bot = document.getElementById("landbot-chat");
+        if (bot) {
+          bot.style.display = bot.style.display === "none" ? "block" : "none";
+        }
+      }
+
+      // Landbot script
+      window.addEventListener("DOMContentLoaded", function () {
+        const script = document.createElement("script");
+        script.src = "https://static.landbot.io/landbot-3/landbot-3.0.0.js";
+        script.async = true;
+        script.onload = () => {
+          new Landbot.Livechat({
+            configUrl: "https://storage.googleapis.com/landbot.site/v3/HERE-YOUR-CONFIG-ID/index.json",
+            container: "#landbot-chat"
+          });
+        };
+        document.body.appendChild(script);
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-gray-100 mt-20 text-gray-600">
+      <p>© 2025 Synerg IA · Agencia Creativa de IA</p>
+    </footer>
+  </body>
+</html>
