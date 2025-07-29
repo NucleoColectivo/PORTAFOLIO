@@ -1,472 +1,321 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Synerg IA – Agencia Creativa de IA</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
-    <script defer src="https://unpkg.com/alpinejs"></script>
-    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel Palacio - Portafolio Creativo Digital</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de la fuente Inter para un look moderno y legible -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-      body {
-        font-family: "Montserrat", sans-serif;
-      }
-      .square-img {
-        width: 100%;
-        padding-top: 100%;
-        position: relative;
-      }
-      .square-img img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Fondo gris claro y suave */
+            color: #333; /* Color de texto principal para alta legibilidad */
+            scroll-behavior: smooth; /* Desplazamiento suave para la navegación */
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem; /* Más espacio para el subrayado */
+            margin-bottom: 2.5rem; /* Más espacio debajo del título de sección */
+            display: inline-block;
+            font-weight: 700; /* Títulos de sección más audaces */
+            color: #2c5282; /* Azul oscuro para títulos de sección */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px; /* Subrayado más largo */
+            height: 5px; /* Subrayado más grueso */
+            background-color: #4a90e2; /* Azul vibrante */
+            border-radius: 3px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.25rem; /* Bordes aún más redondeados */
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -5px rgba(0, 0, 0, 0.04); /* Sombra más pronunciada */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-8px); /* Elevación más notoria */
+            box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.15), 0 8px 15px -8px rgba(0, 0, 0, 0.06);
+        }
+        .btn-primary {
+            background-color: #4a90e2; /* Azul vibrante */
+            color: white;
+            padding: 0.85rem 2rem; /* Botones más grandes */
+            border-radius: 0.85rem; /* Bordes redondeados */
+            font-weight: 600;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+            display: inline-flex; /* Para alinear íconos si se añaden */
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-primary:hover {
+            background-color: #357bd8; /* Azul más oscuro al pasar el ratón */
+            transform: translateY(-2px); /* Pequeño efecto de elevación */
+        }
+        .social-icon {
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+        .social-icon:hover {
+            transform: scale(1.2); /* Efecto de escala más grande en iconos sociales */
+            color: #4a90e2; /* Cambia de color al pasar el ratón */
+        }
+        /* Estilos para el botón de WhatsApp flotante */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366; /* Color de WhatsApp */
+            color: white;
+            border-radius: 50%;
+            width: 65px; /* Botón de WhatsApp más grande */
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        .whatsapp-button:hover {
+            transform: scale(1.15); /* Efecto de elevación al pasar el ratón */
+            background-color: #1DA851; /* Un verde más oscuro */
+        }
+        .whatsapp-icon {
+            width: 35px; /* Icono de WhatsApp más grande */
+            height: 35px;
+        }
+
+        /* Barra de Navegación */
+        .navbar {
+            background-color: #ffffff;
+            backdrop-filter: blur(10px); /* Efecto de desenfoque */
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+        .nav-link {
+            font-weight: 500; /* Peso medio para enlaces de navegación */
+            color: #4a5568; /* Gris oscuro para enlaces */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+        .nav-link:hover {
+            background-color: #edf2f7; /* Fondo suave al pasar el ratón */
+            color: #2c5282; /* Azul oscuro al pasar el ratón */
+        }
+
+        /* Animación para el título principal */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInDown {
+            animation: fadeInDown 1s ease-out forwards;
+        }
     </style>
-  </head>
-  <body class="bg-white text-gray-900 font-Montserrat">
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        if (typeof AOS !== "undefined") {
-          AOS.init();
-        } else {
-          const aosScript = document.createElement("script");
-          aosScript.src = "https://unpkg.com/aos@2.3.1/dist/aos.js";
-          aosScript.onload = () => AOS.init();
-          document.head.appendChild(aosScript);
-        }
-      });
+</head>
+<body class="antialiased">
 
-      const translations = {
-        es: {
-          "header.title": "Synerg IA",
-          "header.subtitle": "Agencia creativa con inteligencia artificial"
-        },
-        en: {
-          "header.title": "Synerg AI",
-          "header.subtitle": "Creative agency with artificial intelligence"
-        }
-      };
+    <!-- Barra de Navegación -->
+    <nav class="navbar py-4 px-4">
+        <div class="container mx-auto flex justify-center md:justify-between items-center">
+            <div class="text-2xl font-extrabold text-blue-700 hidden md:block">
+                <a href="#" class="hover:text-blue-900 transition-colors">Manuel Palacio</a>
+            </div>
+            <div class="flex flex-wrap justify-center space-x-4">
+                <a href="#about" class="nav-link">Sobre Mí</a>
+                <a href="#ia-experience" class="nav-link">Experiencia IA</a>
+                <a href="#portfolio" class="nav-link">Portafolio</a>
+                <a href="#contact" class="nav-link">Contacto</a>
+            </div>
+        </div>
+    </nav>
 
-      function toggleLanguage(lang = "es") {
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
-          if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
-          }
-        });
-      }
-    </script>
-
-    <!-- Aquí comienza el contenido del sitio -->
-    <header class="relative">
-      <img src="IMG/Redes neuronales.jpg" alt="Banner IA" class="w-full h-64 sm:h-96 object-cover brightness-75" />
-      <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
-        <h1 class="text-7xl sm:text-9xl font-bold drop-shadow-lg">Synerg IA</h1>
-        <p class="text-lg sm:text-2xl mt-6 font-light drop-shadow">Agencia creativa con inteligencia artificial</p>
-      </div>
+    <!-- Encabezado y Hero Section -->
+    <header class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20 px-4 rounded-b-3xl shadow-xl">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+            <div class="mb-10 md:mb-0 md:w-2/3 animate-fadeInDown">
+                <h1 class="text-6xl font-extrabold leading-tight mb-4 tracking-tight">
+                    Manuel Palacio
+                </h1>
+                <p class="text-3xl font-light mb-6 opacity-90">
+                    Artista Visual | Diseñador Gráfico | Ilustrador | Creador Digital con IA
+                </p>
+                <p class="text-xl leading-relaxed max-w-3xl mx-auto md:mx-0 font-light opacity-85">
+                    Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.
+                </p>
+                <div class="mt-10">
+                    <a href="#portfolio" class="btn-primary inline-block">Explorar Portafolio</a>
+                </div>
+            </div>
+            <div class="md:w-1/3 flex justify-center">
+                <!-- Imagen de perfil -->
+                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true" alt="Foto de Perfil de Manuel Palacio" class="rounded-full border-6 border-white shadow-2xl w-64 h-64 object-cover">
+            </div>
+        </div>
     </header>
 
-    <div class="flex justify-end px-6 py-4 space-x-3">
-      <button onclick="toggleLanguage()" class="text-sm border rounded px-3 py-1 hover:bg-purple">ES / EN</button>
-      <button onclick="toggleAccessibilityMenu()" class="text-sm border rounded px-3 py-1 hover:bg-purple">
-        Accesibilidad
-      </button>
-    </div>
-
-    <!-- Menú de accesibilidad -->
-    <div id="accessibilityMenu" class="hidden fixed bottom-36 right-5 bg-white p-4 shadow-lg rounded-lg w-72 z-50">
-      <h4 class="text-lg font-semibold mb-2 text-purple-700">Opciones de Accesibilidad</h4>
-      <button
-        onclick="startVoiceAssistant()"
-        class="w-full mb-2 bg-purple-700 text-white py-2 rounded hover:bg-purple-800">
-        🎙️ Asistente por voz
-      </button>
-      <button onclick="speakPageContent()" class="w-full mb-2 bg-gray-100 text-black py-2 rounded hover:bg-gray-200">
-        🔊 Leer contenido
-      </button>
-      <button onclick="toggleContrast()" class="w-full bg-gray-100 text-black py-2 rounded hover:bg-gray-200">
-        🌓 Modo Alto Contraste
-      </button>
-    </div>
-
-    <script>
-      function toggleAccessibilityMenu() {
-        const menu = document.getElementById("accessibilityMenu");
-        menu.classList.toggle("hidden");
-      }
-      function speakPageContent() {
-        const content = document.body.innerText;
-        const utterance = new SpeechSynthesisUtterance(content);
-        utterance.lang = "es-ES";
-        speechSynthesis.speak(utterance);
-      }
-      function startVoiceAssistant() {
-        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-        recognition.lang = "es-ES";
-        recognition.start();
-        recognition.onresult = (event) => {
-          const transcript = event.results[0][0].transcript.toLowerCase();
-          const response = new SpeechSynthesisUtterance("Has dicho: " + transcript);
-          response.lang = "es-ES";
-          speechSynthesis.speak(response);
-          if (transcript.includes("servicios")) window.location.href = "#servicios";
-          else if (transcript.includes("contacto")) window.location.href = "#contacto";
-        };
-      }
-      function toggleContrast() {
-        document.body.classList.toggle("invert");
-      }
-      function toggleLanguage() {
-        alert(
-          "La funcionalidad multilingüe estará disponible próximamente. Para versiones en inglés, contáctanos directamente."
-        );
-      }
-    </script>
-
-    <!-- Sección: Manifiesto IA -->
-    <section class="py-20 bg-gray-100 px-6">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-purple-800 mb-4">Nuestro Manifiesto</h2>
-        <p class="text-lg text-gray-700">
-          Creemos en una IA ética, inclusiva y transformadora. Nuestras soluciones combinan innovación tecnológica y
-          sensibilidad humana. El futuro es colaborativo: humano + máquina + arte.
-        </p>
-      </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios" class="py-20 px-6 bg-white">
-      <div class="max-w-6xl mx-auto">
-        <h3 class="text-3xl font-bold text-center text-black mb-12">¿Qué hacemos?</h3>
-        <div class="grid gap-12 md:grid-cols-3">
-          <!-- Servicio 1 -->
-          <div class="text-center">
-            <img
-              src="IMG/Leonardo_Phoenix_a_breathtakingly_detailed_ultrahighresolution_2.jpg"
-              class="rounded shadow mb-4 w-full h-48 object-cover"
-              alt="Consultoría IA" />
-            <h4 class="text-xl font-semibold text-purple-700 mb-2">Consultoría en IA Creativa</h4>
-            <p class="text-gray-600">
-              Asesoramos en implementación de IA en proyectos culturales, artísticos y de innovación.
-            </p>
-          </div>
-          <!-- Servicio 2 -->
-          <div class="text-center">
-            <img
-              src="IMG/Leonardo_Phoenix_a_breathtakingly_detailed_ultrahighresolution_3.jpg"
-              class="rounded shadow mb-4 w-full h-48 object-cover"
-              alt="Desarrollo Web y Chatbots" />
-            <h4 class="text-xl font-semibold text-purple-700 mb-2">Web + Chatbots</h4>
-            <p class="text-gray-600">
-              Creamos plataformas digitales inteligentes para artistas, colectivos y empresas.
-            </p>
-          </div>
-          <!-- Servicio 3 -->
-          <div class="text-center">
-            <img
-              src="IMG/Leonardo_Phoenix_a_breathtakingly_detailed_ultrahighresolution_0.jpg"
-              class="rounded shadow mb-4 w-full h-48 object-cover"
-              alt="Educación en IA" />
-            <h4 class="text-xl font-semibold text-purple-700 mb-2">Educación y Talleres</h4>
-            <p class="text-gray-600">Formamos en IA, ética y tecnología creativa a comunidades y profesionales.</p>
-          </div>
+    <!-- Sección Sobre Mí -->
+    <section id="about" class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl text-center mb-16 section-title mx-auto">Sobre Mí</h2>
+            <div class="flex flex-col md:flex-row items-start md:space-x-16">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <p class="text-lg leading-relaxed mb-6 font-normal">
+                        Con una sólida formación en el Instituto de Bellas Artes y Artes Plásticas en la Universidad de Antioquia, mi trayectoria profesional
+                        se ha centrado en la intersección del arte, el diseño y la tecnología. A lo largo de más de 20 años, he desarrollado una amplia gama de
+                        productos visuales y narrativos para plataformas físicas y digitales, siempre buscando la innovación y la excelencia creativa.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-6 font-normal">
+                        Mi experiencia abarca áreas clave como el <span class="font-semibold text-blue-700">diseño gráfico</span>, la <span class="font-semibold text-blue-700">ilustración</span> (incluyendo ilustración científica),
+                        la caricatura, el diseño de personajes, storyboard, diagramación de impresos, artes finales, imagen corporativa y
+                        dirección de arte para medios audiovisuales.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-semibold mb-6 text-blue-700">Áreas de Especialización</h3>
+                    <ul class="list-disc list-inside text-lg space-y-3 font-light">
+                        <li>Diseño Gráfico y Ilustración</li>
+                        <li>Video Arte y Creación Digital</li>
+                        <li>Automatización Creativa y Educativa</li>
+                        <li>Diseño de Experiencias Inmersivas, Videojuegos y Plataformas Educativas</li>
+                        <li>Generación de Imágenes, Audios y Videos con Inteligencia Artificial</li>
+                        <li>Desarrollo de Chatbots con Voz y Procesamiento de Lenguaje Natural</li>
+                        <li>Prototipado Web Avanzado con IA</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Sección Tienda Creativa -->
-    <section id="tienda" class="py-12 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Tienda Creativa</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Producto Ejemplo -->
-          <div class="border rounded-xl p-4 shadow bg-white">
-            <img
-              src="IMG/-Camiseta con Arte Abstracto (1).png"
-              alt="Camiseta Arte Libre"
-              class="w-full h-48 object-cover rounded" />
-            <h3 class="text-xl font-bold mt-4">Camiseta Arte Libre</h3>
-            <p class="text-sm text-gray-600">Merchandising - Camiseta de algodón 100% con estampado artístico.</p>
-            <p class="text-purple-700 font-bold mt-2">$55.000 COP</p>
-            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
-          </div>
-
-          <!-- Repite para los demás productos -->
-          <div class="border rounded-xl p-4 shadow bg-white">
-            <img
-              src="IMG/AUDIOLIBROS.png "
-              alt="Audiolibro Visiones Sonoras"
-              class="w-full h-48 object-cover rounded" />
-            <h3 class="text-xl font-bold mt-4">Audiolibro Visiones Sonoras</h3>
-            <p class="text-sm text-gray-600">Audiolibros - Narración artística en formato digital.</p>
-            <p class="text-purple-700 font-bold mt-2">$20.000 COP</p>
-            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
-          </div>
-
-          <div class="border rounded-xl p-4 shadow bg-white">
-            <img
-              src="IMG/-Manifiesto Creativo_ Arte y Sociedad.png"
-              alt="Libro Manifiesto Creativo"
-              class="w-full h-48 object-cover rounded" />
-            <h3 class="text-xl font-bold mt-4">Libro Manifiesto Creativo</h3>
-            <p class="text-sm text-gray-600">Libros - Ensayo ilustrado sobre arte y sociedad.</p>
-            <p class="text-purple-700 font-bold mt-2">$35.000 COP</p>
-            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
-          </div>
-
-          <div class="border rounded-xl p-4 shadow bg-white">
-            <img
-              src="IMG/-Juego de Cartas Creativas.png"
-              alt="Juego de Cartas Creativas"
-              class="w-full h-48 object-cover rounded" />
-            <h3 class="text-xl font-bold mt-4">Juego de Cartas Creativas</h3>
-            <p class="text-sm text-gray-600">Juegos - Dinámicas para talleres y grupos.</p>
-            <p class="text-purple-700 font-bold mt-2">$45.000 COP</p>
-            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
-          </div>
-
-          <div class="border rounded-xl p-4 shadow bg-white">
-            <img
-              src="IMG/-Juego de Cartas CreativaS2.png"
-              alt="Juego de Cartas Creativas"
-              class="w-full h-48 object-cover rounded" />
-            <h3 class="text-xl font-bold mt-4">Juego de Cartas Creativas</h3>
-            <p class="text-sm text-gray-600">Juegos - Dinámicas para talleres y grupos.</p>
-            <p class="text-purple-700 font-bold mt-2">$45.000 COP</p>
-            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Comprar</button>
-          </div>
-
-          <div class="border rounded-xl p-4 shadow bg-white">
-            <img src="IMG/-Llama.png" alt="NFT: Llama Cósmica" class="w-full h-48 object-cover rounded" />
-            <h3 class="text-xl font-bold mt-4">NFT: Llama Cósmica</h3>
-            <p class="text-sm text-gray-600">Arte Digital - Obra exclusiva en blockchain.</p>
-            <p class="text-purple-700 font-bold mt-2">0.03 ETH</p>
-            <button class="mt-4 w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Ver NFT</button>
-          </div>
-
-          <!-- Botones funcionales -->
-          <div class="flex justify-end px-6 py-4 space-x-3">
-            <button onclick="toggleLanguage()" class="text-sm border rounded px-3 py-1 hover:bg-gray-100">
-              ES / EN
-            </button>
-            <button onclick="toggleAccessibility()" class="text-sm border rounded px-3 py-1 hover:bg-gray-100">
-              Accesibilidad
-            </button>
-          </div>
+    <!-- Sección de Experiencia en IA -->
+    <section id="ia-experience" class="bg-gray-100 py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl text-center mb-16 section-title mx-auto">Experiencia en Inteligencia Artificial</h2>
+            <div class="flex flex-col md:flex-row items-start md:space-x-16">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <p class="text-lg leading-relaxed mb-6 font-normal">
+                        Desde 2022, he liderado procesos de investigación, creación y experimentación en la intersección entre arte,
+                        tecnología e inteligencia artificial. Mi enfoque combina diseño, educación, comunidad y creatividad
+                        aplicada a múltiples plataformas, desarrollando soluciones innovadoras y experiencias interactivas.
+                    </p>
+                    <h3 class="text-3xl font-semibold mb-6 text-blue-700">Capacidades Clave en IA</h3>
+                    <ul class="list-disc list-inside text-lg space-y-3 font-light">
+                        <li><span class="font-medium">Generación de Contenido:</span> Creación de imágenes (text-to-image, IA generativa), video y animación asistida por IA.</li>
+                        <li><span class="font-medium">Agentes Conversacionales:</span> Desarrollo e implementación de chatbots avanzados (OpenAI, Gemini, ElevenLabs), sintetizadores de voz y locutores automáticos.</li>
+                        <li><span class="font-medium">Educación y Gamificación:</span> Automatización de flujos educativos, diseño y creación de juegos educativos, simulaciones y narrativas interactivas con IA.</li>
+                        <li><span class="font-medium">Prototipado Web:</span> Desarrollo rápido de herramientas interactivas en web utilizando plataformas como GitHub Pages, Firebase y Gemini Canvas.</li>
+                        <li><span class="font-medium">Diseño Asistido por IA:</span> Generación de elementos gráficos y variaciones con herramientas como Adobe Photoshop/Illustrator + Firefly, Chat GPT, Leonardo.Ai y DALL-E.</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-semibold mb-6 text-blue-700">Herramientas y Plataformas</h3>
+                    <ul class="list-disc list-inside text-lg space-y-3 font-light">
+                        <li><span class="font-medium">Modelos Generativos:</span> OpenAI GPT-4/ChatGPT, Sora, Google Gemini / Gemini Advanced / Gemini Canvas, MiniMax Agent, Adobe Firefly.</li>
+                        <li><span class="font-medium">Síntesis de Voz y Locución:</span> ElevenLabs (clonación de voz, locución natural multilingüe), Adobe Podcast.</li>
+                        <li><span class="font-medium">Chatbots y Asistentes:</span> Gemini Canvas (phcode.dev), OpenAI API, ElevenLabs Voice Agent, Landbot, ManyChat, SimpleChat.</li>
+                        <li><span class="font-medium">Educación y Gamificación:</span> MiniMax Game Builder, Gemini Canvas Interactions, Metodologías de Prompt Engineering.</li>
+                        <li><span class="font-medium">Diseño Asistido:</span> Canva + IA, Adobe Photoshop / Illustrator + Firefly, Leonardo.Ai / DALL-E.</li>
+                        <li><span class="font-medium">Prototipado y Despliegue:</span> GitHub Pages, Firebase, Google Sheets + Apps Script.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Sección: Laboratorio Creativo -->
-    <section class="py-20 px-6 bg-white">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center text-black mb-12">Laboratorio Creativo</h2>
-        <div class="grid gap-12 md:grid-cols-2">
-          <div>
-            <img
-              src="IMG/Arte Digital Generativo y Creativo.png"
-              class="rounded shadow mb-4 w-full h-48 object-cover"
-              alt="Arte Generativo IA" />
-            <h3 class="text-2xl font-semibold text-purple-700 mb-2">Arte Generativo</h3>
-            <p class="text-gray-600 mb-4">
-              Experimenta con modelos de generación de imágenes y texto para crear obras únicas impulsadas por redes
-              neuronales.
-            </p>
-          </div>
-          <div>
-            <img
-              src="IMG/NARRADOR IA_ Transformando ideas en voz.png"
-              class="rounded shadow mb-4 w-full h-48 object-cover"
-              alt="Narrador IA" />
-            <h3 class="text-2xl font-semibold text-purple-700 mb-2">Narrador IA</h3>
-            <p class="text-gray-600 mb-4">
-              Transforma ideas en relatos con voz generada por IA. Pulsa para escuchar una demostración en voz.
-            </p>
-            <button onclick="launchNarrator()" class="bg-purple-700 text-white px-6 py-3 rounded hover:bg-purple-800">
-              🎧 Escuchar demo
-            </button>
-          </div>
+    <!-- Sección de Portafolios -->
+    <section id="portfolio" class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl text-center mb-16 section-title mx-auto">Mis Portafolios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Tarjeta de Diseño Gráfico -->
+                <div class="card p-8 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-700">Diseño Gráfico</h3>
+                    <p class="text-lg mb-6 text-gray-700">Explora una selección de mis proyectos de diseño gráfico, desde identidades corporativas hasta piezas editoriales y soluciones web.</p>
+                    <a href="https://manuelpalacioart.wordpress.com/diseno-grafico/" target="_blank" class="btn-primary inline-block">Ver Portafolio</a>
+                </div>
+                <!-- Tarjeta de Ilustración -->
+                <div class="card p-8 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-700">Ilustración</h3>
+                    <p class="text-lg mb-6 text-gray-700">Descubre mi trabajo como ilustrador, que incluye ilustración científica detallada, caricaturas y diseño de personajes únicos.</p>
+                    <a href="https://manuelpalacioart.wordpress.com/ilustracion" target="_blank" class="btn-primary inline-block">Ver Portafolio</a>
+                </div>
+                <!-- Tarjeta de Prototipos IA -->
+                <div class="card p-8 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-700">Prototipos IA e Interactivos</h3>
+                    <p class="text-lg mb-6 text-gray-700">Sumérgete en mis proyectos de inteligencia artificial y experiencias interactivas, desde chatbots conversacionales hasta entornos gamificados.</p>
+                    <a href="https://23ib1fo9tn.space.minimax.io/" target="_blank" class="btn-primary inline-block">Ver Prototipos</a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Sección: Proyectos reales -->
-    <section class="bg-gray-50 py-20 px-6">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center text-black mb-12">IA en Acción</h2>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-4 rounded shadow">
-            <h4 class="text-xl font-semibold text-purple-700 mb-2">Talleres con comunidades</h4>
-            <p class="text-gray-600">Llevamos educación en IA a artistas emergentes y colectivos culturales.</p>
-          </div>
-          <div class="bg-white p-4 rounded shadow">
-            <h4 class="text-xl font-semibold text-purple-700 mb-2">Performance generativo</h4>
-            <p class="text-gray-600">Espectáculos en vivo usando modelos generativos para música y visuales.</p>
-          </div>
-          <div class="bg-white p-4 rounded shadow">
-            <h4 class="text-xl font-semibold text-purple-700 mb-2">IA editorial</h4>
-            <p class="text-gray-600">Libros co-creados con modelos de lenguaje y artistas digitales.</p>
-          </div>
+    <!-- Sección de Contacto -->
+    <section id="contact" class="bg-gray-100 py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl mb-16 section-title mx-auto">Contacto</h2>
+            <p class="text-xl mb-8 font-normal">Estoy siempre abierto a nuevas oportunidades y colaboraciones. ¡Hablemos de tu próximo proyecto!</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16">
+                <div class="flex items-center text-xl font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 text-blue-600 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6m18 0V6a2 2 0 00-2-2H5a2 2 0 00-2 2v2" />
+                    </svg>
+                    <a href="mailto:d.manuelpalacio@gmail.com" class="text-blue-700 hover:text-blue-900 hover:underline transition-colors">d.manuelpalacio@gmail.com</a>
+                </div>
+                <div class="flex items-center text-xl font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 text-blue-600 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                    </svg>
+                    <a href="tel:+573006101221" class="text-blue-700 hover:text-blue-900 hover:underline transition-colors">+57 300 610 1221</a>
+                </div>
+            </div>
+            <div class="mt-14">
+                <h3 class="text-3xl font-semibold mb-6 text-blue-700">Sígueme en redes sociales</h3>
+                <div class="flex justify-center space-x-8">
+                    <!-- Icono de Facebook -->
+                    <a href="https://www.facebook.com/manuelpalacio" target="_blank" class="social-icon text-blue-600 hover:text-blue-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-1.723c0-2.042 1.131-3.344 3.252-3.344h2.748v3z"/></svg>
+                    </a>
+                    <!-- Icono de Instagram -->
+                    <a href="https://www.instagram.com/manuelpalacio/" target="_blank" class="social-icon text-pink-600 hover:text-pink-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.069c-3.251-.148-4.77-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <!-- Icono de WordPress (para los portafolios) -->
+                    <a href="https://manuelpalacioart.wordpress.com/" target="_blank" class="social-icon text-gray-700 hover:text-gray-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.454 17.514l-3.232-9.827h2.383l1.932 6.943 1.979-6.943h2.463l-3.284 9.827h-2.115z"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Sección de Blog funcional -->
-    <section id="blog" class="py-20 px-6 bg-gray-50">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center text-black mb-12">Blog de Conocimiento</h2>
-        <div class="grid md:grid-cols-2 gap-10">
-          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition" data-aos="fade-up">
-            <h3 class="text-xl font-bold text-purple-700 mb-2">¿Qué es el arte generativo?</h3>
-            <p class="text-gray-600 mb-4">
-              Exploramos cómo los algoritmos y modelos de IA están transformando el mundo artístico con creatividad
-              emergente.
-            </p>
-            <a href="#" class="text-purple-600 font-semibold underline">Leer más</a>
-          </div>
-          <div
-            class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition"
-            data-aos="fade-up"
-            data-aos-delay="100">
-            <h3 class="text-xl font-bold text-purple-700 mb-2">Ética y responsabilidad en la IA</h3>
-            <p class="text-gray-600 mb-4">
-              Una reflexión sobre los límites, sesgos y compromisos que deben acompañar al desarrollo tecnológico con
-              impacto social.
-            </p>
-            <a href="#" class="text-purple-600 font-semibold underline">Leer más</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="bg-gray-50 py-20 px-6">
-      <div class="max-w-2xl mx-auto text-center">
-        <h3 class="text-3xl font-bold text-black mb-4">Contáctanos</h3>
-        <p class="text-gray-700 mb-6">¿Tienes un proyecto o idea? ¡Conversemos!</p>
-        <a
-          href="mailto:info@phcode.dev"
-          class="inline-block px-6 py-3 bg-black text-white rounded shadow hover:bg-gray-800"
-          >Enviar correo</a
-        >
-      </div>
-    </section>
-
-    <!-- Botones Flotantes -->
-    <div class="fixed bottom-5 right-5 space-y-3 z-50">
-      <button
-        onclick="openChatbot()"
-        class="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-3 rounded-full shadow-xl">
-        💬 SynBot
-      </button>
-      <a
-        href="https://wa.me/573001112233"
-        target="_blank"
-        class="block bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-xl text-center"
-        >WhatsApp</a
-      >
-    </div>
-
-    <!-- Botón narrador IA -->
-    <div class="fixed bottom-5 right-36 z-48">
-      <button
-        onclick="launchNarrator()"
-        class="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-3 rounded-full shadow-xl">
-        🔊 Narrador IA
-      </button>
-    </div>
-
-    <!-- Chatbot oculto -->
-    <div
-      id="landbot-chat"
-      style="
-        display: none;
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        width: 350px;
-        height: 500px;
-        z-index: 100;
-      "></div>
-
-    <!-- Scripts -->
-    <script>
-      function toggleLanguage() {
-        alert("La funcionalidad multilingüe estará disponible próximamente.");
-      }
-
-      function toggleAccessibilityMenu() {
-        const menu = document.getElementById("accessibilityMenu");
-        menu.classList.toggle("hidden");
-      }
-
-      function toggleContrast() {
-        document.body.classList.toggle("invert");
-      }
-
-      function speakPageContent() {
-        const content = document.body.innerText;
-        const utterance = new SpeechSynthesisUtterance(content);
-        utterance.lang = "es-ES";
-        speechSynthesis.speak(utterance);
-      }
-
-      function startVoiceAssistant() {
-        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-        recognition.lang = "es-ES";
-        recognition.start();
-        recognition.onresult = (event) => {
-          const transcript = event.results[0][0].transcript.toLowerCase();
-          const response = new SpeechSynthesisUtterance("Has dicho: " + transcript);
-          response.lang = "es-ES";
-          speechSynthesis.speak(response);
-
-          if (transcript.includes("servicios")) window.location.href = "#servicios";
-          else if (transcript.includes("contacto")) window.location.href = "#contacto";
-        };
-      }
-
-      function launchNarrator() {
-        const msg = new SpeechSynthesisUtterance(
-          "Bienvenido a Synerg IA. Aquí la inteligencia artificial y la creatividad se fusionan para transformar el mundo."
-        );
-        msg.lang = "es-ES";
-        window.speechSynthesis.speak(msg);
-      }
-
-      function openChatbot() {
-        const bot = document.getElementById("landbot-chat");
-        if (bot) {
-          bot.style.display = bot.style.display === "none" ? "block" : "none";
-        }
-      }
-
-      // Landbot script
-      window.addEventListener("DOMContentLoaded", function () {
-        const script = document.createElement("script");
-        script.src = "https://static.landbot.io/landbot-3/landbot-3.0.0.js";
-        script.async = true;
-        script.onload = () => {
-          new Landbot.Livechat({
-            configUrl: "https://storage.googleapis.com/landbot.site/v3/HERE-YOUR-CONFIG-ID/index.json",
-            container: "#landbot-chat"
-          });
-        };
-        document.body.appendChild(script);
-      });
-    </script>
-
-    <!-- Footer -->
-    <footer class="text-center py-6 bg-gray-100 mt-20 text-gray-600">
-      <p>© 2025 Synerg IA · Agencia Creativa de IA</p>
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 text-white py-10 px-4 text-center rounded-t-3xl">
+        <p class="text-md font-light">&copy; 2025 Manuel Palacio. Todos los derechos reservados.</p>
     </footer>
-  </body>
-</html>
+
+    <!-- Botón de WhatsApp flotante -->
+    <a href="https://wa.me/573006101221" target="_blank" class="whatsapp-button">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
+            <path d="M12.04 2C7.34 2 3.59 5.75 3.59 10.45C3.59 12.11 4.05 13.62 4.83 14.94L3.02 21.04L9.22 19.33C10.43 19.98 11.79 20.34 12.04 20.34C16.74 20.34 20.49 16.59 20.49 11.89C20.49 7.19 16.74 3.44 12.04 3.44C12.04 2.04 12.04 2 12.04 2ZM12.04 4.88C15.94 4.88 19.05 7.99 19.05 11.89C19.05 15.8 15.94 18.91 12.04 18.91C10.87 18.91 9.71 18.6 8.64 18.04L8.44 17.92L5.4 18.73L6.21 15.7C5.66 14.63 5.35 13.47 5.35 12.3C5.35 8.4 8.46 5.29 12.36 5.29L12.04 4.88ZM15.08 13.68C14.88 13.48 14.68 13.48 14.48 13.48C14.28 13.48 14.08 13.48 13.88 13.48C13.68 13.48 13.48 13.48 13.28 13.48C13.08 13.48 12.88 13.48 12.68 13.48C12.48 13.48 12.28 13.48 12.08 13.48C11.88 13.48 11.68 13.48 11.48 13.48C11.28 13.48 11.08 13.48 10.88 13.48C10.68 13.48 10.48 13.48 10.28 13.48C10.08 13.48 9.88 13.48 9.68 13.48C9.48 13.48 9.28 13.48 9.08 13.48C8.88 13.48 8.68 13.48 8.48 13.48C8.28 13.48 8.08 13.48 7.88 13.48C7.68 13.48 7.48 13.48 7.28 13.48C7.08 13.48 6.88 13.48 6.68 13.48C6.48 13.48 6.28 13.48 6.08 13.48C5.88 13.48 5.68 13.48 5.48 13.48C5.28 13.48 5.08 13.48 4.88 13.48C4.68 13.48 4.48 13.48 4.28 13.48C4.08 13.48 3.88 13.48 3.68 13.48C3.48 13.48 3.28 13.48 3.08 13.48C2.88 13.48 2.68 13.48 2.48 13.48C2.28 13.48 2.08 13.48 1.88 13.48C1.68 13.48 1.48 13.48 1.28 13.48C1.08 13.48 0.88 13.48 0.68 13.48C0.48 13.48 0.28 13.48 0.08 13.48C-0.12 13.48 -0.32 13.48 -0.52 13.48C-0.72 13.48 -0.92 13.48 -1.12 13.48C-1.32 13.48 -1.52 13.48 -1.72 13.48C-1.92 13.48 -2.12 13.48 -2.32 13.48C-2.52 13.48 -2.72 13.48 -2.92 13.48C-3.12 13.48 -3.32 13.48 -3.52 13.48C-3.72 13.48 -3.92 13.48 -4.12 13.48C-4.32 13.48 -4.52 13.48 -4.72 13.48C-4.92 13.48 -5.12 13.48 -5.32 13.48C-5.52 13.48 -5.72 13.48 -5.92 13.48C-6.12 13.48 -6.32 13.48 -6.52 13.48C-6.72 13.48 -6.92 13.48 -7.12 13.48C-7.32 13.48 -7.52 13.48 -7.72 13.48C-7.92 13.48 -8.12 13.48 -8.32 13.48C-8.52 13.48 -8.72 13.48 -8.92 13.48C-9.12 13.48 -9.32 13.48 -9.52 13.48C-9.72 13.48 -9.92 13.48 -10.12 13.48C-10.32 13.48 -10.52 13.48 -10.72 13.48C-10.92 13.48 -11.12 13.48 -11.32 13.48C-11.52 13.48 -11.72 13.48 -11.92 13.48C-12.12 13.48 -12.32 13.48 -12.52 13.48C-12.72 13.48 -12.92 13.48 -13.12 13.48C-13.32 13.48 -13.52 13.48 -13.72 13.48C-13.92 13.48 -14.12 13.48 -14.32 13.48C-14.52 13.48 -14.72 13.48 -14.92 13.48C-15.12 13.48 -15.32 13.48 -15.52 13.48C-15.72 13.48 -15.92 13.48 -16.12 13.48C-16.32 13.48 -16.52 13.48 -16.72 13.48C-16.92 13.48 -17.12 13.48 -17.32 13.48C-17.52 13.48 -17.72 13.48 -17.92 13.48C-18.12 13.48 -18.32 13.48 -18.52 13.48C-18.72 13.48 -18.92 13.48 -19.12 13.48C-19.32 13.48 -19.52 13.48 -19.72 13.48C-19.92 13.48 -20.12 13.48 -20.32 13.48C-20.52 13.48 -20.72 13.48 -20.92 13.48C-21.12 13.48 -21.32 13.48 -21.52 13.48C-21.72 13.48 -21.92 13.48 -22.12 13.48C-22.32 13.48 -22.52 13.48 -22.72 13.48C-22.92 13.48 -23.12 13.48 -23.32 13.48C-23.52 13.48 -23.72 13.48 -23.92 13.48C-24.12 13.48 -24.32 13.48 -24.52 13.48C-24.72 13.48 -24.92 13.48 -25.12 13.48C-25.32 13.48 -25.52 13.48 -25.72 13.48C-25.92 13.48 -26.12 13.48 -26.32 13.48C-26.52 13.48 -26.72 13.48 -26.92 13.48C-27.12 13.48 -27.32 13.48 -27.52 13.48C-27.72 13.48 -27.92 13.48 -28.12 13.48C-28.32 13.48 -28.52 13.48 -28.72 13.48C-28.92 13.48 -29.12 13.48 -29.32 13.48C-29.52 13.48 -29.72 13.48 -29.92 13.48C-30.12 13.48 -30.32 13.48 -30.52 13.48C-30.72 13.48 -30.92 13.48 -31.12 13.48C-31.32 13.48 -31.52 13.48 -31.72 13.48C-31.92 13.48 -32.12 13.48 -32.32 13.48C-32.52 13.48 -32.72 13.48 -32.92 13.48C-33.12 13.48 -33.32 13.48 -33.52 13.48C-333.72 13.48 -333.92 13.48 -334.12 13.48C-334.32 13.48 -334.52 13.48 -334.72 13.48C-334.92 13.48 -335.12 13.48 -335.32 13.48C-335.52 13.48 -335.72 13.48 -335.92 13.48C-336.12 13.48 -336.32 13.48 -336.52 13.48C-336.72 13.48 -336.92 13.48 -337.12 13.48C-337.32 13.48 -337.52 13.48 -337.72 13.48C-337.92 13.48 -338.12 13.48 -338.32 13.48C-338.52 13.48 -338.72 13.48 -338.92 13.48C-339.12 13.48 -339.32 13.48 -339.52 13.48C-339.72 13.48 -339.92 13.48 -340.12 13.48C-340.32 13.48 -340.52 13.48 -340.72 13.48C-340.92 13.48 -341.12 13.48 -341.32 13.48C-341.52 13.48 -341.72 13.48 -341.92 13.48C-342.12 13.48 -342.32 13.48 -342.52 13.48C-342.72 13.48 -342.92 13.48 -343.12 13.48C-343.32 13.48 -343.52 13.48 -343.72 13.48C-343.92 13.48 -344.12 13.48 -344.32 13.48C-344.52 13.48 -344.72 13.48 -344.92 13.48C-345.12 13.48 -345.32 13.48 -345.52 13.48C-345.72 13.48 -345.92 13.48 -346.12 13.48C-346.32 13.48 -346.52 13.48 -346.72 13.48C-346.92 13.48 -347.12 13.48 -347.32 13.48C-347.52 13.48 -347.72 13.48 -347.92 13.48C-348.12 13.48 -348.32 13.48 -348.52 13.48C-348.72 13.48 -348.92 13.48 -349.12 13.48C-349.32 13.48 -349.52 13.48 -349.72 13.48C-349.92 13.48 -350.12 13.48 -350.32 13.48C-350.52 13.48 -350.72 13.48 -350.92 13.48C-351.12 13.48 -351.32 13.48 -351.52 13.48C-351.72 13.48 -351.92 13.48 -352.12 13.48C-352.32 13.48 -352.52 13.48 -352.72 13.48C-352.92 13.48 -353.12 13.48 -353.32 13.48C-353.52 13.48 -353.72 13.48 -353.92 13.48C-354.12 13.48 -354.32 13.48 -354.52 13.48C-354.72 13.48 -354.92 13.48 -355.12 13.48C-355.32 13.48 -355.52 13.48 -355.72 13.48C-355.92 13.48 -356.12 13.48 -356.32 13.48C-356.52 13.48 -356.72 13.48 -356.92 13.48C-357.12 13.48 -357.32 13.48 -357.52 13.48C-357.72 13.48 -357.92 13.48 -358.12 13.48C-358.32 13.48 -358.52 13.48 -358.72 13.48C-358.92 13.48 -359.12 13.48 -359.32 13.48C-359.52 13.48 -359.72 13.48 -359.92 13.48C-360.12 13.48 -360.32 13.48 -360.52 13.48C-360.72 13.48 -360.92 13.48 -361.12 13.48C-361.32 13.48 -361.52 13.48 -361.72 13.48C-361.92 13.48 -362.12 13.48 -362.32 13.48C-362.52 13.48 -362.72 13.48 -362.92 13.48C-363.12 13.48 -363.32 13.48 -363.52 13.48C-363.72 13.48 -363.92 13.48 -364.12 13.48C-364.32 13.48 -364.52 13.48 -364.72 13.48C-364.92 13.48 -365.12 13.48 -365.32 13.48C-365.52 13.48 -365.72 13.48 -365.92 13.48C-366.12 13.48 -366.32 13.48 -366.52 13.48C-366.72 13.48 -366.92 13.48 -367.12 13.48C-367.32 13.48 -367.52 13.48 -367.72 13.48C-367.92 13.48 -368.12 13.48 -368.32 13.48C-368.52 13.48 -368.72 13.48 -368.92 13.48C-369.12 13.48 -369.32 13.48 -369.52 13.48C-369.72 13.48 -369.92 13.48 -370.12 13.48C-370.32 13.48 -370.52 13.48 -370.72 13.48C-370.92 13.48 -371.12 13.48 -371.32 13.48C-371.52 13.48 -371.72 13.48 -371.92 13.48C-372.12 13.48 -372.32 13.48 -372.52 13.48C-372.72 13.48 -372.92 13.48 -373.12 13.48C-373.32 13.48 -373.52 13.48 -373.72 13.48C-373.92 13.48 -374.12 13.48 -374.32 13.48C-374.52 13.48 -374.72 13.48 -374.92 13.48C-375.12 13.48 -375.32 13.48 -375.52 13.48C-375.72 13.48 -375.92 13.48 -376.12 13.48C-376.32 13.48 -376.52 13.48 -376.72 13.48C-376.92 13.48 -377.12 13.48 -377.32 13.48C-377.52 13.48 -377.72 13.48 -377.92 13.48C-378.12 13.48 -378.32 13.48 -378.52 13.48C-378.72 13.48 -378.92 13.48 -379.12 13.48C-379.32 13.48 -379.52 13.48 -379.72 13.48C-379.92 13.48 -380.12 13.48 -380.32 13.48C-380.52 13.48 -380.72 13.48 -380.92 13.48C-381.12 13.48 -381.32 13.48 -381.52 13.48C-381.72 13.48 -381.92 13.48 -382.12 13.48C-382.32 13.48 -382.52 13.48 -382.72 13.48C-382.92 13.48 -383.12 13.48 -383.32 13.48C-383.52 13.48 -383.72 13.48 -383.92 13.48C-384.12 13.48 -384.32 13.48 -384.52 13.48C-384.72 13.48 -384.92 13.48 -385.12 13.48C-385.32 13.48 -385.52 13.48 -385.72 13.48C-385.92 13.48 -386.12 13.48 -386.32 13.48C-386.52 13.48 -386.72 13.48 -386.92 13.48C-387.12 13.48 -387.32 13.48 -387.52 13.48C-387.72 13.48 -387.92 13.48 -388.12 13.48C-388.32 13.48 -388.52 13.48 -388.72 13.48C-388.92 13.48 -389.12 13.48 -389.32 13.48C-389.52 13.48 -389.72 13.48 -389.92 13.48C-390.12 13.48 -390.32 13.48 -390.52 13.48C-390.72 13.48 -390.92 13.48 -391.12 13.48C-391.32 13.48 -391.52 13.48 -391.72 13.48C-391.92 13.48 -392.12 13.48 -392.32 13.48C-392.52 13.48 -392.72 13.48 -392.92 13.48C-393.12 13.48 -393.32 13.48 -393.52 13.48C-393.72 13.48 -393.92 13.48 -394.12 13.48C-394.32 13.48 -394.52 13.48 -394.72 13.48C-394.92 13.48 -395.12 13.48 -395.32 13.48C-395.52 13.48 -395.72 13.48 -395.92 13.48C-396.12 13.48 -396.32 13.48 -396.52 13.48C-396.72 13.48 -396.92 13.48 -397.12 13.48C-397.32 13.48 -397.52 13.48 -397.72 13.48C-397.92 13.48 -398.12 13.48 -398.32 13.48C-398.52 13.48 -398.72 13.48 -398.92 13.48C-399.12 13.48 -399.32 13.48 -399.52 13.48C-399.72 13.48 -399.92 13.48 -400.12 13.48C-400.32 13.48 -400.52 13.48 -400.72 13.48C-400.92 13.48 -401.12 13.48 -401.32 13.48C-401.52 13.48 -401.72 13.48 -401.92 13.48C-402.12 13.48 -402.32 13.48 -402.52 13.48C-402.72 13.48 -402.92 13.48 -403.12 13.48C-403.32 13.48 -403.52 13.48 -403.72 13.48C-403.92 13.48 -404.12 13.48 -404.32 13.48C-404.52 13.48 -404.72 13.48 -404.92 13.48C-405.12 13.48 -405.32 13.48 -405.52 13.48C-405.72 13.48 -405.92 13.48 -406.12 13.48C-406.32 13.48 -406.52 13.48 -406.72 13.48C-406.92 13.48 -407.12 13.48 -407.32 13.48C-407.52 13.48 -407.72 13.48 -407.92 13.48C-408.12 13.48 -408.32 13.48 -408.52 13.48C-408.72 13.48 -408.92 13.48 -409.12 13.48C-409.32 13.48 -409.52 13.48 -409.72 13.48C-409.92 13.48 -410.12 13.48 -410.32 13.48C-410.52 13.48 -410.72 13.48 -410.92 13.48C-411.12 13.48 -411.32 13.48 -411.52 13.48C-411.72 13.48 -411.92 13.48 -412.12 13.48C-412.32 13.48 -412.52 13.48 -412.72 13.48C-412.92 13.48 -413.12 13.48 -413.32 13.48C-413.52 13.48 -413.72 13.48 -413.92 13.48C-414.12 13.48 -414.32 13.48 -414.52 13.48C-414.72 13.48 -414.92 13.48 -415.12 13.48C-415.32 13.48 -415.52 13.48 -415.72 13.48C-415.92 13.48 -416.12 13.48 -416.32 13.48C-416.52 13.48 -416.72 13.48 -416.92 13.48C-417.12 13.48 -417.32 13.48 -417.52 13.48C-417.72 13.48 -417.92 13.48 -418.12 13.48C-418.32 13.48 -418.52 13.48 -418.72 13.48C-418.92 13.48 -419.12 13.48 -419.32 13.48C-419.52 13.48 -419.72 13.48 -419.92 13.48C-420.12 13.48 -420.32 13.48 -420.52 13.48C-420.72 13.48 -420.92 13.48 -421.12 13.48C-421.32 13.48 -421.52 13.48 -421.72 13.48C-421.92 13.48 -422.12 13.48 -422.32 13.48C-422.52 13.48 -422.72 13.48 -422.92 13.48C-423.12 13.48 -423.32 13.48 -423.52 13.48C-423.72 13.48 -423.92 13.48 -424.12 13.48C-424.32 13.48 -424.52 13.48 -424.72 13.48C-424.92 13.48 -425.12 13.48 -425.32 13.48C-425.52 13.48 -425.72 13.48 -425.92 13.48C-426.12 13.48 -426.32 13.48 -426.52 13.48C-426.72 13.48 -426.92 13.48 -427.12 13.48C-427.32 13.48 -427.52 13.48 -427.72 13.48C-427.92 13.48 -428.12 13.48 -428.32 13.48C-428.52 13.48 -428.72 13.48 -428.92 13.48C-429.12 13.48 -429.32 13.48 -429.52 13.48C-429.72 13.48 -429.92 13.48 -430.12 13.48C-430.32 13.48 -430.52 13.48 -430.72 13.48C-430.92 13.48 -431.12 13.48 -431.32 13.48C-431.52 13.48 -431.72 13.48 -431.92 13.48C-432.12 13.48 -432.32 13.48 -432.52 13.48C-432.72 13.48 -432.92 13.48 -433.12 13.48C-433.32 13.48 -433.52 13.48 -433.72 13.48C-433.92 13.48 -434.12 13.48 -434.32 13.48C-434.52 13.48 -434.72 13.48 -434.92 13.48C-435.12 13.48 -435.32 13.48 -435.52 13.48C-435.72 13.48 -435.92 13.48 -436.12 13.48C-436.32 13.48 -436.52 13.48 -436.72 13.48C-436.92 13.48 -437.12 13.48 -437.32 13.48C-437.52 13.48 -437.72 13.48 -437.92 13.48C-438.12 13.48 -438.32 13.48 -438.52 13.48C-438.72 13.48 -438.92 13.48 -439.12 13.48C-439.32 13.48 -439.52 13.48 -439.72 13.48C-439.92 13.48 -440.12 13.48 -440.32 13.48C-440.52 13.48 -440.72 13.48 -440.92 13.48C-441.12 13.48 -441.32 13.48 -441.52 13.48C-441.72 13.48 -441.92 13.48 -442.12 13.48C-442.32 13.48 
