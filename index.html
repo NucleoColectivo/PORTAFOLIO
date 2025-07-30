@@ -25,17 +25,87 @@
 
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de la fuente Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Carga de la fuente Poppins y Oswald -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Carga de Three.js para la animación de nodos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
+        /* Definición de variables CSS para los colores del tema */
+        :root {
+            /* Colores del Modo Oscuro */
+            --bg-primary: #0d1117;
+            --text-primary: #c9d1d9;
+            --card-bg: #161b22;
+            --card-border: #30363d;
+            --navbar-bg: rgba(13, 17, 23, 0.8);
+            --box-shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            --nav-link-hover-bg: #21262d;
+            --nav-link-hover-color: #58a6ff;
+            --section-title-color: #e6edf3;
+            --section-title-underline: #58a6ff;
+            --btn-primary-bg: #f59e0b;
+            --btn-primary-hover-bg: #d97706;
+            --scroll-top-bg: #21262d;
+            --scroll-top-color: #58a6ff;
+            --scroll-top-border: #58a6ff;
+            --timeline-line: #4a5568;
+            --timeline-dot: #58a6ff;
+            --skill-bg: #161b22;
+            --skill-border: #30363d;
+            --skill-text: #c9d1d9;
+            --footer-bg: #161b22;
+            --footer-text: #c9d1d9;
+            --footer-link-color: #58a6ff;
+            --footer-social-color: #c9d1d9;
+            --portfolio-gradient-start: rgba(0,0,0,0.8);
+            --portfolio-gradient-end: rgba(0,0,0,0);
+            --portfolio-hover-bg: rgba(0,0,0,0.9);
+            --nodes-canvas-gradient-start: rgba(13, 17, 23, 0.2);
+            --nodes-canvas-gradient-end: #0d1117;
+            --hero-text-color: #ffffff; /* Color específico para el texto del héroe en modo oscuro */
+        }
+
+        /* Colores del Modo Claro */
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --text-primary: #333333;
+            --card-bg: #f9fafb;
+            --card-border: #e2e8f0;
+            --navbar-bg: rgba(255, 255, 255, 0.9);
+            --box-shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --nav-link-hover-bg: #e2e8f0;
+            --nav-link-hover-color: #3b82f6;
+            --section-title-color: #1a202c;
+            --section-title-underline: #3b82f6;
+            --btn-primary-bg: #f59e0b;
+            --btn-primary-hover-bg: #d97706;
+            --scroll-top-bg: #e2e8f0;
+            --scroll-top-color: #3b82f6;
+            --scroll-top-border: #3b82f6;
+            --timeline-line: #cbd5e0;
+            --timeline-dot: #3b82f6;
+            --skill-bg: #ffffff;
+            --skill-border: #e2e8f0;
+            --skill-text: #333333;
+            --footer-bg: #f0f2f5;
+            --footer-text: #333333;
+            --footer-link-color: #3b82f6;
+            --footer-social-color: #6b7280;
+            --portfolio-gradient-start: rgba(255,255,255,0.8);
+            --portfolio-gradient-end: rgba(255,255,255,0);
+            --portfolio-hover-bg: rgba(255,255,255,0.9);
+            --nodes-canvas-gradient-start: rgba(255, 255, 255, 0.2);
+            --nodes-canvas-gradient-end: #ffffff;
+            --hero-text-color: #333333; /* Color específico para el texto del héroe en modo claro */
+        }
+
         /* Estilos generales del cuerpo con el nuevo tema oscuro */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0d1117; /* Fondo principal oscuro */
-            color: #c9d1d9; /* Color de texto principal claro */
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
 
         /* Contenedor principal */
@@ -45,10 +115,10 @@
         
         /* Estilo para la barra de navegación */
         .navbar {
-            background-color: rgba(13, 17, 23, 0.8); /* Fondo oscuro semitransparente */
+            background-color: var(--navbar-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            box-shadow: var(--box-shadow-dark);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -56,15 +126,16 @@
 
         .nav-link {
             font-weight: 500;
-            color: #c9d1d9;
+            color: var(--text-primary); /* Asegura que el color del enlace de navegación use la variable */
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
             transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            cursor: pointer;
         }
 
         .nav-link:hover {
-            background-color: #21262d;
-            color: #58a6ff;
+            background-color: var(--nav-link-hover-bg);
+            color: var(--nav-link-hover-color);
         }
         
         /* Estilo para el banner de nodos */
@@ -73,6 +144,7 @@
             width: 100%;
             height: 100vh;
             overflow: hidden;
+            background-color: var(--bg-primary);
         }
         
         #nodes-canvas {
@@ -82,7 +154,8 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            background: radial-gradient(ellipse at center, rgba(13, 17, 23, 0) 0%, #0d1117 100%);
+            background: radial-gradient(ellipse at center, var(--nodes-canvas-gradient-start) 0%, var(--nodes-canvas-gradient-end) 100%);
+            transition: background 0.3s ease-in-out;
         }
 
         .hero-content {
@@ -95,6 +168,25 @@
             text-align: center;
             height: 100%;
             padding: 1rem;
+            transform: translateY(10%);
+        }
+
+        /* Asegura que el texto del héroe use la variable de color */
+        .hero-content h1,
+        .hero-content p {
+            color: var(--hero-text-color);
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Responsive adjustments for hero content alignment */
+        @media (min-width: 768px) {
+            .hero-content {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: center;
+                text-align: left;
+                transform: translateY(15%);
+            }
         }
 
         /* Estilo para los títulos de sección con íconos */
@@ -107,13 +199,15 @@
             gap: 0.75rem;
             font-weight: 700;
             font-size: 2.25rem;
-            color: #e6edf3;
+            color: var(--section-title-color);
+            transition: color 0.3s ease-in-out;
         }
 
         .section-title svg {
             width: 32px;
             height: 32px;
-            color: #58a6ff;
+            color: var(--nav-link-hover-color);
+            transition: color 0.3s ease-in-out;
         }
 
         .section-title::after {
@@ -124,39 +218,41 @@
             bottom: 0;
             width: 80px;
             height: 4px;
-            background-color: #58a6ff;
+            background-color: var(--section-title-underline);
             border-radius: 2px;
+            transition: background-color 0.3s ease-in-out;
         }
         
         /* Estilo para las tarjetas en tema oscuro */
         .card {
-            background-color: #161b22;
-            border: 1px solid #30363d;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
             border-radius: 1rem;
             box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }
 
         .card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.3);
-            border-color: #58a6ff;
+            border-color: var(--nav-link-hover-color);
         }
 
         /* Estilo para el botón primario en tema oscuro */
         .btn-primary {
-            background-color: #f59e0b; /* Tailwind amber-500 */
+            background-color: var(--btn-primary-bg);
             color: white;
-            padding: 0.5rem 1rem; /* Smaller padding */
+            padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             font-weight: 600;
             transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-            border: 1px solid #d97706; /* Tailwind amber-600 */
-            font-size: 0.875rem; /* text-sm equivalent */
+            border: 1px solid var(--btn-primary-hover-bg);
+            font-size: 1rem;
+            cursor: pointer;
         }
 
         .btn-primary:hover {
-            background-color: #d97706; /* Tailwind amber-600 */
+            background-color: var(--btn-primary-hover-bg);
             transform: translateY(-2px);
         }
         
@@ -165,8 +261,8 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background-color: #21262d;
-            color: #58a6ff;
+            background-color: var(--scroll-top-bg);
+            color: var(--scroll-top-color);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -174,27 +270,27 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            border: 1px solid #58a6ff;
+            border: 1px solid var(--scroll-top-border);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
+            transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color 0.3s;
             z-index: 1000;
         }
         #scrollTopBtn:hover {
-            background-color: #58a6ff;
-            color: #161b22;
+            background-color: var(--scroll-top-color);
+            color: var(--card-bg);
             transform: scale(1.1);
         }
 
         /* Estilos para las barras de progreso */
         .progress-bar-container {
-            background-color: #21262d;
+            background-color: var(--nav-link-hover-bg);
             border-radius: 0.5rem;
             height: 12px;
             overflow: hidden;
         }
 
         .progress-bar {
-            background-color: #58a6ff;
+            background-color: var(--nav-link-hover-color);
             height: 100%;
             border-radius: 0.5rem;
             width: 0%; /* Will be set by JS or inline style */
@@ -217,24 +313,310 @@
             width: 100%;
             height: 100%;
         }
+
+        /* Keyframe animations for text entrance */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        /* New and improved styles for portfolio cards */
+        .portfolio-wrapper {
+            position: relative;
+            width: 100%; /* Make width fluid */
+            max-width: 400px; /* Max width for desktop */
+            height: 250px; /* Fixed height for consistency */
+            margin: 0 auto; /* Center the wrapper within its grid column */
+            display: flex;
+            flex-direction: column;
+            border-radius: 1rem;
+            overflow: hidden;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .portfolio-wrapper:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--nav-link-hover-color);
+        }
+
+        .portfolio-image-wrapper {
+            width: 100%;
+            height: 100%; /* Fill the wrapper height */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center; /* Center the image within its container */
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .portfolio-wrapper:hover .portfolio-image-wrapper img {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        .portfolio-header-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, var(--portfolio-gradient-start) 0%, var(--portfolio-gradient-end) 100%);
+            padding: 1rem 1.5rem;
+            color: var(--text-primary); /* Asegura que el color del texto del encabezado del portafolio use la variable */
+            text-align: center;
+            transition: background 0.4s ease-in-out, padding 0.4s ease-in-out, color 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            min-height: 80px; /* Minimum height for the overlay */
+        }
+
+        .portfolio-wrapper:hover .portfolio-header-wrapper {
+            background: var(--portfolio-hover-bg);
+            padding: 1.5rem;
+            min-height: 100%; /* Expand to full height on hover */
+            justify-content: center; /* Center content when expanded */
+        }
+
+        .portfolio-header-wrapper h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .portfolio-header-wrapper .project-link-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--nav-link-hover-color);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .portfolio-wrapper:hover .portfolio-header-wrapper h1 {
+            transform: translateY(-10px);
+            margin-bottom: 0;
+        }
+
+        .portfolio-wrapper:hover .portfolio-header-wrapper .project-link-text {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive adjustments for portfolio cards */
+        @media (max-width: 768px) {
+            .portfolio-wrapper {
+                height: 200px;
+                max-width: 100%;
+            }
+
+            .portfolio-header-wrapper {
+                min-height: 60px;
+                padding: 0.75rem 1rem;
+            }
+
+            .portfolio-header-wrapper h1 {
+                font-size: 1.5rem;
+            }
+
+            .portfolio-header-wrapper .project-link-text {
+                font-size: 1rem;
+            }
+
+            /* Disable hover effects for touch devices to prevent sticky hover states */
+            .portfolio-wrapper:hover .portfolio-image-wrapper img,
+            .portfolio-wrapper:hover .portfolio-header-wrapper,
+            .portfolio-wrapper:hover .portfolio-header-wrapper h1,
+            .portfolio-wrapper:hover .portfolio-header-wrapper .project-link-text {
+                transform: none;
+                opacity: 1;
+                background: linear-gradient(to top, var(--portfolio-gradient-start) 0%, var(--portfolio-gradient-end) 100%);
+                padding: 1rem 1.5rem;
+                min-height: 80px;
+                justify-content: flex-end;
+            }
+        }
+
+        /* Estilos para la sección Sobre Mí */
+        #about p {
+            color: var(--text-primary);
+            transition: color 0.3s ease-in-out;
+        }
+        #about .font-semibold {
+            color: var(--nav-link-hover-color);
+            transition: color 0.3s ease-in-out;
+        }
+        #about .bg-gray-900 {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+        #about h3 {
+            color: var(--nav-link-hover-color);
+            transition: color 0.3s ease-in-out;
+        }
+        #about .text-gray-400 {
+            color: var(--text-primary); /* Asegura que el color del texto use la variable */
+            transition: color 0.3s ease-in-out;
+        }
+        #about .bg-gray-700 {
+            background-color: var(--timeline-line);
+            transition: background-color 0.3s ease-in-out;
+        }
+        #about .bg-blue-500 {
+            background-color: var(--timeline-dot);
+            transition: background-color 0.3s ease-in-out;
+        }
+        #about h4 {
+            color: var(--nav-link-hover-color);
+            transition: color 0.3s ease-in-out;
+        }
+        #about .text-md {
+            color: var(--text-primary); /* Asegura que el color del texto use la variable */
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Estilos para la sección Proyectos Destacados IA */
+        #ia-projects .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+        #ia-projects h3 {
+            color: var(--nav-link-hover-color);
+            transition: color 0.3s ease-in-out;
+        }
+        #ia-projects .text-gray-400 {
+            color: var(--text-primary); /* Asegura que el color del texto use la variable */
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Estilos para la sección Educación */
+        #education .bg-gray-700 {
+            background-color: var(--timeline-line);
+            transition: background-color 0.3s ease-in-out;
+        }
+        #education .bg-blue-500 {
+            background-color: var(--timeline-dot);
+            transition: background-color 0.3s ease-in-out;
+        }
+        #education h4 {
+            color: var(--nav-link-hover-color);
+            transition: color 0.3s ease-in-out;
+        }
+        #education .text-gray-400 {
+            color: var(--text-primary); /* Asegura que el color del texto use la variable */
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Estilos para la sección Idiomas */
+        #languages .bg-gray-900 {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+        #languages .font-semibold {
+            color: var(--nav-link-hover-color);
+            transition: color 0.3s ease-in-out;
+        }
+        #languages .text-gray-300 {
+            color: var(--text-primary); /* Asegura que el color del texto use la variable */
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Estilos para el Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        footer h2 {
+            color: var(--section-title-color) !important; /* Override inline style */
+            transition: color 0.3s ease-in-out;
+        }
+        footer p {
+            color: var(--text-primary); /* Asegura que el color del texto use la variable */
+            transition: color 0.3s ease-in-out;
+        }
+        footer a {
+            color: var(--footer-link-color);
+            transition: color 0.3s ease-in-out;
+        }
+        footer .text-gray-400 {
+            color: var(--footer-social-color);
+            transition: color 0.3s ease-in-out;
+        }
+        footer .text-gray-500 {
+            color: var(--footer-text); /* Asegura que el color del texto use la variable */
+            transition: color 0.3s ease-in-out;
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased" data-theme="dark">
 
     <!-- Barra de Navegación -->
     <nav class="navbar py-3 px-4">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold text-gray-200">
+            <div class="text-xl font-bold text-gray-200" style="color: var(--text-primary);">
                 <a href="#" class="hover:text-white transition-colors">Manuel Palacio</a>
             </div>
-            <div class="hidden md:flex flex-wrap justify-center space-x-2">
+            <div class="hidden md:flex flex-wrap justify-center space-x-2 items-center">
                 <a href="#about" class="nav-link">Sobre Mí</a>
                 <a href="#ia-experience" class="nav-link">Experiencia IA</a>
-                <a href="#ia-projects" class="nav-link">Proyectos IA</a>
                 <a href="#portfolio" class="nav-link">Portafolio</a>
+                <a href="#ia-projects" class="nav-link">Proyectos IA</a>
                 <a href="#education" class="nav-link">Educación</a>
                 <a href="#languages" class="nav-link">Idiomas</a>
                 <a href="#contact" class="nav-link">Contacto</a>
+                <button id="theme-toggle" class="nav-link p-2 rounded-full flex items-center justify-center">
+                    <!-- Icono de Sol para modo claro, Icono de Luna para modo oscuro -->
+                    <svg id="sun-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h1M3 12H2m8.003-7.5l-.64.64m9.192 9.192l.64.64M4.5 4.5l-.64.64m9.192-.64l.64-.64M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                    </svg>
+                    <svg id="moon-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -242,18 +624,20 @@
     <!-- Sección de Héroe con Animación de Nodos -->
     <section id="node-banner">
         <canvas id="nodes-canvas"></canvas>
-        <div class="hero-content text-white">
-            <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true" alt="Foto de Perfil de Manuel Palacio" class="rounded-full border-4 border-gray-600 shadow-2xl w-40 h-40 md:w-48 md:h-48 object-cover mb-6">
-            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-3 tracking-tight">
-                Manuel Palacio
-            </h1>
-            <p class="text-xl md:text-2xl font-light mb-5 opacity-90">
-                Artista Visual | Diseñador Gráfico | Ilustrador | Creador Digital con IA
-            </p>
-            <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light opacity-80 mb-8">
-                Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.
-            </p>
-            <a href="#portfolio" class="btn-primary text-lg">Explorar Portafolio</a>
+        <div class="hero-content text-white flex flex-col md:flex-row items-center md:items-start justify-center md:justify-center px-4">
+            <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true" alt="Foto de Perfil de Manuel Palacio" class="rounded-xl shadow-2xl w-48 h-48 md:w-64 md:h-64 object-cover mb-6 md:mb-0 md:mr-12 animate-fadeIn delay-100">
+            <div class="text-center md:text-left"> <!-- Container for text elements -->
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-3 tracking-tight animate-fadeInUp delay-200">
+                    Manuel Palacio
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-5 opacity-90 animate-fadeInUp delay-300">
+                    Artista Visual | Diseñador Gráfico | Ilustrador | Creador Digital con IA
+                </p>
+                <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light opacity-80 mb-8 animate-fadeInUp delay-400">
+                    Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.
+                </p>
+                <a href="#portfolio" class="btn-primary text-lg animate-fadeIn delay-500">Explorar Portafolio</a>
+            </div>
         </div>
     </section>
 
@@ -278,40 +662,39 @@
                     <h3 class="text-2xl font-semibold mb-6 text-blue-400">Habilidades Clave</h3>
                     <div class="grid grid-cols-2 gap-6 text-lg">
                         <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 7.5a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 7.5v9a2.25 2.25 0 002.25 2.25h10.5A2.25 2.25 0 0019.5 16.5V7.5z" />
-                            </svg>
+                            <!-- Icon for Graphic Design -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
                             <span>Diseño Gráfico</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5l-6 6m0 0l6 6m-6-6h12" />
-                            </svg>
+                            <!-- Icon for Illustration -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
                             <span>Ilustración</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.06 0L22.5 9.189V12.75M15.75 10.5l-4.72 4.72a.75.75 0 01-1.06 0L7.5 14.25m4.72-4.72L12 10.5m-4.72 4.72L4.5 18.75m0 0H2.25V12.75m12.72-4.72L12 10.5m-4.72 4.72L4.5 18.75" />
-                            </svg>
+                            <!-- Icon for Video Art -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-hover-bg);">
+                                <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
                             <span>Video Arte</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25M9.75 9.75L7.5 12l2.25 2.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
+                            <!-- Icon for Digital Creation -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
                             <span>Creación Digital</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 1.52-.426 2.946-1.164 4.125m-12.879-4.125H3m0 0c1.52 0 2.946.426 4.125 1.164M21 12c0-1.52-.426-2.946-1.164-4.125M3 12c1.52 0 2.946-.426 4.125-1.164m-12.879 4.125a8.962 8.962 0 01-2.607-2.607M3 12c0-1.52.426-2.946 1.164-4.125m12.879 4.125a8.962 8.962 0 002.607-2.607M21 12c-1.52 0-2.946-.426-4.125-1.164m-12.879 4.125a8.962 8.962 0 002.607 2.607m-12.879-4.125a8.962 8.962 0 01-2.607 2.607M21 12c1.52 0 2.946.426 4.125 1.164M3 12c-1.52 0-2.946.426-4.125-1.164" />
-                            </svg>
+                            <!-- Icon for Chatbots & NLP -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z"/></svg>
                             <span>Chatbots y PLN</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4" />
-                            </svg>
+                            <!-- Icon for Web Prototyping -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--nav-link-hover-color);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4" /></svg>
                             <span>Prototipado Web</span>
                         </div>
                     </div>
@@ -319,14 +702,14 @@
             </div>
 
             <div class="mt-16">
-                <h3 class="text-2xl font-semibold mb-6 text-blue-400 text-center">Trayectoria Profesional</h3>
+                <h3 class="text-2xl font-semibold mb-6 text-blue-400" style="color: var(--nav-link-hover-color);">Trayectoria Profesional</h3>
                 <div class="relative pl-8 md:pl-0">
                     <!-- Timeline items -->
                     <div class="absolute left-4 md:left-1/2 w-0.5 bg-gray-700 h-full -translate-x-1/2 md:block hidden"></div>
 
                     <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
                         <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                            <h4 class="text-xl font-semibold text-blue-300">Diseñador e Ilustrador Freelance</h4>
+                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Diseñador e Ilustrador Freelance</h4>
                             <p class="text-gray-400">2021 - Presente</p>
                             <p class="text-md leading-relaxed mt-2">Múltiples proyectos de diseño gráfico e ilustración para fines editoriales, web, educativos y publicitarios.</p>
                         </div>
@@ -337,7 +720,7 @@
 
                     <div class="flex flex-col md:flex-row items-center md:justify-end mb-8">
                         <div class="md:w-1/2 text-left md:pl-12 order-2 md:order-2">
-                            <h4 class="text-xl font-semibold text-blue-300">Contratista de Diseño - Universidad Nacional de Colombia</h4>
+                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Contratista de Diseño - Universidad Nacional de Colombia</h4>
                             <p class="text-gray-400">2023 - 2024</p>
                             <p class="text-md leading-relaxed mt-2">Estrategias visuales, museografía, kits pedagógicos e identidades gráficas institucionales.</p>
                         </div>
@@ -348,7 +731,7 @@
 
                     <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
                         <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                            <h4 class="text-xl font-semibold text-blue-300">Ilustrador de Experiencias - SELECU</h4>
+                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Ilustrador de Experiencias - SELECU</h4>
                             <p class="text-gray-400">2021 - 2023</p>
                             <p class="text-md leading-relaxed mt-2">Diseño para videojuegos educativos, contenidos digitales y personajes interactivos.</p>
                         </div>
@@ -359,7 +742,7 @@
 
                     <div class="flex flex-col md:flex-row items-center md:justify-end mb-8">
                         <div class="md:w-1/2 text-left md:pl-12 order-2 md:order-2">
-                            <h4 class="text-xl font-semibold text-blue-300">Diseñador - Universidad de Antioquia Televisión</h4>
+                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Diseñador - Universidad de Antioquia Televisión</h4>
                             <p class="text-gray-400">2011 - 2012</p>
                             <p class="text-md leading-relaxed mt-2">Coordinación de graficación y animación, desarrollo de contenidos audiovisuales.</p>
                         </div>
@@ -370,7 +753,7 @@
 
                     <div class="flex flex-col md:flex-row items-center md:justify-start">
                         <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                            <h4 class="text-xl font-semibold text-blue-300">Director Creativo - Beyond Big Branding</h4>
+                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Director Creativo - Beyond Big Branding</h4>
                             <p class="text-gray-400">2009 - 2010</p>
                             <p class="text-md leading-relaxed mt-2">Dirección de arte, ilustración para prendas, campañas publicitarias y supervisión de proyectos en el área textil.</p>
                         </div>
@@ -382,157 +765,71 @@
             </div>
         </section>
 
-        <!-- Sección de Experiencia en IA -->
-        <section id="ia-experience" class="py-24">
+        <!-- Sección de Portafolio -->
+        <section id="portfolio" class="py-24">
             <h2 class="section-title mx-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 21v-1.5M12 3.75h.008v.008H12V3.75zM12 16.5h.008v.008H12v-.008zM16.5 8.25h.008v.008H16.5V8.25zM12 12h.008v.008H12v-.008zM16.5 15.75h.008v.008H16.5v-.008zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>Experiencia en Inteligencia Artificial</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/></svg>
+                <span>Portafolio</span>
             </h2>
-            <div class="flex flex-col md:flex-row items-start md:space-x-12">
-                <div class="md:w-1/2 mb-8 md:mb-0">
-                    <h3 class="text-2xl font-semibold mb-6 text-blue-400">Capacidades Clave en IA</h3>
-                    <ul class="list-none space-y-4 text-lg">
-                        <li class="flex items-center space-x-3">
-                            <!-- Icon for Content Generation -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.455L14.25 6l1.035-.259a3.375 3.375 0 002.455-2.455L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.455L21.75 6l-1.035.259a3.375 3.375 0 00-2.455 2.455zM19.5 19.5l-.75.75m-1.5-1.5l.75-.75m-3-4.5l-.75.75m1.5-1.5l.75-.75m-3-4.5l-.75.75m1.5-1.5l.75-.75" />
-                            </svg>
-                            <span><span class="font-medium">Generación de Contenido:</span> Imágenes, video y animación.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <!-- Icon for Conversational Agents -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                            </svg>
-                            <span><span class="font-medium">Agentes Conversacionales:</span> Chatbots y sintetizadores de voz.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <!-- Icon for Education & Gamification -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253" />
-                            </svg>
-                            <span><span class="font-medium">Educación y Gamificación:</span> Flujos educativos y narrativas interactivas.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <!-- Icon for Web Prototyping -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4" />
-                            </svg>
-                            <span><span class="font-medium">Prototipado Web:</span> Herramientas interactivas web.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <!-- Icon for AI-Assisted Design -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.5v4.5m9 0h-3" />
-                            </svg>
-                            <span><span class="font-medium">Diseño Asistido por IA:</span> Elementos gráficos y variaciones.</span>
-                        </li>
-                    </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Diseño Gráfico -->
+                <div class="flex flex-col items-center">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Diseño Gráfico</h3>
+                    <div class="portfolio-wrapper">
+                        <a href="https://manuelpalacioart.wordpress.com/diseno-grafico/" target="_blank" class="block w-full h-full relative">
+                            <div class="portfolio-image-wrapper">
+                                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/diseno.png?raw=true" alt="Diseño Gráfico: Proyecto Creativo">
+                            </div>
+                            <div class="portfolio-header-wrapper">
+                                <h1>Diseño Gráfico</h1>
+                                <span class="project-link-text">Ver Proyecto</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="md:w-1/2 bg-gray-900 p-6 rounded-lg border border-gray-700">
-                    <h3 class="text-2xl font-semibold mb-6 text-blue-400">Herramientas y Plataformas</h3>
-                    <div class="grid grid-cols-3 sm:grid-cols-4 gap-6 text-sm md:text-base">
-                        <!-- OpenAI GPT -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-blue-600 text-blue-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                                </svg>
+                <!-- Ilustración Digital -->
+                <div class="flex flex-col items-center">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Ilustración Digital</h3>
+                    <div class="portfolio-wrapper">
+                        <a href="https://manuelpalacioart.wordpress.com/ilustracion" target="_blank" class="block w-full h-full relative">
+                            <div class="portfolio-image-wrapper">
+                                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/02%20Ok%20RGB%20copia.jpg?raw=true" alt="Ilustración Digital">
                             </div>
-                            <span>OpenAI GPT</span>
-                        </div>
-                        <!-- Google Gemini -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-green-600 text-green-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.455L14.25 6l1.035-.259a3.375 3.375 0 002.455-2.455L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.455L21.75 6l-1.035.259a3.375 3.375 0 00-2.455 2.455zM19.5 19.5l-.75.75m-1.5-1.5l.75-.75m-3-4.5l-.75.75m1.5-1.5l.75-.75m-3-4.5l-.75.75m1.5-1.5l.75-.75" />
-                                </svg>
+                            <div class="portfolio-header-wrapper">
+                                <h1>Ilustración</h1>
+                                <span class="project-link-text">Ver Proyecto</span>
                             </div>
-                            <span>Google Gemini</span>
-                        </div>
-                        <!-- Adobe Firefly -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-red-600 text-red-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 1.5a6 6 0 01-6-6V6.75m6 1.5V3a1.5 1.5 0 00-3 0v1.5m-3 1.5a1.5 1.5 0 00-3 0V9m9-3a1.5 1.5 0 00-3 0V9m-3 1.5a1.5 1.5 0 00-3 0V12m-3 1.5a1.5 1.5 0 00-3 0V15m9-3a1.5 1.5 0 00-3 0V15m-3 1.5a1.5 1.5 0 00-3 0V18m9-3a1.5 1.5 0 00-3 0V18m-3 1.5a1.5 1.5 0 00-3 0V21m9-3a1.5 1.5 0 00-3 0V21" />
-                                </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Video Arte -->
+                <div class="flex flex-col items-center">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Video Arte</h3>
+                    <div class="portfolio-wrapper">
+                        <a href="https://www.youtube.com/@ManuelPalacioA/videos" target="_blank" class="block w-full h-full relative">
+                            <div class="portfolio-image-wrapper">
+                                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/Sintonia002.jpg?raw=true" alt="Video Arte">
                             </div>
-                            <span>Adobe Firefly</span>
-                        </div>
-                        <!-- ElevenLabs -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-purple-600 text-purple-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a11.955 11.955 0 01-.822 1.952l-1.396 4.738A1.5 1.5 0 0014.114 14H12v2.25m2.25-2.25l-.159 1.125A2.25 2.25 0 0112 16.5v-2.25m-2.25 0l-.159 1.125A2.25 2.25 0 019.75 16.5v-2.25M6 0h12a6 6 0 016 6v12a6 6 0 01-6 6H6a6 6 0 01-6-6V6a6 6 0 016-6z" />
-                                </svg>
+                            <div class="portfolio-header-wrapper">
+                                <h1>Video Arte</h1>
+                                <span class="project-link-text">Ver Canal</span>
                             </div>
-                            <span>ElevenLabs</span>
-                        </div>
-                        <!-- Canva -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-yellow-600 text-yellow-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 7.5a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 7.5v9a2.25 2.25 0 002.25 2.25h10.5A2.25 2.25 0 0019.5 16.5V7.5z" />
-                                </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyectos IA -->
+                <div class="flex flex-col items-center">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Proyectos IA</h3>
+                    <div class="portfolio-wrapper">
+                        <a href="#ia-projects" class="block w-full h-full relative">
+                            <div class="portfolio-image-wrapper">
+                                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/proyectosia.png?raw=true" alt="Proyectos de Inteligencia Artificial">
                             </div>
-                            <span>Canva</span>
-                        </div>
-                        <!-- Adobe Suite -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-indigo-600 text-indigo-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM12.5 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM14.5 18a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 12h18M3 18h18" />
-                                </svg>
+                            <div class="portfolio-header-wrapper">
+                                <h1>Proyectos IA</h1>
+                                <span class="project-link-text">Explorar IA</span>
                             </div>
-                            <span>Adobe Suite</span>
-                        </div>
-                        <!-- Leonardo.Ai -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-orange-600 text-orange-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0H6" />
-                                </svg>
-                            </div>
-                            <span>Leonardo.Ai</span>
-                        </div>
-                        <!-- GitHub Pages -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-gray-600 text-gray-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.866 8.145 6.839 9.409.5.092.682-.217.682-.483 0-.237-.007-.866-.012-1.7-2.782.604-3.369-1.34-3.369-1.34-.455-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.007.07 1.534 1.033 1.534 1.033.893 1.53 2.343 1.088 2.91.833.091-.647.35-1.088.636-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.09.39-1.984 1.03-2.682-.104-.253-.447-1.27.098-2.651 0 0 .84-.268 2.75 1.025A9.704 9.704 0 0112 5.092c.85.004 1.7.11 2.5.321 1.909-1.293 2.747-1.025 2.747-1.025.546 1.381.203 2.398.099 2.651.64.698 1.029 1.592 1.029 2.682 0 3.842-2.339 4.686-4.566 4.935.359.309.68.92.68 1.854 0 1.34-.012 2.417-.012 2.747 0 .268.18.579.688.482C21.137 20.145 24 16.418 24 12 24 6.477 19.523 2 14 2z" />
-                                </svg>
-                            </div>
-                            <span>GitHub Pages</span>
-                        </div>
-                        <!-- Firebase -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-yellow-600 text-yellow-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25L21.75 12 12 21.75 2.25 12 12 2.25zM12 12l9.75-9.75M12 12L2.25 2.25M12 12l9.75 9.75M12 12L2.25 21.75" />
-                                </svg>
-                            </div>
-                            <span>Firebase</span>
-                        </div>
-                        <!-- Google Apps Script -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-green-600 text-green-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0L21 12.75M21 3H12" />
-                                </svg>
-                            </div>
-                            <span>Google Apps Script</span>
-                        </div>
-                        <!-- Google Cloud -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="icon-container border-blue-600 text-blue-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m-9-9h18" />
-                                </svg>
-                            </div>
-                            <span>Google Cloud</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -547,7 +844,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Proyecto: Núcleo Colectivo Plataforma Educativa IA 4.0 -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Núcleo Colectivo IA 4.0</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Núcleo Colectivo IA 4.0</h3>
                     <p class="mb-4 text-gray-400">Plataforma educativa para artistas y creativos, con talleres, recursos y comunidad.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://82hvn07yaf.space.minimax.io/" target="_blank" class="btn-primary">Ver Proyecto</a>
@@ -555,7 +852,7 @@
                 </div>
                 <!-- Proyecto: IA Básica - Fundamentos Visuales -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">IA Básica - Fundamentos Visuales</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">IA Básica - Fundamentos Visuales</h3>
                     <p class="mb-4 text-gray-400">Juego interactivo de 15 minutos que enseña redes neuronales, arte generativo y ética en IA.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://7b8m3siua7.space.minimax.io/" target="_blank" class="btn-primary">Ver Juego</a>
@@ -563,7 +860,7 @@
                 </div>
                 <!-- Proyecto: Aventura IA Creativa -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Aventura IA Creativa</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Aventura IA Creativa</h3>
                     <p class="mb-4 text-gray-400">Experiencia gamificada para explorar la IA creativa, aprender y experimentar con herramientas avanzadas.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://vq4u9s8bj7.space.minimax.io/" target="_blank" class="btn-primary">Ver Aventura</a>
@@ -571,7 +868,7 @@
                 </div>
                 <!-- Proyecto: Núcleo Radio y Núcleo Channel -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Núcleo Radio y Channel</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Núcleo Radio y Channel</h3>
                     <p class="mb-4 text-gray-400">Emisora y canal audiovisual con inteligencia artificial narrativa y locutores virtuales.</p>
                     <div class="flex justify-center mt-4 space-x-2">
                         <a href="https://jaekg09fdy.space.minimax.io/" target="_blank" class="btn-primary">Ver Radio</a>
@@ -580,7 +877,7 @@
                 </div>
                 <!-- Proyecto: COSIACA 350 -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">COSIACA 350</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">COSIACA 350</h3>
                     <p class="mb-4 text-gray-400">Plataforma transmedia para celebrar los 350 años de Medellín, con chatbot, trivias y IA narrativa.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://nucleocolectivo.github.io/Cosiaca/" target="_blank" class="btn-primary">Ver Proyecto</a>
@@ -588,7 +885,7 @@
                 </div>
                 <!-- Proyecto: PROMPTS CREATOR -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">PROMPTS CREATOR</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">PROMPTS CREATOR</h3>
                     <p class="mb-4 text-gray-400">Herramienta avanzada para creación de prompts con 6 tipos, ejemplos y sistema educativo gamificado.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://hypccay6jz.space.minimax.io/" target="_blank" class="btn-primary">Ver Herramienta</a>
@@ -596,7 +893,7 @@
                 </div>
                 <!-- Proyecto: COTIZADOR DIGITAL -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">COTIZADOR DIGITAL</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">COTIZADOR DIGITAL</h3>
                     <p class="mb-4 text-gray-400">Serie de prototipos de agentes conversacionales que simulan cotizaciones para diversos servicios.</p>
                     <div class="flex justify-center mt-4 space-x-2">
                         <a href="https://nucleocolectivo.github.io/QUOTER/" target="_blank" class="btn-primary">Ver Prototipo</a>
@@ -605,51 +902,11 @@
                 </div>
                 <!-- Proyecto: CosiacaBot -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">CosiacaBot</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">CosiacaBot</h3>
                     <p class="mb-4 text-gray-400">Chatbot cultural basado en el personaje "Cosiaca" con trivias, storytelling y guía educativa sobre Medellín.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://elevenlabs.io/app/talk-to?agent_id=agent_01jwdmjmkafg78dja7dm0yfgva" target="_blank" class="btn-primary">Hablar con Cosiaca</a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección de Portafolios -->
-        <section id="portfolio" class="py-24">
-            <h2 class="section-title mx-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
-                <span>Mis Portafolios</span>
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card p-6 text-center">
-                    <div class="mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-1.25-3.75M3 10h18M5 14h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2zm4.5-4h5.25" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Diseño Gráfico</h3>
-                    <p class="mb-5 text-gray-400">Proyectos de identidad corporativa, piezas editoriales y soluciones web.</p>
-                    <a href="https://manuelpalacioart.wordpress.com/diseno-grafico/" target="_blank" class="btn-primary">Ver Portafolio</a>
-                </div>
-                <div class="card p-6 text-center">
-                    <div class="mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.5v4.5m9 0h-3" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Ilustración</h3>
-                    <p class="mb-5 text-gray-400">Ilustración científica, caricaturas y diseño de personajes únicos.</p>
-                    <a href="https://manuelpalacioart.wordpress.com/ilustracion" target="_blank" class="btn-primary">Ver Portafolio</a>
-                </div>
-                <div class="card p-6 text-center">
-                    <div class="mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 7.5V4a1 1 0 011-1h2.5M19 7.5V4a1 1 0 00-1-1h-2.5M5 16.5V20a1 1 0 001 1h2.5M19 16.5V20a1 1 0 01-1 1h-2.5M12 12h.01M12 7h.01M12 17h.01M12 10h.01M12 14h.01m-5 4h10a2 2 0 002-2V8a2 2 0 00-2-2H7a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Prototipos IA</h3>
-                    <p class="mb-5 text-gray-400">Chatbots conversacionales, entornos gamificados y experiencias interactivas.</p>
-                    <a href="https://23ib1fo9tn.space.minimax.io/" target="_blank" class="btn-primary">Ver Prototipos</a>
                 </div>
             </div>
         </section>
@@ -665,7 +922,7 @@
 
                 <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
                     <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                        <h4 class="text-xl font-semibold text-blue-300">Ruta Formativa - Herramientas de IA para Procesos Creativos</h4>
+                        <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Ruta Formativa - Herramientas de IA para Procesos Creativos</h4>
                         <p class="text-gray-400">CENDI/SAPIENCIA/ITM, 2025</p>
                     </div>
                     <div class="md:w-1/2 flex justify-start md:justify-end order-1 md:order-2">
@@ -675,7 +932,7 @@
 
                 <div class="flex flex-col md:flex-row items-center md:justify-end mb-8">
                     <div class="md:w-1/2 text-left md:pl-12 order-2 md:order-2">
-                        <h4 class="text-xl font-semibold text-blue-300">Artes Plásticas</h4>
+                        <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Artes Plásticas</h4>
                         <p class="text-gray-400">Universidad de Antioquia, Medellín, 2019</p>
                     </div>
                     <div class="md:w-1/2 flex justify-start md:justify-start order-1 md:order-1">
@@ -685,7 +942,7 @@
 
                 <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
                     <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                        <h4 class="text-xl font-semibold text-blue-300">Diseño Gráfico Publicitario</h4>
+                        <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Diseño Gráfico Publicitario</h4>
                         <p class="text-gray-400">Instituto de Bellas Artes, Medellín, 2011</p>
                     </div>
                     <div class="md:w-1/2 flex justify-start md:justify-end order-1 md:order-2">
@@ -695,12 +952,12 @@
 
                 <div class="flex flex-col md:flex-row items-center md:justify-end mb-8">
                     <div class="md:w-1/2 text-left md:pl-12 order-2 md:order-2">
-                        <h4 class="text-xl font-semibold text-blue-300">Workshop de Animación 3D</h4>
+                        <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Workshop de Animación 3D</h4>
                         <p class="text-gray-400">Ruta N, Medellín, 201</p>
                     </div>
                     <div class="md:w-1/2 flex justify-start md:justify-start order-1 md:order-1">
                         <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
@@ -712,12 +969,12 @@
                 <span>Idiomas</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 flex items-center justify-between">
-                    <span class="font-semibold text-blue-400">Español</span>
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
+                    <span class="font-semibold text-blue-400" style="color: var(--nav-link-hover-color);">Español</span>
                     <span class="text-gray-300">Nativo</span>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 flex items-center justify-between">
-                    <span class="font-semibold text-blue-400">Inglés</span>
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
+                    <span class="font-semibold text-blue-400" style="color: var(--nav-link-hover-color);">Inglés</span>
                     <span class="text-gray-300">Bueno (lectura, escritura y escucha)</span>
                 </div>
             </div>
@@ -727,24 +984,28 @@
     <!-- Sección de Contacto y Footer -->
     <footer id="contact" class="bg-gray-900 text-white pt-20 pb-10 px-4 mt-16">
         <div class="container mx-auto text-center">
-             <h2 class="section-title mx-auto" style="color: #fff;">
+             <h2 class="section-title mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
                 <span>Contacto</span>
             </h2>
             <p class="text-xl mb-8 font-light text-gray-400">Busco integrarme a un equipo donde pueda aportar mi experiencia en diseño gráfico y desarrollo de soluciones creativas con inteligencia artificial.</p>
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mb-12">
-                <a href="mailto:d.manuelpalacio@gmail.com" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors">+57 300 610 1221</a>
-                <a href="tel:+573006101221" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors">d.manuelpalacio@gmail.com</a>
+                <!-- Corrected email and phone links -->
+                <a href="tel:+573006101221" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors"><span>+57 300 610 1221</span></a>
+                <a href="mailto:d.manuelpalacio@gmail.com" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors"><span>d.manuelpalacio@gmail.com</span></a>
             </div>
             <div class="flex justify-center space-x-6 mb-8">
                 <a href="https://www.facebook.com/manuelpalacio" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-1.723c0-2.042 1.131-3.344 3.252-3.344h2.748v3z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-1.723c0-2.042 1.131-3.344 3.252-3.344h2.748v3z"/></svg>
                 </a>
                 <a href="https://www.instagram.com/manuelpalacio/" target="_blank" class="text-gray-400 hover:text-pink-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.069c-3.251-.148-4.77-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.069c-3.251-.148-4.77-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
                 <a href="https://manuelpalacioart.wordpress.com/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.454 17.514l-3.232-9.827h2.383l1.932 6.943 1.979-6.943h2.463l-3.284 9.827h-2.115z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.454 17.514l-3.232-9.827h2.383l1.932 6.943 1.979-6.943h2.463l-3.284 9.827h-2.115z"/></svg>
                 </a>
             </div>
             <p class="text-sm text-gray-500">&copy; 2025 Manuel Palacio. Todos los derechos reservados.</p>
@@ -759,6 +1020,17 @@
     </div>
 
     <script>
+        // Variables globales para la animación de Three.js
+        let scene, camera, renderer, particles, lines;
+        let mouse = new THREE.Vector2(); // Coordenadas normalizadas del dispositivo [-1, 1]
+        let animationFrameId; // Para almacenar el ID del frame de animación
+        const particlesData = [];
+        const particlesCount = 200; // Aumenta el número de partículas para un efecto más continuo
+        const connectDistance = 40; // Aumenta la distancia de conexión
+        const repulsionDistance = 60; // Aumenta la distancia de repulsión
+        const boxSize = 200;
+        let banner, canvas; // Declara banner y canvas globalmente
+
         document.addEventListener('DOMContentLoaded', function() {
             // --- Lógica para el botón de volver arriba ---
             const scrollTopBtn = document.getElementById('scrollTopBtn');
@@ -774,188 +1046,245 @@
             });
 
             // --- Lógica para la animación de nodos con Three.js ---
-            let scene, camera, renderer, particles, lines;
-            let mouse = new THREE.Vector2(-100, -100); // Iniciar el ratón fuera de la pantalla
-            const banner = document.getElementById('node-banner');
-            const canvas = document.getElementById('nodes-canvas');
-            const particlesData = [];
-            const particlesCount = 150;
-            const connectDistance = 30;
-            const repulsionDistance = 50;
-            const boxSize = 200;
+            banner = document.getElementById('node-banner'); // Asigna globalmente
+            canvas = document.getElementById('nodes-canvas'); // Asigna globalmente
+            initThreeJs();
 
-            function init() {
-                scene = new THREE.Scene();
-                camera = new THREE.PerspectiveCamera(75, banner.offsetWidth / banner.offsetHeight, 0.1, 1000);
-                camera.position.z = 100;
+            // --- Lógica para el cambio de tema (modo claro/oscuro) ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            const body = document.body;
 
-                renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-                renderer.setSize(banner.offsetWidth, banner.offsetHeight);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            function applyTheme(theme) {
+                body.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                // Actualiza el color del texto de los iconos del tema
+                sunIcon.style.color = 'var(--text-primary)';
+                moonIcon.style.color = 'var(--text-primary)';
 
-                const particleTexture = createParticleTexture();
-                const particlesGeometry = new THREE.BufferGeometry();
-                const positions = new Float32Array(particlesCount * 3);
-                const colors = new Float32Array(particlesCount * 3);
-
-                // Updated color palette for nodes: more blues, greens, emeralds, violets
-                const colorPalette = [
-                    new THREE.Color(0x007bff), // Bright Blue
-                    new THREE.Color(0x00c853), // Emerald Green
-                    new THREE.Color(0x6200ea), // Deep Violet
-                    new THREE.Color(0x00bcd4), // Cyan/Turquoise
-                    new THREE.Color(0x3f51b5), // Indigo
-                    new THREE.Color(0x4caf50)  // Green
-                ];
-
-                for (let i = 0; i < particlesCount; i++) {
-                    const x = Math.random() * boxSize - boxSize / 2;
-                    const y = Math.random() * boxSize - boxSize / 2;
-                    const z = Math.random() * boxSize - boxSize / 2;
-                    positions[i * 3] = x;
-                    positions[i * 3 + 1] = y;
-                    positions[i * 3 + 2] = z;
-
-                    const color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
-                    colors[i * 3] = color.r;
-                    colors[i * 3 + 1] = color.g;
-                    colors[i * 3 + 2] = color.b;
-
-                    particlesData.push({
-                        velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.1),
-                        originalPos: new THREE.Vector3(x, y, z)
-                    });
+                if (theme === 'dark') {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                } else {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
                 }
+            }
 
-                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-                particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
 
-                const particlesMaterial = new THREE.PointsMaterial({
-                    size: 2.5,
-                    map: particleTexture,
-                    blending: THREE.AdditiveBlending,
-                    transparent: true,
-                    depthWrite: false,
-                    vertexColors: true
+            // Aplica el tema guardado al cargar la página
+            const savedTheme = localStorage.getItem('theme') || 'dark'; // Por defecto, modo oscuro si no hay preferencia
+            applyTheme(savedTheme);
+        });
+
+        // Función para inicializar la escena y animación de Three.js
+        function initThreeJs() {
+            // Configuración de la escena
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, banner.offsetWidth / banner.offsetHeight, 0.1, 1000);
+            camera.position.z = 100;
+
+            // Configuración del renderizador
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(banner.offsetWidth, banner.offsetHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Creación de la textura de las partículas
+            const particleTexture = createParticleTexture();
+            const particlesGeometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particlesCount * 3);
+            const colors = new Float32Array(particlesCount * 3);
+
+            // Paleta de colores actualizada para los nodos: más azules, verdes, esmeraldas, violetas
+            const colorPalette = [
+                new THREE.Color(0x007bff), // Azul Brillante
+                new THREE.Color(0x00c853), // Verde Esmeralda
+                new THREE.Color(0x6200ea), // Violeta Profundo
+                new THREE.Color(0x00bcd4), // Cian/Turquesa
+                new THREE.Color(0x3f51b5), // Índigo
+                new THREE.Color(0x4caf50)  // Verde
+            ];
+
+            for (let i = 0; i < particlesCount; i++) {
+                const x = Math.random() * boxSize - boxSize / 2;
+                const y = Math.random() * boxSize - boxSize / 2;
+                const z = Math.random() * boxSize - boxSize / 2;
+                positions[i * 3] = x;
+                positions[i * 3 + 1] = y;
+                positions[i * 3 + 2] = z;
+
+                const color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+                colors[i * 3] = color.r;
+                colors[i * 3 + 1] = color.g;
+                colors[i * 3 + 2] = color.b;
+
+                particlesData.push({
+                    velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.1),
+                    originalPos: new THREE.Vector3(x, y, z)
                 });
-
-                particles = new THREE.Points(particlesGeometry, particlesMaterial);
-                scene.add(particles);
-
-                const lineGeometry = new THREE.BufferGeometry();
-                const lineMaterial = new THREE.LineBasicMaterial({
-                    vertexColors: true,
-                    blending: THREE.AdditiveBlending,
-                    transparent: true,
-                    opacity: 0.5 // Increased opacity for connections to be more noticeable
-                });
-                lines = new THREE.LineSegments(lineGeometry, lineMaterial);
-                scene.add(lines);
-
-                window.addEventListener('resize', onWindowResize, false);
-                document.addEventListener('mousemove', onMouseMove, false);
-                document.addEventListener('mouseleave', onMouseLeave, false);
-
-                animate();
             }
 
-            function createParticleTexture() {
-                const canvas = document.createElement('canvas');
-                canvas.width = 128;
-                canvas.height = 128;
-                const context = canvas.getContext('2d');
-                const gradient = context.createRadialGradient(canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width / 2);
-                gradient.addColorStop(0, 'rgba(255,255,255,1)');
-                gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)');
-                gradient.addColorStop(0.6, 'rgba(255,255,255,0.2)');
-                gradient.addColorStop(1, 'rgba(255,255,255,0)');
-                context.fillStyle = gradient;
-                context.fillRect(0, 0, canvas.width, canvas.height);
-                return new THREE.CanvasTexture(canvas);
-            }
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-            function onWindowResize() {
-                camera.aspect = banner.offsetWidth / banner.offsetHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(banner.offsetWidth, banner.offsetHeight);
-            }
-            
-            function onMouseMove(event) {
-                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-            }
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 2.5,
+                map: particleTexture,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                depthWrite: false,
+                vertexColors: true
+            });
 
-            function onMouseLeave() {
-                mouse.x = -100;
-                mouse.y = -100;
-            }
+            particles = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particles);
 
-            function animate() {
-                requestAnimationFrame(animate);
+            const lineGeometry = new THREE.BufferGeometry();
+            const lineMaterial = new THREE.LineBasicMaterial({
+                vertexColors: true,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                opacity: 0.7 // Opacidad aumentada para que las conexiones sean más notables
+            });
+            lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+            scene.add(lines);
 
-                const positions = particles.geometry.attributes.position.array;
-                const linePositions = [];
-                const lineColors = [];
+            // Event Listeners
+            window.addEventListener('resize', onWindowResize, false);
+            document.addEventListener('mousemove', onMouseMove, false);
+            document.addEventListener('mouseleave', onMouseLeave, false);
 
-                const mouseVector = new THREE.Vector3(mouse.x * (banner.offsetWidth / 2), mouse.y * (banner.offsetHeight / 2), 0);
-                camera.updateMatrixWorld();
-                mouseVector.unproject(camera);
-                const mousePos = new THREE.Vector3(mouseVector.x, mouseVector.y, 0);
+            // Inicia el bucle de animación
+            animateThreeJs();
+        }
 
-                for (let i = 0; i < particlesCount; i++) {
-                    const i3 = i * 3;
-                    const particleData = particlesData[i];
-                    const particlePos = new THREE.Vector3(positions[i3], positions[i3 + 1], positions[i3 + 2]);
+        // Función para crear la textura de las partículas
+        function createParticleTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 128;
+            canvas.height = 128;
+            const context = canvas.getContext('2d');
+            const gradient = context.createRadialGradient(canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width / 2);
+            gradient.addColorStop(0, 'rgba(255,255,255,1)');
+            gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)');
+            gradient.addColorStop(0.6, 'rgba(255,255,255,0.2)');
+            gradient.addColorStop(1, 'rgba(255,255,255,0)');
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            return new THREE.CanvasTexture(canvas);
+        }
 
-                    // Interacción con el ratón
+        // Maneja el redimensionamiento de la ventana
+        function onWindowResize() {
+            camera.aspect = banner.offsetWidth / banner.offsetHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(banner.offsetWidth, banner.offsetHeight);
+        }
+        
+        // Maneja el movimiento del ratón para la interacción
+        function onMouseMove(event) {
+            // Obtiene el rectángulo delimitador del canvas para calcular la posición del ratón en relación con él
+            const rect = canvas.getBoundingClientRect();
+            // Calcula la posición del ratón en coordenadas normalizadas del dispositivo [-1, 1] en relación con el canvas
+            mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        }
+
+        // Maneja cuando el ratón sale del documento
+        function onMouseLeave() {
+            // Restablece la posición del ratón fuera del área visible para detener la repulsión
+            mouse.x = -2; // Un valor fuera de [-1, 1]
+            mouse.y = -2; // Un valor fuera de [-1, 1]
+        }
+
+        // Bucle de animación de Three.js
+        function animateThreeJs() {
+            animationFrameId = requestAnimationFrame(animateThreeJs);
+
+            const positions = particles.geometry.attributes.position.array;
+            const linePositions = [];
+            const lineColors = [];
+
+            // Crea un vector 3D a partir de las coordenadas normalizadas del ratón
+            // El componente z (0.5) sitúa el punto de interacción aproximadamente en el centro de la profundidad de visión de la cámara.
+            const mouse3D = new THREE.Vector3(mouse.x, mouse.y, 0.5);
+            // Proyecta la posición 2D del ratón en coordenadas del mundo 3D
+            mouse3D.unproject(camera);
+
+            const mousePos = mouse3D; // Usa esto como la posición 3D del ratón para la interacción
+
+            for (let i = 0; i < particlesCount; i++) {
+                const i3 = i * 3;
+                const particleData = particlesData[i];
+                const particlePos = new THREE.Vector3(positions[i3], positions[i3 + 1], positions[i3 + 2]);
+
+                // Interacción de partículas con el ratón
+                // Solo aplica la repulsión si el ratón está actualmente sobre el área del canvas (las coordenadas normalizadas están dentro de [-1, 1])
+                if (mouse.x >= -1 && mouse.x <= 1 && mouse.y >= -1 && mouse.y <= 1) {
                     const distToMouse = particlePos.distanceTo(mousePos);
                     if (distToMouse < repulsionDistance) {
+                        // Calcula la fuerza de repulsión: vector del ratón a la partícula, normalizado, escalado por la distancia
                         const repulsionForce = new THREE.Vector3().subVectors(particlePos, mousePos).normalize().multiplyScalar((repulsionDistance - distToMouse) * 0.05);
                         particleData.velocity.add(repulsionForce);
                     }
-
-                    // Movimiento y rebote
-                    particlePos.add(particleData.velocity);
-                    if (Math.abs(particlePos.x) > boxSize / 2) { particleData.velocity.x *= -1; }
-                    if (Math.abs(particlePos.y) > boxSize / 2) { particleData.velocity.y *= -1; }
-                    if (Math.abs(particlePos.z) > boxSize / 2) { particleData.velocity.z *= -1; }
-
-                    positions[i3] = particlePos.x;
-                    positions[i3 + 1] = particlePos.y;
-                    positions[i3 + 2] = particlePos.z;
-
-                    // Conexiones entre partículas
-                    for (let j = i + 1; j < particlesCount; j++) {
-                        const j3 = j * 3;
-                        const otherParticlePos = new THREE.Vector3(positions[j3], positions[j3 + 1], positions[j3 + 2]);
-                        const distance = particlePos.distanceTo(otherParticlePos);
-
-                        if (distance < connectDistance) {
-                            linePositions.push(particlePos.x, particlePos.y, particlePos.z);
-                            linePositions.push(otherParticlePos.x, otherParticlePos.y, otherParticlePos.z);
-                            
-                            const color1 = particles.geometry.attributes.color.array;
-                            const alpha = 1.0 - distance / connectDistance;
-                            
-                            lineColors.push(color1[i3], color1[i3 + 1], color1[i3 + 2], alpha);
-                            lineColors.push(color1[j3], color1[j3 + 1], color1[j3 + 2], alpha);
-                        }
-                    }
                 }
 
-                lines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-                lines.geometry.setAttribute('color', new THREE.Float32BufferAttribute(lineColors, 4));
-                particles.geometry.attributes.position.needsUpdate = true;
+                // Actualiza la posición de la partícula basándose en su velocidad
+                particlePos.add(particleData.velocity);
 
-                camera.position.x += (mouse.x * 20 - camera.position.x) * 0.02;
-                camera.position.y += (-mouse.y * 20 - camera.position.y) * 0.02;
-                camera.lookAt(scene.position);
+                // Comprobaciones de límites: invierte la velocidad si la partícula golpea el borde de la caja
+                if (Math.abs(particlePos.x) > boxSize / 2) { particleData.velocity.x *= -1; }
+                if (Math.abs(particlePos.y) > boxSize / 2) { particleData.velocity.y *= -1; }
+                if (Math.abs(particlePos.z) > boxSize / 2) { particleData.velocity.z *= -1; }
 
-                renderer.render(scene, camera);
+                // Actualiza la posición de la partícula en el array de atributos de la geometría
+                positions[i3] = particlePos.x;
+                positions[i3 + 1] = particlePos.y;
+                positions[i3 + 2] = particlePos.z;
+
+                // Crea conexiones entre partículas cercanas
+                for (let j = i + 1; j < particlesCount; j++) {
+                    const j3 = j * 3;
+                    const otherParticlePos = new THREE.Vector3(positions[j3], positions[j3 + 1], positions[j3 + 2]);
+                    const distance = particlePos.distanceTo(otherParticlePos);
+
+                    if (distance < connectDistance) {
+                        // Añade los puntos de inicio y fin del segmento de línea
+                        linePositions.push(particlePos.x, particlePos.y, particlePos.z);
+                        linePositions.push(otherParticlePos.x, otherParticlePos.y, otherParticlePos.z);
+                        
+                        // Calcula el alfa (opacidad) para la línea basándose en la distancia
+                        // Las líneas más lejanas son más transparentes
+                        const alpha = 1.0 - (distance / connectDistance); 
+                        
+                        // Obtiene los colores de las partículas conectadas
+                        const color1 = particles.geometry.attributes.color.array;
+                        lineColors.push(color1[i3], color1[i3 + 1], color1[i3 + 2], alpha);
+                        lineColors.push(color1[j3], color1[j3 + 1], color1[j3 + 2], alpha);
+                    }
+                }
             }
 
-            init();
-        });
+            // Actualiza los atributos de la geometría de la línea
+            lines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+            lines.geometry.setAttribute('color', new THREE.Float32BufferAttribute(lineColors, 4));
+            // Marca las posiciones de las partículas como que necesitan actualización para el renderizado
+            particles.geometry.attributes.position.needsUpdate = true;
+
+            // Mueve la cámara ligeramente basándose en la posición del ratón para un sutil efecto de paralaje
+            camera.position.x += (mouse.x * 20 - camera.position.x) * 0.02;
+            camera.position.y += (-mouse.y * 20 - camera.position.y) * 0.02;
+            camera.lookAt(scene.position); // Siempre mira al centro de la escena
+
+            // Renderiza la escena
+            renderer.render(scene, camera);
+        }
     </script>
 </body>
 </html>
