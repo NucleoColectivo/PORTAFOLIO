@@ -7,28 +7,28 @@
     <meta name="description" content="Portafolio de Manuel Palacio, Artista Visual, Diseñador Gráfico, Ilustrador y Creador Digital con IA.">
     <meta name="author" content="Manuel Palacio">
 
-    <!-- Favicon - Generado como SVG para personalización y sin dependencias externas -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 
-    <!-- Metaetiquetas para redes sociales (Open Graph) -->
-    <meta property="og:title" content="Manuel Palacio - Portafolio Creativo Digital">
+    
+<meta property="og:title" content="Manuel Palacio - Portafolio Creativo Digital">
     <meta property="og:description" content="Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.">
     <meta property="og:image" content="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true">
-    <meta property="og:url" content="#"> <!-- Reemplazar con la URL final del portafolio -->
-    <meta property="og:type" content="website">
+    <meta property="og:url" content="#"> 
+<meta property="og:type" content="website">
 
-    <!-- Metaetiquetas para Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
+    
+<meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Manuel Palacio - Portafolio Creativo Digital">
     <meta name="twitter:description" content="Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.">
     <meta name="twitter:image" content="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true">
 
-    <!-- Carga de Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de la fuente Poppins y Oswald -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Carga de Three.js para la animación de nodos -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+<script src="https://cdn.tailwindcss.com"></script>
+    
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         /* Definición de variables CSS para los colores del tema */
         :root {
@@ -168,7 +168,6 @@
             text-align: center;
             height: 100%;
             padding: 1rem;
-            transform: translateY(10%);
         }
 
         /* Asegura que el texto del héroe use la variable de color */
@@ -182,10 +181,9 @@
         @media (min-width: 768px) {
             .hero-content {
                 flex-direction: row;
-                align-items: flex-start;
+                align-items: center;
                 justify-content: center;
                 text-align: left;
-                transform: translateY(15%);
             }
         }
 
@@ -594,8 +592,8 @@
 </head>
 <body class="antialiased" data-theme="dark">
 
-    <!-- Barra de Navegación -->
-    <nav class="navbar py-3 px-4">
+    
+<nav class="navbar py-3 px-4">
         <div class="container mx-auto flex justify-between items-center">
             <div class="text-xl font-bold text-gray-200" style="color: var(--text-primary);">
                 <a href="#" class="hover:text-white transition-colors">Manuel Palacio</a>
@@ -609,8 +607,8 @@
                 <a href="#languages" class="nav-link">Idiomas</a>
                 <a href="#contact" class="nav-link">Contacto</a>
                 <button id="theme-toggle" class="nav-link p-2 rounded-full flex items-center justify-center">
-                    <!-- Icono de Sol para modo claro, Icono de Luna para modo oscuro -->
-                    <svg id="sun-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
+                    
+<svg id="sun-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h1M3 12H2m8.003-7.5l-.64.64m9.192 9.192l.64.64M4.5 4.5l-.64.64m9.192-.64l.64-.64M12 15a3 3 0 100-6 3 3 0 000 6z" />
                     </svg>
                     <svg id="moon-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
@@ -621,19 +619,19 @@
         </div>
     </nav>
 
-    <!-- Sección de Héroe con Animación de Nodos -->
-    <section id="node-banner">
+    
+<section id="node-banner">
         <canvas id="nodes-canvas"></canvas>
-        <div class="hero-content text-white flex flex-col md:flex-row items-center md:items-start justify-center md:justify-center px-4">
+        <div class="hero-content text-white flex flex-col md:flex-row items-center md:items-center justify-center px-4">
             <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true" alt="Foto de Perfil de Manuel Palacio" class="rounded-xl shadow-2xl w-48 h-48 md:w-64 md:h-64 object-cover mb-6 md:mb-0 md:mr-12 animate-fadeIn delay-100">
-            <div class="text-center md:text-left"> <!-- Container for text elements -->
-                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-3 tracking-tight animate-fadeInUp delay-200">
+            <div class="text-center md:text-left"> 
+<h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-3 tracking-tight animate-fadeInUp delay-200">
                     Manuel Palacio
                 </h1>
                 <p class="text-xl md:text-2xl font-light mb-5 opacity-90 animate-fadeInUp delay-300">
                     Artista Visual | Diseñador Gráfico | Ilustrador | Creador Digital con IA
                 </p>
-                <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light opacity-80 mb-8 animate-fadeInUp delay-400">
+                <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto md:mx-0 font-light opacity-80 mb-8 animate-fadeInUp delay-400">
                     Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.
                 </p>
                 <a href="#portfolio" class="btn-primary text-lg animate-fadeIn delay-500">Explorar Portafolio</a>
@@ -641,10 +639,10 @@
         </div>
     </section>
 
-    <!-- Contenido Principal -->
-    <main class="container mx-auto px-4">
-        <!-- Sección Sobre Mí -->
-        <section id="about" class="py-24">
+    
+<main class="container mx-auto px-4">
+        
+<section id="about" class="py-24">
             <h2 class="section-title mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
                 <span>Sobre Mí</span>
@@ -662,38 +660,38 @@
                     <h3 class="text-2xl font-semibold mb-6 text-blue-400">Habilidades Clave</h3>
                     <div class="grid grid-cols-2 gap-6 text-lg">
                         <div class="flex items-center space-x-3">
-                            <!-- Icon for Graphic Design -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
                             <span>Diseño Gráfico</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <!-- Icon for Illustration -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
                             <span>Ilustración</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <!-- Icon for Video Art -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-hover-bg);">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-hover-bg);">
                                 <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
                             <span>Video Arte</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <!-- Icon for Digital Creation -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
                             <span>Creación Digital</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <!-- Icon for Chatbots & NLP -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z"/></svg>
                             <span>Chatbots y PLN</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <!-- Icon for Web Prototyping -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--nav-link-hover-color);">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--nav-link-hover-color);">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4" /></svg>
                             <span>Prototipado Web</span>
                         </div>
@@ -704,8 +702,8 @@
             <div class="mt-16">
                 <h3 class="text-2xl font-semibold mb-6 text-blue-400" style="color: var(--nav-link-hover-color);">Trayectoria Profesional</h3>
                 <div class="relative pl-8 md:pl-0">
-                    <!-- Timeline items -->
-                    <div class="absolute left-4 md:left-1/2 w-0.5 bg-gray-700 h-full -translate-x-1/2 md:block hidden"></div>
+                    
+<div class="absolute left-4 md:left-1/2 w-0.5 bg-gray-700 h-full -translate-x-1/2 md:block hidden"></div>
 
                     <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
                         <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
@@ -765,15 +763,15 @@
             </div>
         </section>
 
-        <!-- Sección de Portafolio -->
-        <section id="portfolio" class="py-24">
+        
+<section id="portfolio" class="py-24">
             <h2 class="section-title mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/></svg>
                 <span>Portafolio</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <!-- Diseño Gráfico -->
-                <div class="flex flex-col items-center">
+                
+<div class="flex flex-col items-center">
                     <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Diseño Gráfico</h3>
                     <div class="portfolio-wrapper">
                         <a href="https://manuelpalacioart.wordpress.com/diseno-grafico/" target="_blank" class="block w-full h-full relative">
@@ -787,8 +785,8 @@
                         </a>
                     </div>
                 </div>
-                <!-- Ilustración Digital -->
-                <div class="flex flex-col items-center">
+                
+<div class="flex flex-col items-center">
                     <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Ilustración Digital</h3>
                     <div class="portfolio-wrapper">
                         <a href="https://manuelpalacioart.wordpress.com/ilustracion" target="_blank" class="block w-full h-full relative">
@@ -802,8 +800,8 @@
                         </a>
                     </div>
                 </div>
-                <!-- Video Arte -->
-                <div class="flex flex-col items-center">
+                
+<div class="flex flex-col items-center">
                     <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Video Arte</h3>
                     <div class="portfolio-wrapper">
                         <a href="https://www.youtube.com/@ManuelPalacioA/videos" target="_blank" class="block w-full h-full relative">
@@ -817,8 +815,8 @@
                         </a>
                     </div>
                 </div>
-                <!-- Proyectos IA -->
-                <div class="flex flex-col items-center">
+                
+<div class="flex flex-col items-center">
                     <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Proyectos IA</h3>
                     <div class="portfolio-wrapper">
                         <a href="#ia-projects" class="block w-full h-full relative">
@@ -835,39 +833,39 @@
             </div>
         </section>
 
-        <!-- Sección de Proyectos Destacados IA -->
-        <section id="ia-projects" class="py-24">
+        
+<section id="ia-projects" class="py-24">
             <h2 class="section-title mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-1.25-3.75M3 10h18M5 14h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2zm4.5-4h5.25" /></svg>
                 <span>Proyectos Destacados IA</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyecto: Núcleo Colectivo Plataforma Educativa IA 4.0 -->
-                <div class="card p-6">
+                
+<div class="card p-6">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Núcleo Colectivo IA 4.0</h3>
                     <p class="mb-4 text-gray-400">Plataforma educativa para artistas y creativos, con talleres, recursos y comunidad.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://82hvn07yaf.space.minimax.io/" target="_blank" class="btn-primary">Ver Proyecto</a>
                     </div>
                 </div>
-                <!-- Proyecto: IA Básica - Fundamentos Visuales -->
-                <div class="card p-6">
+                
+<div class="card p-6">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">IA Básica - Fundamentos Visuales</h3>
                     <p class="mb-4 text-gray-400">Juego interactivo de 15 minutos que enseña redes neuronales, arte generativo y ética en IA.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://7b8m3siua7.space.minimax.io/" target="_blank" class="btn-primary">Ver Juego</a>
                     </div>
                 </div>
-                <!-- Proyecto: Aventura IA Creativa -->
-                <div class="card p-6">
+                
+<div class="card p-6">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Aventura IA Creativa</h3>
                     <p class="mb-4 text-gray-400">Experiencia gamificada para explorar la IA creativa, aprender y experimentar con herramientas avanzadas.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://vq4u9s8bj7.space.minimax.io/" target="_blank" class="btn-primary">Ver Aventura</a>
                     </div>
                 </div>
-                <!-- Proyecto: Núcleo Radio y Núcleo Channel -->
-                <div class="card p-6">
+                
+<div class="card p-6">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Núcleo Radio y Channel</h3>
                     <p class="mb-4 text-gray-400">Emisora y canal audiovisual con inteligencia artificial narrativa y locutores virtuales.</p>
                     <div class="flex justify-center mt-4 space-x-2">
@@ -875,24 +873,24 @@
                         <a href="https://rgrlhopkbj.space.minimax.io/" target="_blank" class="btn-primary">Ver Channel</a>
                     </div>
                 </div>
-                <!-- Proyecto: COSIACA 350 -->
-                <div class="card p-6">
+                
+<div class="card p-6">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">COSIACA 350</h3>
                     <p class="mb-4 text-gray-400">Plataforma transmedia para celebrar los 350 años de Medellín, con chatbot, trivias y IA narrativa.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://nucleocolectivo.github.io/Cosiaca/" target="_blank" class="btn-primary">Ver Proyecto</a>
                     </div>
                 </div>
-                <!-- Proyecto: PROMPTS CREATOR -->
-                <div class="card p-6">
+                
+<div class="card p-6">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">PROMPTS CREATOR</h3>
                     <p class="mb-4 text-gray-400">Herramienta avanzada para creación de prompts con 6 tipos, ejemplos y sistema educativo gamificado.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://hypccay6jz.space.minimax.io/" target="_blank" class="btn-primary">Ver Herramienta</a>
                     </div>
                 </div>
-                <!-- Proyecto: COTIZADOR DIGITAL -->
-                <div class="card p-6">
+                
+<div class="card p-6">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">COTIZADOR DIGITAL</h3>
                     <p class="mb-4 text-gray-400">Serie de prototipos de agentes conversacionales que simulan cotizaciones para diversos servicios.</p>
                     <div class="flex justify-center mt-4 space-x-2">
@@ -900,8 +898,8 @@
                         <a href="https://nucleocolectivo.github.io/GYM/" target="_blank" class="btn-primary">Ver GYM Bot</a>
                     </div>
                 </div>
-                <!-- Proyecto: CosiacaBot -->
-                <div class="card p-6">
+                
+<div class="card p-6">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">CosiacaBot</h3>
                     <p class="mb-4 text-gray-400">Chatbot cultural basado en el personaje "Cosiaca" con trivias, storytelling y guía educativa sobre Medellín.</p>
                     <div class="flex justify-center mt-4">
@@ -911,8 +909,8 @@
             </div>
         </section>
 
-        <!-- Sección de Educación -->
-        <section id="education" class="py-24">
+        
+<section id="education" class="py-24">
             <h2 class="section-title mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253" /></svg>
                 <span>Educación</span>
@@ -962,8 +960,8 @@
             </div>
         </section>
 
-        <!-- Sección de Idiomas -->
-        <section id="languages" class="py-24">
+        
+<section id="languages" class="py-24">
             <h2 class="section-title mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l-6-6m0 0l6-6m-6 6h18" /></svg>
                 <span>Idiomas</span>
@@ -981,8 +979,8 @@
         </section>
     </main>
 
-    <!-- Sección de Contacto y Footer -->
-    <footer id="contact" class="bg-gray-900 text-white pt-20 pb-10 px-4 mt-16">
+    
+<footer id="contact" class="bg-gray-900 text-white pt-20 pb-10 px-4 mt-16">
         <div class="container mx-auto text-center">
              <h2 class="section-title mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
@@ -990,8 +988,8 @@
             </h2>
             <p class="text-xl mb-8 font-light text-gray-400">Busco integrarme a un equipo donde pueda aportar mi experiencia en diseño gráfico y desarrollo de soluciones creativas con inteligencia artificial.</p>
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mb-12">
-                <!-- Corrected email and phone links -->
-                <a href="tel:+573006101221" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors"><span>+57 300 610 1221</span></a>
+                
+<a href="tel:+573006101221" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors"><span>+57 300 610 1221</span></a>
                 <a href="mailto:d.manuelpalacio@gmail.com" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors"><span>d.manuelpalacio@gmail.com</span></a>
             </div>
             <div class="flex justify-center space-x-6 mb-8">
@@ -1012,8 +1010,8 @@
         </div>
     </footer>
 
-    <!-- Botón para volver arriba -->
-    <div id="scrollTopBtn" title="Volver arriba">
+    
+<div id="scrollTopBtn" title="Volver arriba">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
         </svg>
