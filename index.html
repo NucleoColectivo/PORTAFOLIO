@@ -62,45 +62,9 @@
             --portfolio-hover-bg: rgba(0,0,0,0.9);
             --nodes-canvas-gradient-start: rgba(13, 17, 23, 0.2);
             --nodes-canvas-gradient-end: #0d1117;
-            --hero-text-color: #ffffff; /* Color específico para el texto del héroe en modo oscuro */
+            --hero-text-color: #ffffff;
             --text-yellow: #facc15;
             --text-cyan: #22d3ee;
-        }
-
-        /* Colores del Modo Claro */
-        [data-theme="light"] {
-            --bg-primary: #ffffff;
-            --text-primary: #333333;
-            --card-bg: #f9fafb;
-            --card-border: #e2e8f0;
-            --navbar-bg: rgba(255, 255, 255, 0.9);
-            --box-shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --nav-link-hover-bg: #e2e8f0;
-            --nav-link-hover-color: #3b82f6;
-            --section-title-color: #1a202c;
-            --section-title-underline: #3b82f6;
-            --btn-primary-bg: #f59e0b;
-            --btn-primary-hover-bg: #d97706;
-            --scroll-top-bg: #e2e8f0;
-            --scroll-top-color: #3b82f6;
-            --scroll-top-border: #3b82f6;
-            --timeline-line: #cbd5e0;
-            --timeline-dot: #3b82f6;
-            --skill-bg: #ffffff;
-            --skill-border: #e2e8f0;
-            --skill-text: #333333;
-            --footer-bg: #f0f2f5;
-            --footer-text: #333333;
-            --footer-link-color: #3b82f6;
-            --footer-social-color: #6b7280;
-            --portfolio-gradient-start: rgba(255,255,255,0.8);
-            --portfolio-gradient-end: rgba(255,255,255,0);
-            --portfolio-hover-bg: rgba(255,255,255,0.9);
-            --nodes-canvas-gradient-start: rgba(255, 255, 255, 0.2);
-            --nodes-canvas-gradient-end: #ffffff;
-            --hero-text-color: #333333; /* Color específico para el texto del héroe en modo claro */
-            --text-yellow: #f59e0b;
-            --text-cyan: #0891b2;
         }
 
         /* Estilos generales del cuerpo */
@@ -109,7 +73,6 @@
             background-color: var(--bg-primary);
             color: var(--text-primary);
             scroll-behavior: smooth;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
 
         .container { max-width: 1200px; }
@@ -158,7 +121,6 @@
             height: 100%;
             z-index: 1;
             background: radial-gradient(ellipse at center, var(--nodes-canvas-gradient-start) 0%, var(--nodes-canvas-gradient-end) 100%);
-            transition: background 0.3s ease-in-out;
         }
 
         .portfolio-box {
@@ -306,14 +268,12 @@
             font-weight: 700;
             font-size: 2.25rem;
             color: var(--section-title-color);
-            transition: color 0.3s ease-in-out;
         }
 
         .section-title svg {
             width: 32px;
             height: 32px;
             color: var(--nav-link-hover-color);
-            transition: color 0.3s ease-in-out;
         }
 
         .section-title::after {
@@ -326,7 +286,6 @@
             height: 4px;
             background-color: var(--section-title-underline);
             border-radius: 2px;
-            transition: background-color 0.3s ease-in-out;
         }
         
         /* Estilo para las tarjetas en tema oscuro */
@@ -335,7 +294,7 @@
             border: 1px solid var(--card-border);
             border-radius: 1rem;
             box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
         }
 
         .card:hover {
@@ -378,7 +337,7 @@
             cursor: pointer;
             border: 1px solid var(--scroll-top-border);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color 0.3s;
+            transition: opacity 0.3s, transform 0.3s;
             z-index: 1000;
         }
         #scrollTopBtn:hover {
@@ -492,7 +451,7 @@
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
         }
 
         .portfolio-wrapper:hover {
@@ -527,9 +486,9 @@
             width: 100%;
             background: linear-gradient(to top, var(--portfolio-gradient-start) 0%, var(--portfolio-gradient-end) 100%);
             padding: 1rem 1.5rem;
-            color: var(--text-primary); /* Asegura que el color del texto del encabezado del portafolio use la variable */
+            color: var(--text-primary);
             text-align: center;
-            transition: background 0.4s ease-in-out, padding 0.4s ease-in-out, color 0.3s ease-in-out;
+            transition: background 0.4s ease-in-out, padding 0.4s ease-in-out;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -549,7 +508,7 @@
             text-transform: uppercase;
             line-height: 1.2;
             margin-bottom: 0.5rem;
-            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, color 0.3s ease-in-out;
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
         }
 
         .portfolio-header-wrapper .project-link-text {
@@ -558,7 +517,7 @@
             color: var(--nav-link-hover-color);
             opacity: 0;
             transform: translateY(20px);
-            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, color 0.3s ease-in-out;
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
         }
 
         .portfolio-wrapper:hover .portfolio-header-wrapper h1 {
@@ -604,123 +563,9 @@
                 justify-content: flex-end;
             }
         }
-
-        /* Estilos para la sección Sobre Mí */
-        #about p {
-            color: var(--text-primary);
-            transition: color 0.3s ease-in-out;
-        }
-        #about .font-semibold {
-            color: var(--nav-link-hover-color);
-            transition: color 0.3s ease-in-out;
-        }
-        #about .bg-gray-900 {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-        }
-        #about h3 {
-            color: var(--nav-link-hover-color);
-            transition: color 0.3s ease-in-out;
-        }
-        #about .text-gray-400 {
-            color: var(--text-primary); /* Asegura que el color del texto use la variable */
-            transition: color 0.3s ease-in-out;
-        }
-        #about .bg-gray-700 {
-            background-color: var(--timeline-line);
-            transition: background-color 0.3s ease-in-out;
-        }
-        #about .bg-blue-500 {
-            background-color: var(--timeline-dot);
-            transition: background-color 0.3s ease-in-out;
-        }
-        #about h4 {
-            color: var(--nav-link-hover-color);
-            transition: color 0.3s ease-in-out;
-        }
-        #about .text-md {
-            color: var(--text-primary); /* Asegura que el color del texto use la variable */
-            transition: color 0.3s ease-in-out;
-        }
-
-        /* Estilos para la sección Proyectos Destacados IA */
-        #ia-projects .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-        }
-        #ia-projects h3 {
-            color: var(--nav-link-hover-color);
-            transition: color 0.3s ease-in-out;
-        }
-        #ia-projects .text-gray-400 {
-            color: var(--text-primary); /* Asegura que el color del texto use la variable */
-            transition: color 0.3s ease-in-out;
-        }
-
-        /* Estilos para la sección Educación */
-        #education .bg-gray-700 {
-            background-color: var(--timeline-line);
-            transition: background-color 0.3s ease-in-out;
-        }
-        #education .bg-blue-500 {
-            background-color: var(--timeline-dot);
-            transition: background-color 0.3s ease-in-out;
-        }
-        #education h4 {
-            color: var(--nav-link-hover-color);
-            transition: color 0.3s ease-in-out;
-        }
-        #education .text-gray-400 {
-            color: var(--text-primary); /* Asegura que el color del texto use la variable */
-            transition: color 0.3s ease-in-out;
-        }
-
-        /* Estilos para la sección Idiomas */
-        #languages .bg-gray-900 {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-        }
-        #languages .font-semibold {
-            color: var(--nav-link-hover-color);
-            transition: color 0.3s ease-in-out;
-        }
-        #languages .text-gray-300 {
-            color: var(--text-primary); /* Asegura que el color del texto use la variable */
-            transition: color 0.3s ease-in-out;
-        }
-
-        /* Estilos para el Footer */
-        footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        }
-        footer h2 {
-            color: var(--section-title-color) !important; /* Override inline style */
-            transition: color 0.3s ease-in-out;
-        }
-        footer p {
-            color: var(--text-primary); /* Asegura que el color del texto use la variable */
-            transition: color 0.3s ease-in-out;
-        }
-        footer a {
-            color: var(--footer-link-color);
-            transition: color 0.3s ease-in-out;
-        }
-        footer .text-gray-400 {
-            color: var(--footer-social-color);
-            transition: color 0.3s ease-in-out;
-        }
-        footer .text-gray-500 {
-            color: var(--footer-text); /* Asegura que el color del texto use la variable */
-            transition: color 0.3s ease-in-out;
-        }
     </style>
 </head>
-<body class="antialiased" data-theme="dark">
+<body class="antialiased">
 
     
 <nav class="navbar py-3 px-4">
@@ -730,21 +575,11 @@
             </div>
             <div class="hidden md:flex flex-wrap justify-center space-x-2 items-center">
                 <a href="#about" class="nav-link">Sobre Mí</a>
-                <a href="#ia-experience" class="nav-link">Experiencia IA</a>
                 <a href="#portfolio" class="nav-link">Portafolio</a>
                 <a href="#ia-projects" class="nav-link">Proyectos IA</a>
                 <a href="#education" class="nav-link">Educación</a>
                 <a href="#languages" class="nav-link">Idiomas</a>
                 <a href="#contact" class="nav-link">Contacto</a>
-                <button id="theme-toggle" class="nav-link p-2 rounded-full flex items-center justify-center">
-                    
-<svg id="sun-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h1M3 12H2m8.003-7.5l-.64.64m9.192 9.192l.64.64M4.5 4.5l-.64.64m9.192-.64l.64-.64M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                    </svg>
-                    <svg id="moon-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                </button>
             </div>
         </div>
     </nav>
@@ -1204,38 +1039,6 @@
             banner = document.getElementById('node-banner'); // Asigna globalmente
             canvas = document.getElementById('nodes-canvas'); // Asigna globalmente
             initThreeJs();
-
-            // --- Lógica para el cambio de tema (modo claro/oscuro) ---
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const sunIcon = document.getElementById('sun-icon');
-            const moonIcon = document.getElementById('moon-icon');
-            const body = document.body;
-
-            function applyTheme(theme) {
-                body.setAttribute('data-theme', theme);
-                localStorage.setItem('theme', theme);
-                // Actualiza el color del texto de los iconos del tema
-                sunIcon.style.color = 'var(--text-primary)';
-                moonIcon.style.color = 'var(--text-primary)';
-
-                if (theme === 'dark') {
-                    sunIcon.classList.remove('hidden');
-                    moonIcon.classList.add('hidden');
-                } else {
-                    sunIcon.classList.add('hidden');
-                    moonIcon.classList.remove('hidden');
-                }
-            }
-
-            themeToggleBtn.addEventListener('click', () => {
-                const currentTheme = body.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                applyTheme(newTheme);
-            });
-
-            // Aplica el tema guardado al cargar la página
-            const savedTheme = localStorage.getItem('theme') || 'dark'; // Por defecto, modo oscuro si no hay preferencia
-            applyTheme(savedTheme);
         });
 
         // Función para inicializar la escena y animación de Three.js
