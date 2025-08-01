@@ -13,7 +13,7 @@
     
 <meta property="og:title" content="Manuel Palacio - Portafolio Creativo Digital">
     <meta property="og:description" content="Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.">
-    <meta property="og:image" content="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true">
+    <meta property="og:image" content="https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/15_foto%20ok.jpg">
     <meta property="og:url" content="#"> 
 <meta property="og:type" content="website">
 
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Manuel Palacio - Portafolio Creativo Digital">
     <meta name="twitter:description" content="Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.">
-    <meta name="twitter:image" content="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/15_foto%20ok.jpg">
 
     
 <script src="https://cdn.tailwindcss.com"></script>
@@ -45,21 +45,10 @@
             --section-title-underline: #58a6ff;
             --btn-primary-bg: #f59e0b;
             --btn-primary-hover-bg: #d97706;
-            --scroll-top-bg: #21262d;
-            --scroll-top-color: #58a6ff;
-            --scroll-top-border: #58a6ff;
-            --timeline-line: #4a5568;
-            --timeline-dot: #58a6ff;
-            --skill-bg: #161b22;
-            --skill-border: #30363d;
-            --skill-text: #c9d1d9;
             --footer-bg: #161b22;
             --footer-text: #c9d1d9;
             --footer-link-color: #58a6ff;
             --footer-social-color: #c9d1d9;
-            --portfolio-gradient-start: rgba(0,0,0,0.8);
-            --portfolio-gradient-end: rgba(0,0,0,0);
-            --portfolio-hover-bg: rgba(0,0,0,0.9);
             --nodes-canvas-gradient-start: rgba(13, 17, 23, 0.2);
             --nodes-canvas-gradient-end: #0d1117;
             --hero-text-color: #ffffff;
@@ -121,30 +110,6 @@
             height: 100%;
             z-index: 1;
             background: radial-gradient(ellipse at center, var(--nodes-canvas-gradient-start) 0%, var(--nodes-canvas-gradient-end) 100%);
-        }
-
-        .portfolio-box {
-            border: 2px solid var(--text-cyan);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 15px var(--text-cyan);
-            text-align: center;
-            background-color: rgba(13, 17, 23, 0.7);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            width: auto;
-        }
-
-        .portfolio-box h2 {
-            color: var(--text-cyan);
-            font-weight: 700;
-            letter-spacing: 0.1em;
-        }
-        .portfolio-box p {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--text-cyan);
-            opacity: 0.8;
         }
 
         .hero-content {
@@ -321,29 +286,40 @@
             transform: translateY(-2px);
         }
         
-        /* Botón para volver arriba */
-        #scrollTopBtn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: var(--scroll-top-bg);
-            color: var(--scroll-top-color);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: 1px solid var(--scroll-top-border);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: opacity 0.3s, transform 0.3s;
-            z-index: 1000;
+        #portfolio-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; padding: 0 1rem; }
+        .project-card { position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 12px; cursor: pointer; background-color: #333; box-shadow: 0 8px 24px rgba(0,0,0,0.4); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 16px 32px rgba(0,0,0,0.5); }
+        .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .project-card:hover img { transform: scale(1.08); }
+        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.4s ease; }
+        .project-card:hover .project-overlay { opacity: 1; }
+        .overlay-content { transform: translateY(20px); transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); display: flex; justify-content: space-between; align-items: flex-end; }
+        .project-card:hover .overlay-content { transform: translateY(0); }
+        .project-title { font-size: 2rem; font-weight: 900; text-transform: uppercase; line-height: 1.2; margin: 0; }
+        .project-subtitle { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); margin-top: 0.25rem; }
+        .project-link-button { padding: 0.4rem 0.8rem; font-size: 0.8rem; font-weight: 700; color: #0d1117; background-color: var(--text-cyan); border-radius: 999px; text-decoration: none; transition: background-color 0.3s ease; }
+        .project-link-button:hover { background-color: #fff; }
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 1000; inset: 0; background-color: rgba(0,0,0,0.95); justify-content: center; align-items: center; animation: fadeIn 0.3s ease; overflow: auto; }
+        .modal[aria-hidden="false"] { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal-content { position: relative; max-width: 90vw; max-height: 90vh; }
+        .modal-image { max-width: 90vw; max-height: 85vh; border-radius: 5px; display: block; margin: 0 auto; }
+        .modal button { background: none; border: none; color: #fff; cursor: pointer; }
+        .close-button { position: absolute; top: 15px; right: 35px; font-size: 2.5rem; }
+        .prev-button, .next-button { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; padding: 16px; background-color: rgba(0,0,0,0.3); }
+        .prev-button { left: 15px; border-radius: 0 3px 3px 0; }
+        .next-button { right: 15px; border-radius: 3px 0 0 3px; }
+        @media(max-width: 640px) { #portfolio-container { grid-template-columns: 1fr; } .project-title { font-size: 1.5rem; } }
+
+        /* Animaciones para el botón de WhatsApp */
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px #25D366, 0 0 10px #25D366, 0 0 15px #25D366; }
+            50% { box-shadow: 0 0 20px #25D366, 0 0 30px #25D366, 0 0 40px #25D366; }
         }
-        #scrollTopBtn:hover {
-            background-color: var(--scroll-top-color);
-            color: var(--card-bg);
-            transform: scale(1.1);
+        @keyframes gentle-bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         /* Botón flotante de WhatsApp */
@@ -360,213 +336,51 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 1000;
+            z-index: 1001; /* Asegura que esté por encima de otros elementos */
+            animation: gentle-bob 2.5s ease-in-out infinite, glow 3s ease-in-out infinite;
         }
         #whatsapp-fab:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            animation-play-state: paused;
         }
 
-        /* Estilos para las barras de progreso */
-        .progress-bar-container {
-            background-color: var(--nav-link-hover-bg);
-            border-radius: 0.5rem;
-            height: 12px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            background-color: var(--nav-link-hover-color);
-            height: 100%;
-            border-radius: 0.5rem;
-            width: 0%; /* Will be set by JS or inline style */
-            transition: width 0.8s ease-out;
-        }
-
-        /* Custom icons for tools */
-        .icon-container {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 0.5rem;
-            border-radius: 50%;
-            border: 1px solid;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.25rem;
-        }
-        .icon-container svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Keyframe animations for text entrance */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .animate-fadeInUp {
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        .animate-fadeIn {
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-
-        /* New and improved styles for portfolio cards */
-        .portfolio-wrapper {
-            position: relative;
-            width: 100%; /* Make width fluid */
-            max-width: 400px; /* Max width for desktop */
-            height: 250px; /* Fixed height for consistency */
-            margin: 0 auto; /* Center the wrapper within its grid column */
-            display: flex;
-            flex-direction: column;
-            border-radius: 1rem;
-            overflow: hidden;
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-        }
-
-        .portfolio-wrapper:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            border-color: var(--nav-link-hover-color);
-        }
-
-        .portfolio-image-wrapper {
-            width: 100%;
-            height: 100%; /* Fill the wrapper height */
-            overflow: hidden;
-            position: relative;
-        }
-
-        .portfolio-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center; /* Center the image within its container */
-            transition: transform 0.4s ease-in-out;
-        }
-
-        .portfolio-wrapper:hover .portfolio-image-wrapper img {
-            transform: scale(1.1); /* Slight zoom on hover */
-        }
-
-        .portfolio-header-wrapper {
-            position: absolute;
-            bottom: 0;
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(to top, var(--portfolio-gradient-start) 0%, var(--portfolio-gradient-end) 100%);
-            padding: 1rem 1.5rem;
-            color: var(--text-primary);
-            text-align: center;
-            transition: background 0.4s ease-in-out, padding 0.4s ease-in-out;
+            height: 100%;
+            background-color: var(--bg-primary);
+            z-index: 9999;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
-            min-height: 80px; /* Minimum height for the overlay */
+            transition: opacity 0.75s ease, visibility 0.75s ease;
         }
-
-        .portfolio-wrapper:hover .portfolio-header-wrapper {
-            background: var(--portfolio-hover-bg);
-            padding: 1.5rem;
-            min-height: 100%; /* Expand to full height on hover */
-            justify-content: center; /* Center content when expanded */
-        }
-
-        .portfolio-header-wrapper h1 {
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-        }
-
-        .portfolio-header-wrapper .project-link-text {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--nav-link-hover-color);
+        #preloader.hidden {
             opacity: 0;
-            transform: translateY(20px);
-            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+            visibility: hidden;
         }
-
-        .portfolio-wrapper:hover .portfolio-header-wrapper h1 {
-            transform: translateY(-10px);
-            margin-bottom: 0;
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--nav-link-hover-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
         }
-
-        .portfolio-wrapper:hover .portfolio-header-wrapper .project-link-text {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        /* Responsive adjustments for portfolio cards */
-        @media (max-width: 768px) {
-            .portfolio-wrapper {
-                height: 200px;
-                max-width: 100%;
-            }
-
-            .portfolio-header-wrapper {
-                min-height: 60px;
-                padding: 0.75rem 1rem;
-            }
-
-            .portfolio-header-wrapper h1 {
-                font-size: 1.5rem;
-            }
-
-            .portfolio-header-wrapper .project-link-text {
-                font-size: 1rem;
-            }
-
-            /* Disable hover effects for touch devices to prevent sticky hover states */
-            .portfolio-wrapper:hover .portfolio-image-wrapper img,
-            .portfolio-wrapper:hover .portfolio-header-wrapper,
-            .portfolio-wrapper:hover .portfolio-header-wrapper h1,
-            .portfolio-wrapper:hover .portfolio-header-wrapper .project-link-text {
-                transform: none;
-                opacity: 1;
-                background: linear-gradient(to top, var(--portfolio-gradient-start) 0%, var(--portfolio-gradient-end) 100%);
-                padding: 1rem 1.5rem;
-                min-height: 80px;
-                justify-content: flex-end;
-            }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body class="antialiased">
 
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     
 <nav class="navbar py-3 px-4">
         <div class="container mx-auto flex justify-between items-center">
@@ -575,6 +389,7 @@
             </div>
             <div class="hidden md:flex flex-wrap justify-center space-x-2 items-center">
                 <a href="#about" class="nav-link">Sobre Mí</a>
+                <a href="#trayectoria" class="nav-link">Trayectoria</a>
                 <a href="#portfolio" class="nav-link">Portafolio</a>
                 <a href="#ia-projects" class="nav-link">Proyectos IA</a>
                 <a href="#education" class="nav-link">Educación</a>
@@ -590,11 +405,7 @@
         <div class="hero-content">
             <div class="hero-main">
                 <div class="flex flex-col items-center md:items-start animate-fadeIn delay-100">
-                    <div class="portfolio-box mb-4">
-                        <h2>PORTAFOLIO</h2>
-                        <p>1010101101101101</p>
-                    </div>
-                    <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/15_foto%20ok.jpg?raw=true" alt="Foto de Perfil de Manuel Palacio" class="rounded-xl shadow-2xl w-48 h-48 md:w-64 md:h-64 object-cover">
+                    <img src="https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/15_foto%20ok.jpg" alt="Foto de Perfil de Manuel Palacio" class="rounded-xl shadow-2xl w-48 h-48 md:w-64 md:h-64 object-cover">
                 </div>
                 <div class="hero-text-block">
                     <h1 class="animate-fadeInUp delay-200">MANUEL PALACIO</h1>
@@ -621,12 +432,12 @@
 <main class="container mx-auto px-4">
         
 <section id="about" class="py-24">
-            <h2 class="section-title mx-auto">
+            <h2 class="section-title mx-auto animate-on-scroll">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
                 <span>Sobre Mí</span>
             </h2>
             <div class="flex flex-col md:flex-row items-start md:space-x-12">
-                <div class="md:w-1/2 mb-8 md:mb-0">
+                <div class="md:w-1/2 mb-8 md:mb-0 animate-on-scroll">
                     <p class="text-lg leading-relaxed mb-4">
                         Con una sólida formación en Bellas Artes y Artes Plásticas, mi trayectoria se ha centrado en la intersección del arte, el diseño y la tecnología. A lo largo de más de 20 años, he desarrollado una amplia gama de productos visuales y narrativos, siempre buscando la innovación y la excelencia creativa.
                     </p>
@@ -634,50 +445,37 @@
                         Mi experiencia abarca áreas como el <span class="font-semibold text-blue-400">diseño gráfico</span>, la <span class="font-semibold text-blue-400">ilustración</span>, diseño de personajes, storyboard, imagen corporativa y dirección de arte.
                     </p>
                 </div>
-                <div class="md:w-1/2 bg-gray-900 p-6 rounded-lg border border-gray-700">
+                <div class="md:w-1/2 bg-gray-900 p-6 rounded-lg border border-gray-700 animate-on-scroll">
                     <h3 class="text-2xl font-semibold mb-6 text-blue-400">Habilidades Clave</h3>
                     <div class="grid grid-cols-2 gap-6 text-lg">
                         <div class="flex items-center space-x-3">
-                            
-<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
                             <span>Diseño Gráfico</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            
-<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
                             <span>Ilustración</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            
-<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-hover-bg);">
-                                <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-hover-bg);"><path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
                             <span>Video Arte</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            
-<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
                             <span>Creación Digital</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            
-<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z"/></svg>
                             <span>Chatbots y PLN</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            
-<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--nav-link-hover-color);">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--nav-link-hover-color);"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4" /></svg>
                             <span>Prototipado Web</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="mt-16">
+             <div id="trayectoria" class="mt-16 animate-on-scroll">
                 <h3 class="text-2xl font-semibold mb-6 text-blue-400" style="color: var(--nav-link-hover-color);">Trayectoria Profesional</h3>
                 <div class="relative pl-8 md:pl-0">
                     
@@ -743,83 +541,22 @@
 
         
 <section id="portfolio" class="py-24">
-            <h2 class="section-title mx-auto">
+            <h2 class="section-title mx-auto animate-on-scroll">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/></svg>
                 <span>Portafolio</span>
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                
-<div class="flex flex-col items-center">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Diseño Gráfico</h3>
-                    <div class="portfolio-wrapper">
-                        <a href="https://manuelpalacioart.wordpress.com/diseno-grafico/" target="_blank" class="block w-full h-full relative">
-                            <div class="portfolio-image-wrapper">
-                                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/diseno.png?raw=true" alt="Diseño Gráfico: Proyecto Creativo">
-                            </div>
-                            <div class="portfolio-header-wrapper">
-                                <h1>Diseño Gráfico</h1>
-                                <span class="project-link-text">Ver Proyecto</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-<div class="flex flex-col items-center">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Ilustración Digital</h3>
-                    <div class="portfolio-wrapper">
-                        <a href="https://manuelpalacioart.wordpress.com/ilustracion" target="_blank" class="block w-full h-full relative">
-                            <div class="portfolio-image-wrapper">
-                                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/02%20Ok%20RGB%20copia.jpg?raw=true" alt="Ilustración Digital">
-                            </div>
-                            <div class="portfolio-header-wrapper">
-                                <h1>Ilustración</h1>
-                                <span class="project-link-text">Ver Proyecto</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-<div class="flex flex-col items-center">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Video Arte</h3>
-                    <div class="portfolio-wrapper">
-                        <a href="https://www.youtube.com/@ManuelPalacioA/videos" target="_blank" class="block w-full h-full relative">
-                            <div class="portfolio-image-wrapper">
-                                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/Sintonia002.jpg?raw=true" alt="Video Arte">
-                            </div>
-                            <div class="portfolio-header-wrapper">
-                                <h1>Video Arte</h1>
-                                <span class="project-link-text">Ver Canal</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-<div class="flex flex-col items-center">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-400" style="color: var(--nav-link-hover-color);">Proyectos IA</h3>
-                    <div class="portfolio-wrapper">
-                        <a href="#ia-projects" class="block w-full h-full relative">
-                            <div class="portfolio-image-wrapper">
-                                <img src="https://github.com/NucleoColectivo/PORTAFOLIO/blob/main/IMG/proyectosia.png?raw=true" alt="Proyectos de Inteligencia Artificial">
-                            </div>
-                            <div class="portfolio-header-wrapper">
-                                <h1>Proyectos IA</h1>
-                                <span class="project-link-text">Explorar IA</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div id="portfolio-container">Cargando proyectos...</div>
         </section>
 
         
 <section id="ia-projects" class="py-24">
-            <h2 class="section-title mx-auto">
+            <h2 class="section-title mx-auto animate-on-scroll">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-1.25-3.75M3 10h18M5 14h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2zm4.5-4h5.25" /></svg>
                 <span>Proyectos Destacados IA</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-<div class="card p-6">
+<div class="card p-6 animate-on-scroll">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Núcleo Colectivo IA 4.0</h3>
                     <p class="mb-4 text-gray-400">Plataforma educativa para artistas y creativos, con talleres, recursos y comunidad.</p>
                     <div class="flex justify-center mt-4">
@@ -827,7 +564,7 @@
                     </div>
                 </div>
                 
-<div class="card p-6">
+<div class="card p-6 animate-on-scroll">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">IA Básica - Fundamentos Visuales</h3>
                     <p class="mb-4 text-gray-400">Juego interactivo de 15 minutos que enseña redes neuronales, arte generativo y ética en IA.</p>
                     <div class="flex justify-center mt-4">
@@ -835,15 +572,14 @@
                     </div>
                 </div>
                 
-<div class="card p-6">
+<div class="card p-6 animate-on-scroll">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Aventura IA Creativa</h3>
                     <p class="mb-4 text-gray-400">Experiencia gamificada para explorar la IA creativa, aprender y experimentar con herramientas avanzadas.</p>
                     <div class="flex justify-center mt-4">
                         <a href="https://vq4u9s8bj7.space.minimax.io/" target="_blank" class="btn-primary">Ver Aventura</a>
                     </div>
                 </div>
-                
-<div class="card p-6">
+                 <div class="card p-6 animate-on-scroll">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Núcleo Radio y Channel</h3>
                     <p class="mb-4 text-gray-400">Emisora y canal audiovisual con inteligencia artificial narrativa y locutores virtuales.</p>
                     <div class="flex justify-center mt-4 space-x-2">
@@ -852,7 +588,7 @@
                     </div>
                 </div>
                 
-<div class="card p-6">
+<div class="card p-6 animate-on-scroll">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">COSIACA 350</h3>
                     <p class="mb-4 text-gray-400">Plataforma transmedia para celebrar los 350 años de Medellín, con chatbot, trivias y IA narrativa.</p>
                     <div class="flex justify-center mt-4">
@@ -860,7 +596,7 @@
                     </div>
                 </div>
                 
-<div class="card p-6">
+<div class="card p-6 animate-on-scroll">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">PROMPTS CREATOR</h3>
                     <p class="mb-4 text-gray-400">Herramienta avanzada para creación de prompts con 6 tipos, ejemplos y sistema educativo gamificado.</p>
                     <div class="flex justify-center mt-4">
@@ -868,7 +604,7 @@
                     </div>
                 </div>
                 
-<div class="card p-6">
+<div class="card p-6 animate-on-scroll">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">COTIZADOR DIGITAL</h3>
                     <p class="mb-4 text-gray-400">Serie de prototipos de agentes conversacionales que simulan cotizaciones para diversos servicios.</p>
                     <div class="flex justify-center mt-4 space-x-2">
@@ -877,7 +613,7 @@
                     </div>
                 </div>
                 
-<div class="card p-6">
+<div class="card p-6 animate-on-scroll">
                     <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">CosiacaBot</h3>
                     <p class="mb-4 text-gray-400">Chatbot cultural basado en el personaje "Cosiaca" con trivias, storytelling y guía educativa sobre Medellín.</p>
                     <div class="flex justify-center mt-4">
@@ -886,14 +622,13 @@
                 </div>
             </div>
         </section>
-
         
 <section id="education" class="py-24">
-            <h2 class="section-title mx-auto">
+            <h2 class="section-title mx-auto animate-on-scroll">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253" /></svg>
                 <span>Educación</span>
             </h2>
-            <div class="relative pl-8 md:pl-0">
+            <div class="relative pl-8 md:pl-0 animate-on-scroll">
                 <div class="absolute left-4 md:left-1/2 w-0.5 bg-gray-700 h-full -translate-x-1/2 md:block hidden"></div>
 
                 <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
@@ -940,16 +675,16 @@
 
         
 <section id="languages" class="py-24">
-            <h2 class="section-title mx-auto">
+            <h2 class="section-title mx-auto animate-on-scroll">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l-6-6m0 0l6-6m-6 6h18" /></svg>
                 <span>Idiomas</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 animate-on-scroll">
                     <span class="font-semibold text-blue-400" style="color: var(--nav-link-hover-color);">Español</span>
                     <span class="text-gray-300">Nativo</span>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 animate-on-scroll">
                     <span class="font-semibold text-blue-400" style="color: var(--nav-link-hover-color);">Inglés</span>
                     <span class="text-gray-300">Bueno (lectura, escritura y escucha)</span>
                 </div>
@@ -972,20 +707,16 @@
             </div>
             <div class="flex justify-center space-x-6 mb-8">
                 <a href="https://www.facebook.com/manuelpalacio" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-1.723c0-2.042 1.131-3.344 3.252-3.344h2.748v3z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-1.723c0-2.042 1.131-3.344 3.252-3.344h2.748v3z"/></svg>
                 </a>
                 <a href="https://www.instagram.com/manuelpalacio/" target="_blank" class="text-gray-400 hover:text-pink-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.069c-3.251-.148-4.77-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.069c-3.251-.148-4.77-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
                 <a href="https://manuelpalacioart.wordpress.com/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.454 17.514l-3.232-9.827h2.383l1.932 6.943 1.979-6.943h2.463l-3.284 9.827h-2.115z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.454 17.514l-3.232-9.827h2.383l1.932 6.943 1.979-6.943h2.463l-3.284 9.827h-2.115z"/></svg>
                 </a>
                 <a href="https://wa.me/573006101221" target="_blank" class="text-gray-400 hover:text-green-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" style="color: var(--footer-social-color);">
-                        <path d="M.058 21.564l1.455-5.338a9.364 9.364 0 0 1-1.513-4.888C0 5.085 5.085 0 11.364 0S22.67 5.085 22.67 11.364c0 6.278-5.085 11.363-11.305 11.363h-.005a9.367 9.367 0 0 1-4.48-.965L.058 21.564zM11.364 2.273c-5.045 0-9.148 4.103-9.148 9.148 0 1.682.455 3.273 1.273 4.637l-.864 3.155 3.245-1.064a9.14 9.14 0 0 0 5.494 1.545h.005c5.045 0 9.148-4.103 9.148-9.148S16.41 2.273 11.364 2.273zm4.272 6.137c-.236-.118-1.39-.682-1.608-.763-.218-.082-.373-.118-.536.118-.164.237-.609.764-.745.918-.137.164-.273.182-.518.064-.245-.118-.99-.364-1.89-1.173-.7-.627-1.172-1.39-1.317-1.636-.146-.245-.018-.373.109-.482.11-.09.237-.218.355-.345.118-.118.164-.218.237-.382.072-.163.045-.3-.018-.418-.063-.118-.536-1.272-.727-1.745-.182-.454-.382-.382-.536-.39-.145-.009-.3-.009-.454-.009a.86.86 0 0 0-.627.29c-.218.237-.827.809-.827 1.963 0 1.155.845 2.264.954 2.418.11.164 1.654 2.527 4.018 3.545.555.245 1 .382 1.345.49.563.182 1.072.155 1.481.09.455-.073 1.39-.564 1.59-.99.2-.437.2-.818.137-.99-.072-.09-.218-.155-.454-.273z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" style="color: var(--footer-social-color);"><path d="M.058 21.564l1.455-5.338a9.364 9.364 0 0 1-1.513-4.888C0 5.085 5.085 0 11.364 0S22.67 5.085 22.67 11.364c0 6.278-5.085 11.363-11.305 11.363h-.005a9.367 9.367 0 0 1-4.48-.965L.058 21.564zM11.364 2.273c-5.045 0-9.148 4.103-9.148 9.148 0 1.682.455 3.273 1.273 4.637l-.864 3.155 3.245-1.064a9.14 9.14 0 0 0 5.494 1.545h.005c5.045 0 9.148-4.103 9.148-9.148S16.41 2.273 11.364 2.273zm4.272 6.137c-.236-.118-1.39-.682-1.608-.763-.218-.082-.373-.118-.536.118-.164.237-.609.764-.745.918-.137.164-.273.182-.518.064-.245-.118-.99-.364-1.89-1.173-.7-.627-1.172-1.39-1.317-1.636-.146-.245-.018-.373.109-.482.11-.09.237-.218.355-.345.118-.118.164-.218.237-.382.072-.163.045-.3-.018-.418-.063-.118-.536-1.272-.727-1.745-.182-.454-.382-.382-.536-.39-.145-.009-.3-.009-.454-.009a.86.86 0 0 0-.627.29c-.218.237-.827.809-.827 1.963 0 1.155.845 2.264.954 2.418.11.164 1.654 2.527 4.018 3.545.555.245 1 .382 1.345.49.563.182 1.072.155 1.481.09.455-.073 1.39-.564 1.59-.99.2-.437.2-.818.137-.99-.072-.09-.218-.155-.454-.273z"/></svg>
                 </a>
             </div>
             <p class="text-sm text-gray-500">&copy; 2025 Manuel Palacio. Todos los derechos reservados.</p>
@@ -993,81 +724,195 @@
     </footer>
 
     
+<div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Galería de imágenes">
+        <button class="close-button" aria-label="Cerrar galería">&times;</button>
+        <div class="modal-content">
+            <img id="modal-image-content" class="modal-image" alt="Imagen ampliada">
+        </div>
+        <button class="prev-button" aria-label="Imagen anterior">&#10094;</button>
+        <button class="next-button" aria-label="Imagen siguiente">&#10095;</button>
+    </div>
+    
 <a id="whatsapp-fab" href="https://wa.me/573006101221" target="_blank" title="Contactar por WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.068-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.1-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
-    
-<div id="scrollTopBtn" title="Volver arriba">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-        </svg>
-    </div>
 
     <script>
-        // Variables globales para la animación de Three.js
-        let scene, camera, renderer, particles, lines;
-        let mouse = new THREE.Vector2(); // Coordenadas normalizadas del dispositivo [-1, 1]
-        let animationFrameId; // Para almacenar el ID del frame de animación
-        const particlesData = [];
-        const particlesCount = 200; // Aumenta el número de partículas para un efecto más continuo
-        const connectDistance = 40; // Aumenta la distancia de conexión
-        const repulsionDistance = 60; // Aumenta la distancia de repulsión
-        const boxSize = 200;
-        let banner, canvas; // Declara banner y canvas globalmente
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- Lógica para el botón de volver arriba ---
-            const scrollTopBtn = document.getElementById('scrollTopBtn');
-            window.onscroll = function() {
-                // Ocultar el botón de WhatsApp si el de volver arriba está visible
-                const whatsappBtn = document.getElementById('whatsapp-fab');
-                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                    scrollTopBtn.style.display = "flex";
-                    whatsappBtn.style.display = "none";
-                } else {
-                    scrollTopBtn.style.display = "none";
-                    whatsappBtn.style.display = "flex";
-                }
-            };
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // --- Lógica para la animación de nodos con Three.js ---
-            banner = document.getElementById('node-banner'); // Asigna globalmente
-            canvas = document.getElementById('nodes-canvas'); // Asigna globalmente
-            initThreeJs();
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('hidden');
+            }
         });
 
-        // Función para inicializar la escena y animación de Three.js
-        function initThreeJs() {
-            // Configuración de la escena
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Lógica para animación en scroll ---
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(element => observer.observe(element));
+            
+            // --- Lógica del Portafolio Dinámico ---
+            const githubApiBase = 'https://api.github.com/repos/NucleoColectivo/PORTAFOLIO/contents/IMG';
+            async function initPortfolio() {
+                try {
+                    const projects = await fetchProjects();
+                    renderCards(projects);
+                    setupModal(projects);
+                } catch (err) {
+                    const container = document.getElementById('portfolio-container');
+                    if(container) container.textContent = 'Error al cargar proyectos.';
+                    console.error(err);
+                }
+            }
+
+            async function fetchProjects() {
+                const res = await fetch(githubApiBase);
+                if (!res.ok) throw new Error('GitHub API no disponible');
+                const items = await res.json();
+                const dirs = items.filter(i => i.type === 'dir');
+                const projects = [];
+                const projectLinks = {
+                    'desing': 'https://manuelpalacioart.wordpress.com/diseno-grafico/',
+                    'ilustracion': 'https://manuelpalacioart.wordpress.com/ilustracion/',
+                    'prototipos': 'https://23ib1fo9tn.space.minimax.io/',
+                    'videoarte': 'https://www.youtube.com/@ManuelPalacioA/videos',
+                    'maquetas': 'https://www.youtube.com/watch?v=OFFgo61mwdg&ab_channel=ManuelPalacio'
+                };
+                for (const dir of dirs) {
+                    const dirRes = await fetch(dir.url);
+                    if (!dirRes.ok) continue;
+                    const contents = await dirRes.json();
+                    const urls = contents.filter(f => f.type === 'file' && /\.(jpg|jpeg|png|gif)$/i.test(f.name)).map(f => f.download_url);
+                    if (urls.length) {
+                        let cover = urls[0]; // Default cover
+                        if (dir.name === 'prototipos') {
+                            cover = 'https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/prototipos/weogame01.png';
+                        } else if (dir.name === 'videoarte') {
+                            cover = 'https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/videoarte/videoarte08.png';
+                        } else if (dir.name.toLowerCase() === 'juegos') {
+                            cover = 'https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/JUEGOS/_Cerro%20Tusa_V2_muestra.png';
+                        }
+                        const link = projectLinks[dir.name.toLowerCase()] || null;
+                        projects.push({ title: dir.name, coverImage: cover, gallery: urls, link: link });
+                    }
+                }
+                return projects;
+            }
+
+            function renderCards(projects) {
+                const container = document.getElementById('portfolio-container');
+                if (!container) return;
+                container.innerHTML = '';
+                projects.forEach((proj, idx) => {
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    card.dataset.index = idx;
+                    card.innerHTML = `
+                        <img src="${proj.coverImage}" alt="Portada ${proj.title}" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <div>
+                                    <h3 class="project-title">${proj.title}</h3>
+                                    <p class="project-subtitle">Ver Galería</p>
+                                </div>
+                                ${proj.link ? `<a href="${proj.link}" target="_blank" class="project-link-button">Ver +</a>` : ''}
+                            </div>
+                        </div>
+                    `;
+                    const linkButton = card.querySelector('.project-link-button');
+                    if (linkButton) {
+                        linkButton.addEventListener('click', (e) => e.stopPropagation());
+                    }
+                    container.appendChild(card);
+                });
+            }
+
+            function setupModal(projects) {
+                const modal = document.getElementById('image-modal');
+                const modalImg = document.getElementById('modal-image-content');
+                const closeBtn = modal.querySelector('.close-button');
+                const prevBtn = modal.querySelector('.prev-button');
+                const nextBtn = modal.querySelector('.next-button');
+                let currentGallery = [], currentIndex = 0;
+
+                document.getElementById('portfolio-container').addEventListener('click', (e) => {
+                    const card = e.target.closest('.project-card');
+                    if (card) {
+                        const projectIndex = parseInt(card.dataset.index, 10);
+                        currentGallery = projects[projectIndex].gallery;
+                        if (!currentGallery.length) return;
+                        modal.setAttribute('aria-hidden', 'false');
+                        document.body.style.overflow = 'hidden';
+                        showImage(0);
+                    }
+                });
+
+                const closeModal = () => {
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                };
+                
+                const showImage = i => {
+                    currentIndex = (i + currentGallery.length) % currentGallery.length;
+                    modalImg.src = currentGallery[currentIndex];
+                    prevBtn.style.display = nextBtn.style.display = currentGallery.length > 1 ? 'block' : 'none';
+                };
+
+                closeBtn.onclick = closeModal;
+                modal.onclick = e => { if (e.target === modal) closeModal(); };
+                prevBtn.onclick = () => showImage(currentIndex - 1);
+                nextBtn.onclick = () => showImage(currentIndex + 1);
+                
+                document.addEventListener('keydown', e => {
+                    if (modal.getAttribute('aria-hidden') === 'false') {
+                        if (e.key === 'Escape') closeModal();
+                        if (e.key === 'ArrowLeft') prevBtn.onclick();
+                        if (e.key === 'ArrowRight') nextBtn.onclick();
+                    }
+                });
+            }
+            
+            initPortfolio();
+
+            // --- Lógica de Three.js ---
+            const banner = document.getElementById('node-banner');
+            const canvas = document.getElementById('nodes-canvas');
+            if(banner && canvas) initThreeJsAnimation();
+        });
+
+        // --- FUNCIONES DE THREE.JS ---
+        let scene, camera, renderer, particles, lines;
+        let mouse = new THREE.Vector2();
+        const particlesData = [];
+        const particlesCount = 200;
+        const connectDistance = 40;
+        const repulsionDistance = 60;
+        const boxSize = 200;
+
+        function initThreeJsAnimation() {
+            const banner = document.getElementById('node-banner');
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, banner.offsetWidth / banner.offsetHeight, 0.1, 1000);
             camera.position.z = 100;
 
-            // Configuración del renderizador
-            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('nodes-canvas'), antialias: true, alpha: true });
             renderer.setSize(banner.offsetWidth, banner.offsetHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-            // Creación de la textura de las partículas
             const particleTexture = createParticleTexture();
             const particlesGeometry = new THREE.BufferGeometry();
             const positions = new Float32Array(particlesCount * 3);
             const colors = new Float32Array(particlesCount * 3);
-
-            // Paleta de colores actualizada para los nodos: más azules, verdes, esmeraldas, violetas
-            const colorPalette = [
-                new THREE.Color(0x007bff), // Azul Brillante
-                new THREE.Color(0x00c853), // Verde Esmeralda
-                new THREE.Color(0x6200ea), // Violeta Profundo
-                new THREE.Color(0x00bcd4), // Cian/Turquesa
-                new THREE.Color(0x3f51b5), // Índigo
-                new THREE.Color(0x4caf50)  // Verde
-            ];
+            const colorPalette = [new THREE.Color(0x007bff), new THREE.Color(0x00c853), new THREE.Color(0x6200ea), new THREE.Color(0x00bcd4), new THREE.Color(0x3f51b5), new THREE.Color(0x4caf50)];
 
             for (let i = 0; i < particlesCount; i++) {
                 const x = Math.random() * boxSize - boxSize / 2;
@@ -1076,171 +921,104 @@
                 positions[i * 3] = x;
                 positions[i * 3 + 1] = y;
                 positions[i * 3 + 2] = z;
-
                 const color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
                 colors[i * 3] = color.r;
                 colors[i * 3 + 1] = color.g;
                 colors[i * 3 + 2] = color.b;
-
-                particlesData.push({
-                    velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.1),
-                    originalPos: new THREE.Vector3(x, y, z)
-                });
+                particlesData.push({ velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.1) });
             }
 
             particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 2.5,
-                map: particleTexture,
-                blending: THREE.AdditiveBlending,
-                transparent: true,
-                depthWrite: false,
-                vertexColors: true
-            });
-
+            const particlesMaterial = new THREE.PointsMaterial({ size: 2.5, map: particleTexture, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false, vertexColors: true });
             particles = new THREE.Points(particlesGeometry, particlesMaterial);
             scene.add(particles);
 
             const lineGeometry = new THREE.BufferGeometry();
-            const lineMaterial = new THREE.LineBasicMaterial({
-                vertexColors: true,
-                blending: THREE.AdditiveBlending,
-                transparent: true,
-                opacity: 0.7 // Opacidad aumentada para que las conexiones sean más notables
-            });
+            const lineMaterial = new THREE.LineBasicMaterial({ vertexColors: true, blending: THREE.AdditiveBlending, transparent: true, opacity: 0.7 });
             lines = new THREE.LineSegments(lineGeometry, lineMaterial);
             scene.add(lines);
 
-            // Event Listeners
             window.addEventListener('resize', onWindowResize, false);
             document.addEventListener('mousemove', onMouseMove, false);
-            document.addEventListener('mouseleave', onMouseLeave, false);
-
-            // Inicia el bucle de animación
+            document.addEventListener('mouseleave', () => { mouse.x = -2; mouse.y = -2; }, false);
             animateThreeJs();
         }
 
-        // Función para crear la textura de las partículas
         function createParticleTexture() {
             const canvas = document.createElement('canvas');
-            canvas.width = 128;
-            canvas.height = 128;
+            canvas.width = 128; canvas.height = 128;
             const context = canvas.getContext('2d');
-            const gradient = context.createRadialGradient(canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width / 2);
+            const gradient = context.createRadialGradient(64, 64, 0, 64, 64, 64);
             gradient.addColorStop(0, 'rgba(255,255,255,1)');
             gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)');
             gradient.addColorStop(0.6, 'rgba(255,255,255,0.2)');
             gradient.addColorStop(1, 'rgba(255,255,255,0)');
             context.fillStyle = gradient;
-            context.fillRect(0, 0, canvas.width, canvas.height);
+            context.fillRect(0, 0, 128, 128);
             return new THREE.CanvasTexture(canvas);
         }
 
-        // Maneja el redimensionamiento de la ventana
         function onWindowResize() {
+            const banner = document.getElementById('node-banner');
+            if (!camera || !renderer || !banner) return;
             camera.aspect = banner.offsetWidth / banner.offsetHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(banner.offsetWidth, banner.offsetHeight);
         }
-        
-        // Maneja el movimiento del ratón para la interacción
+
         function onMouseMove(event) {
-            // Obtiene el rectángulo delimitador del canvas para calcular la posición del ratón en relación con él
+            const canvas = document.getElementById('nodes-canvas');
+            if (!canvas) return;
             const rect = canvas.getBoundingClientRect();
-            // Calcula la posición del ratón en coordenadas normalizadas del dispositivo [-1, 1] en relación con el canvas
             mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
             mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
         }
 
-        // Maneja cuando el ratón sale del documento
-        function onMouseLeave() {
-            // Restablece la posición del ratón fuera del área visible para detener la repulsión
-            mouse.x = -2; // Un valor fuera de [-1, 1]
-            mouse.y = -2; // Un valor fuera de [-1, 1]
-        }
-
-        // Bucle de animación de Three.js
         function animateThreeJs() {
-            animationFrameId = requestAnimationFrame(animateThreeJs);
-
+            requestAnimationFrame(animateThreeJs);
             const positions = particles.geometry.attributes.position.array;
             const linePositions = [];
             const lineColors = [];
-
-            // Crea un vector 3D a partir de las coordenadas normalizadas del ratón
-            // El componente z (0.5) sitúa el punto de interacción aproximadamente en el centro de la profundidad de visión de la cámara.
-            const mouse3D = new THREE.Vector3(mouse.x, mouse.y, 0.5);
-            // Proyecta la posición 2D del ratón en coordenadas del mundo 3D
-            mouse3D.unproject(camera);
-
-            const mousePos = mouse3D; // Usa esto como la posición 3D del ratón para la interacción
+            const mouse3D = new THREE.Vector3(mouse.x, mouse.y, 0.5).unproject(camera);
 
             for (let i = 0; i < particlesCount; i++) {
                 const i3 = i * 3;
                 const particleData = particlesData[i];
                 const particlePos = new THREE.Vector3(positions[i3], positions[i3 + 1], positions[i3 + 2]);
-
-                // Interacción de partículas con el ratón
-                // Solo aplica la repulsión si el ratón está actualmente sobre el área del canvas (las coordenadas normalizadas están dentro de [-1, 1])
-                if (mouse.x >= -1 && mouse.x <= 1 && mouse.y >= -1 && mouse.y <= 1) {
-                    const distToMouse = particlePos.distanceTo(mousePos);
+                if (mouse.x > -2 && mouse.y > -2) {
+                    const distToMouse = particlePos.distanceTo(mouse3D);
                     if (distToMouse < repulsionDistance) {
-                        // Calcula la fuerza de repulsión: vector del ratón a la partícula, normalizado, escalado por la distancia
-                        const repulsionForce = new THREE.Vector3().subVectors(particlePos, mousePos).normalize().multiplyScalar((repulsionDistance - distToMouse) * 0.05);
+                        const repulsionForce = new THREE.Vector3().subVectors(particlePos, mouse3D).normalize().multiplyScalar((repulsionDistance - distToMouse) * 0.05);
                         particleData.velocity.add(repulsionForce);
                     }
                 }
-
-                // Actualiza la posición de la partícula basándose en su velocidad
                 particlePos.add(particleData.velocity);
-
-                // Comprobaciones de límites: invierte la velocidad si la partícula golpea el borde de la caja
-                if (Math.abs(particlePos.x) > boxSize / 2) { particleData.velocity.x *= -1; }
-                if (Math.abs(particlePos.y) > boxSize / 2) { particleData.velocity.y *= -1; }
-                if (Math.abs(particlePos.z) > boxSize / 2) { particleData.velocity.z *= -1; }
-
-                // Actualiza la posición de la partícula en el array de atributos de la geometría
+                if (Math.abs(particlePos.x) > boxSize / 2) particleData.velocity.x *= -1;
+                if (Math.abs(particlePos.y) > boxSize / 2) particleData.velocity.y *= -1;
+                if (Math.abs(particlePos.z) > boxSize / 2) particleData.velocity.z *= -1;
                 positions[i3] = particlePos.x;
                 positions[i3 + 1] = particlePos.y;
                 positions[i3 + 2] = particlePos.z;
 
-                // Crea conexiones entre partículas cercanas
                 for (let j = i + 1; j < particlesCount; j++) {
                     const j3 = j * 3;
                     const otherParticlePos = new THREE.Vector3(positions[j3], positions[j3 + 1], positions[j3 + 2]);
                     const distance = particlePos.distanceTo(otherParticlePos);
-
                     if (distance < connectDistance) {
-                        // Añade los puntos de inicio y fin del segmento de línea
-                        linePositions.push(particlePos.x, particlePos.y, particlePos.z);
-                        linePositions.push(otherParticlePos.x, otherParticlePos.y, otherParticlePos.z);
-                        
-                        // Calcula el alfa (opacidad) para la línea basándose en la distancia
-                        // Las líneas más lejanas son más transparentes
-                        const alpha = 1.0 - (distance / connectDistance); 
-                        
-                        // Obtiene los colores de las partículas conectadas
-                        const color1 = particles.geometry.attributes.color.array;
-                        lineColors.push(color1[i3], color1[i3 + 1], color1[i3 + 2], alpha);
-                        lineColors.push(color1[j3], color1[j3 + 1], color1[j3 + 2], alpha);
+                        linePositions.push(particlePos.x, particlePos.y, particlePos.z, otherParticlePos.x, otherParticlePos.y, otherParticlePos.z);
+                        const alpha = 1.0 - (distance / connectDistance);
+                        const color1 = particles.geometry.attributes.color;
+                        lineColors.push(color1.getX(i), color1.getY(i), color1.getZ(i), alpha, color1.getX(j), color1.getY(j), color1.getZ(j), alpha);
                     }
                 }
             }
-
-            // Actualiza los atributos de la geometría de la línea
             lines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
             lines.geometry.setAttribute('color', new THREE.Float32BufferAttribute(lineColors, 4));
-            // Marca las posiciones de las partículas como que necesitan actualización para el renderizado
             particles.geometry.attributes.position.needsUpdate = true;
-
-            // Mueve la cámara ligeramente basándose en la posición del ratón para un sutil efecto de paralaje
             camera.position.x += (mouse.x * 20 - camera.position.x) * 0.02;
             camera.position.y += (-mouse.y * 20 - camera.position.y) * 0.02;
-            camera.lookAt(scene.position); // Siempre mira al centro de la escena
-
-            // Renderiza la escena
+            camera.lookAt(scene.position);
             renderer.render(scene, camera);
         }
     </script>
