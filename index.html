@@ -310,7 +310,30 @@
         .prev-button, .next-button { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; padding: 16px; background-color: rgba(0,0,0,0.3); }
         .prev-button { left: 15px; border-radius: 0 3px 3px 0; }
         .next-button { right: 15px; border-radius: 3px 0 0 3px; }
-        @media(max-width: 640px) { #portfolio-container { grid-template-columns: 1fr; } .project-title { font-size: 1.5rem; } }
+        
+        @media(max-width: 768px) {
+            #portfolio-container { 
+                grid-template-columns: 1fr; 
+            } 
+            .project-card:hover img {
+                transform: scale(1); /* Disable zoom on tap for better UX */
+            }
+            .project-overlay {
+                opacity: 1; /* Make overlay visible by default on mobile */
+                background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0) 90%);
+            }
+            .overlay-content {
+                transform: translateY(0); /* Remove slide-up animation */
+                flex-wrap: wrap; /* Allow button to wrap if needed */
+                gap: 0.5rem;
+            }
+            .project-title { 
+                font-size: 1.5rem; 
+            }
+            .project-link-button {
+                padding: 0.5rem 1rem; /* Slightly larger tap target */
+            }
+        }
 
         /* Animaciones para el botón de WhatsApp */
         @keyframes glow {
