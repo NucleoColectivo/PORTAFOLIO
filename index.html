@@ -3,89 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel Palacio - Portafolio Creativo Digital</title>
-    <meta name="description" content="Portafolio de Manuel Palacio, Artista Visual, Diseñador Gráfico, Ilustrador y Creador Digital con IA.">
-    <meta name="author" content="Manuel Palacio">
+    <title>Manuel José Palacio Alzate - Director de Arte & Productor Digital</title>
+    <meta name="description" content="Portafolio profesional de Manuel José Palacio Alzate. Director de Arte, Productor Digital y Creador Visual con IA. Especialista en Key Visuals, Branding y contenido digital.">
+    <meta name="author" content="Manuel José Palacio Alzate">
+    <meta name="keywords" content="Diseño Gráfico, Branding, Identidad Visual, Key Visual, Arte Final, Campañas Digitales, Redes Sociales, Contenido Digital, Dirección de Arte, Motion Graphics, Adaptación Multiformato, e-commerce, Material POP, BTL, OOH, Social Media Design, Producción Gráfica, Marketing Visual, Storytelling, IA Aplicada al Diseño, Preprensa, Diseño Publicitario, Manuel Palacio">
 
-    
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <!-- Icon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 
-    
-<meta property="og:title" content="Manuel Palacio - Portafolio Creativo Digital">
-    <meta property="og:description" content="Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.">
+    <!-- Open Graph / Meta Compartir -->
+    <meta property="og:title" content="Manuel José Palacio Alzate - Director de Arte & Productor Digital">
+    <meta property="og:description" content="Director de Arte y Productor Digital con más de 20 años de experiencia. Key Visuals, branding e integración avanzada de Inteligencia Artificial.">
     <meta property="og:image" content="https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/15_foto%20ok.jpg">
-    <meta property="og:url" content="#"> 
-<meta property="og:type" content="website">
+    <meta property="og:url" content="https://nucleocolectivo.com"> 
+    <meta property="og:type" content="website">
 
-    
-<meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Manuel Palacio - Portafolio Creativo Digital">
-    <meta name="twitter:description" content="Transformando ideas en experiencias visuales y narrativas a través de la creatividad, el diseño y la inteligencia artificial.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/15_foto%20ok.jpg">
+    <!-- Tailwind & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    
-<script src="https://cdn.tailwindcss.com"></script>
-    
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        /* Definición de variables CSS para los colores del tema */
         :root {
-            /* Colores del Modo Oscuro */
-            --bg-primary: #0d1117;
-            --text-primary: #c9d1d9;
-            --card-bg: #161b22;
-            --card-border: #30363d;
-            --navbar-bg: rgba(13, 17, 23, 0.8);
-            --box-shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-            --nav-link-hover-bg: #21262d;
-            --nav-link-hover-color: #58a6ff;
-            --section-title-color: #e6edf3;
-            --section-title-underline: #58a6ff;
-            --btn-primary-bg: #f59e0b;
-            --btn-primary-hover-bg: #d97706;
-            --footer-bg: #161b22;
-            --footer-text: #c9d1d9;
-            --footer-link-color: #58a6ff;
-            --footer-social-color: #c9d1d9;
-            --nodes-canvas-gradient-start: rgba(13, 17, 23, 0.2);
-            --nodes-canvas-gradient-end: #0d1117;
+            --bg-primary: #0a0d14;
+            --text-primary: #cbd5e1;
+            --card-bg: rgba(15, 23, 42, 0.45);
+            --card-border: rgba(56, 189, 248, 0.15);
+            --navbar-bg: rgba(10, 13, 20, 0.8);
+            --box-shadow-dark: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            --nav-link-hover-bg: rgba(56, 189, 248, 0.1);
+            --nav-link-hover-color: #38bdf8;
+            --section-title-color: #f8fafc;
+            --section-title-underline: #0ea5e9;
+            --btn-primary-bg: #0ea5e9;
+            --btn-primary-hover-bg: #0284c7;
+            --footer-bg: #030712;
             --hero-text-color: #ffffff;
             --text-yellow: #facc15;
             --text-cyan: #22d3ee;
+            --glass-blur: 12px;
         }
 
-        /* Estilos generales del cuerpo */
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         .container { max-width: 1200px; }
         
         .navbar {
             background-color: var(--navbar-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
             box-shadow: var(--box-shadow-dark);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .nav-link {
-            font-weight: 500;
-            color: var(--text-primary);
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
 
-        .nav-link:hover {
+        .nav-link:hover, .nav-link.active {
             background-color: var(--nav-link-hover-bg);
             color: var(--nav-link-hover-color);
         }
@@ -97,7 +89,6 @@
             overflow: hidden;
             background-color: var(--bg-primary);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
         }
@@ -109,20 +100,14 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            background: radial-gradient(ellipse at center, var(--nodes-canvas-gradient-start) 0%, var(--nodes-canvas-gradient-end) 100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
             width: 100%;
-            max-width: 1100px;
-            padding: 1rem;
+            max-width: 1150px;
+            padding: 2rem;
         }
 
         .hero-main {
@@ -130,7 +115,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             width: 100%;
         }
 
@@ -138,620 +123,875 @@
             .hero-main {
                 flex-direction: row;
                 gap: 4rem;
-                align-items: flex-end;
-            }
-        }
-
-        .hero-text-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        @media (min-width: 768px) {
-            .hero-text-block {
-                align-items: flex-start;
-                text-align: left;
+                align-items: center;
+                justify-content: space-between;
             }
         }
 
         .hero-text-block h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
-            color: var(--text-yellow);
-            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 30%, #a5f3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
         }
         
         .hero-titles p {
-            font-size: 1.25rem;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
             color: var(--text-cyan);
-            line-height: 1.8;
-            font-weight: 500;
+            line-height: 1.6;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
         .hero-description {
-            margin-top: 2rem;
-            font-size: 1.1rem;
-            max-width: 600px;
-            color: var(--hero-text-color);
-            line-height: 1.7;
+            margin-top: 1.5rem;
+            font-size: 1.15rem;
+            color: #94a3b8;
+            line-height: 1.8;
         }
         .hero-description span {
-            font-weight: 600;
-            color: var(--text-primary);
+            font-weight: 700;
+            color: #f1f5f9;
         }
 
         #fixed-scroll-down {
             position: fixed;
-            bottom: 3rem;
+            bottom: 2.5rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
-            border: 2px solid var(--text-cyan);
+            width: 45px;
+            height: 45px;
+            border: 2px solid rgba(34, 211, 238, 0.3);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 999;
-            transition: box-shadow 0.3s, transform 0.3s, opacity 0.5s ease;
+            z-index: 99;
+            background: rgba(10, 13, 20, 0.6);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
             animation: bounce 2s infinite;
         }
         #fixed-scroll-down:hover {
-            box-shadow: 0 0 20px var(--text-cyan);
+            border-color: var(--text-cyan);
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
             transform: translateX(-50%) scale(1.1);
-            animation-play-state: paused;
         }
         #fixed-scroll-down svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             color: var(--text-cyan);
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
         }
 
-        /* Estilo para los títulos de sección con íconos */
         .section-title {
             position: relative;
-            padding-bottom: 0.75rem;
-            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            margin-bottom: 3.5rem;
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            font-weight: 700;
-            font-size: 2.25rem;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             color: var(--section-title-color);
+            letter-spacing: -0.02em;
         }
 
         .section-title svg {
-            width: 32px;
-            height: 32px;
-            color: var(--nav-link-hover-color);
+            width: 36px;
+            height: 36px;
+            color: var(--text-cyan);
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
             bottom: 0;
-            width: 80px;
+            width: 60px;
             height: 4px;
-            background-color: var(--section-title-underline);
+            background: linear-gradient(90deg, var(--text-cyan), var(--btn-primary-bg));
             border-radius: 2px;
         }
-        
-        /* Estilo para las tarjetas en tema oscuro */
-        .card {
-            background-color: var(--card-bg);
+
+        /* Glassmorphism Cards */
+        .card-custom {
+            background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 1rem;
-            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-radius: 1.25rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.3);
-            border-color: var(--nav-link-hover-color);
+        .card-custom:hover {
+            transform: translateY(-6px);
+            border-color: rgba(34, 211, 238, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(34, 211, 238, 0.15);
+            background: rgba(15, 23, 42, 0.6);
         }
 
-        /* Estilo para el botón primario en tema oscuro */
-        .btn-primary {
-            background-color: var(--btn-primary-bg);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+        /* ATS Interactive Tag Styles */
+        .ats-tag {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #94a3b8;
+            font-size: 0.75rem;
             font-weight: 600;
-            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-            border: 1px solid var(--btn-primary-hover-bg);
-            font-size: 1rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
             cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .btn-primary:hover {
-            background-color: var(--btn-primary-hover-bg);
+        .ats-tag:hover, .ats-tag.active {
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(14, 165, 233, 0.2));
+            border-color: #22d3ee;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+        }
+
+        /* Highlight classes for ATS searching */
+        .highlight-item {
+            animation: pulse-border 1.5s infinite ease-in-out;
+            border-color: #22d3ee !important;
+            background: rgba(15, 23, 42, 0.8) !important;
+        }
+
+        .dim-item {
+            opacity: 0.25;
+            filter: grayscale(80%);
+            pointer-events: none;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { box-shadow: 0 0 10px rgba(34, 211, 238, 0.1); }
+            50% { box-shadow: 0 0 25px rgba(34, 211, 238, 0.4); }
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 100%);
+            color: #040811;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.25);
+        }
+
+        .btn-gradient:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(34, 211, 238, 0.4);
+            filter: brightness(1.1);
         }
-        
-        #portfolio-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; padding: 0 1rem; }
-        .project-card { position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 12px; cursor: pointer; background-color: #333; box-shadow: 0 8px 24px rgba(0,0,0,0.4); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 16px 32px rgba(0,0,0,0.5); }
-        .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .project-card:hover img { transform: scale(1.08); }
-        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.4s ease; }
-        .project-card:hover .project-overlay { opacity: 1; }
-        .overlay-content { transform: translateY(20px); transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); display: flex; justify-content: space-between; align-items: flex-end; }
-        .project-card:hover .overlay-content { transform: translateY(0); }
-        .project-title { font-size: 2rem; font-weight: 900; text-transform: uppercase; line-height: 1.2; margin: 0; }
-        .project-subtitle { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); margin-top: 0.25rem; }
-        .project-link-button { padding: 0.4rem 0.8rem; font-size: 0.8rem; font-weight: 700; color: #0d1117; background-color: var(--text-cyan); border-radius: 999px; text-decoration: none; transition: background-color 0.3s ease; }
-        .project-link-button:hover { background-color: #fff; }
-        /* Modal */
-        .modal { display: none; position: fixed; z-index: 1000; inset: 0; background-color: rgba(0,0,0,0.95); justify-content: center; align-items: center; animation: fadeIn 0.3s ease; overflow: auto; }
-        .modal[aria-hidden="false"] { display: flex; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .modal-content { position: relative; max-width: 90vw; max-height: 90vh; }
-        .modal-image { max-width: 90vw; max-height: 85vh; border-radius: 5px; display: block; margin: 0 auto; }
-        .modal button { background: none; border: none; color: #fff; cursor: pointer; }
-        .close-button { position: absolute; top: 15px; right: 35px; font-size: 2.5rem; }
-        .prev-button, .next-button { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; padding: 16px; background-color: rgba(0,0,0,0.3); }
-        .prev-button { left: 15px; border-radius: 0 3px 3px 0; }
-        .next-button { right: 15px; border-radius: 3px 0 0 3px; }
-        
+
+        /* Timeline Graphics */
+        .timeline-line {
+            background: linear-gradient(180deg, #22d3ee 0%, #0ea5e9 50%, rgba(30, 41, 59, 0.2) 100%);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        /* Mobile Adjustments */
         @media(max-width: 768px) {
-            #portfolio-container { 
-                grid-template-columns: 1fr; 
-            } 
-            .project-card:hover img {
-                transform: scale(1); /* Disable zoom on tap for better UX */
-            }
-            .project-overlay {
-                opacity: 1; /* Make overlay visible by default on mobile */
-                background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0) 90%);
-            }
-            .overlay-content {
-                transform: translateY(0); /* Remove slide-up animation */
-                flex-wrap: wrap; /* Allow button to wrap if needed */
-                gap: 0.5rem;
-            }
-            .project-title { 
-                font-size: 1.5rem; 
-            }
-            .project-link-button {
-                padding: 0.5rem 1rem; /* Slightly larger tap target */
-            }
+            #portfolio-container { grid-template-columns: 1fr; }
+            .project-overlay { opacity: 1; background: linear-gradient(to top, rgba(10,13,20,0.95) 10%, rgba(10,13,20,0.1) 90%); }
+            .overlay-content { transform: translateY(0); }
         }
 
-        /* Animaciones para el botón de WhatsApp */
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 5px #25D366, 0 0 10px #25D366, 0 0 15px #25D366; }
-            50% { box-shadow: 0 0 20px #25D366, 0 0 30px #25D366, 0 0 40px #25D366; }
-        }
-        @keyframes gentle-bob {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        /* Botón flotante de WhatsApp */
-        #whatsapp-fab {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1001; /* Asegura que esté por encima de otros elementos */
-            animation: gentle-bob 2.5s ease-in-out infinite, glow 3s ease-in-out infinite;
-        }
-        #whatsapp-fab:hover {
-            transform: scale(1.1);
-            animation-play-state: paused;
-        }
-
-        /* Preloader Styles */
+        /* Preloader */
         #preloader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-color: var(--bg-primary);
             z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.75s ease, visibility 0.75s ease;
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        #preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
+        #preloader.hidden { opacity: 0; visibility: hidden; }
         .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top-color: var(--nav-link-hover-color);
+            border: 3px solid rgba(34, 211, 238, 0.1);
+            border-top-color: var(--text-cyan);
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
+            width: 45px; height: 45px;
+            animation: spin 0.8s linear infinite;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Floating buttons */
+        #whatsapp-fab {
+            position: fixed;
+            bottom: 2rem; right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 55px; height: 55px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 999;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        /* Efectos para la foto de perfil */
-        .profile-picture {
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        .profile-picture:hover {
-            transform: scale(1.05);
-            filter: grayscale(100%);
+        #whatsapp-fab:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
         }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- Preloader -->
     <div id="preloader">
         <div class="spinner"></div>
     </div>
     
-<nav class="navbar py-3 px-4">
+    <!-- Navbar -->
+    <nav class="navbar py-4 px-4 sticky top-0">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold text-gray-200" style="color: var(--text-primary);">
-                <a href="#" class="hover:text-white transition-colors">Manuel Palacio</a>
+            <div class="text-lg font-extrabold tracking-tight">
+                <a href="#" class="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-ping"></span>
+                    MANUEL JOSÉ PALACIO
+                </a>
             </div>
-            <div class="hidden md:flex flex-wrap justify-center space-x-2 items-center">
-                <a href="#about" class="nav-link">Sobre Mí</a>
+            <div class="hidden lg:flex items-center space-x-1">
+                <a href="#about" class="nav-link">Perfil</a>
+                <a href="#skills" class="nav-link">Competencias</a>
                 <a href="#trayectoria" class="nav-link">Trayectoria</a>
-                <a href="#portfolio" class="nav-link">Portafolio</a>
+                <a href="#portfolio" class="nav-link">Galería</a>
                 <a href="#ia-projects" class="nav-link">Proyectos IA</a>
-                <a href="#education" class="nav-link">Educación</a>
-                <a href="#languages" class="nav-link">Idiomas</a>
+                <a href="#education" class="nav-link">Formación</a>
                 <a href="#contact" class="nav-link">Contacto</a>
             </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white p-1" aria-label="Abrir Menú">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-dropdown" class="hidden lg:hidden flex flex-col px-4 pt-3 pb-4 space-y-2 bg-[#0a0d14] border-t border-slate-800">
+            <a href="#about" class="nav-link block">Perfil</a>
+            <a href="#skills" class="nav-link block">Competencias</a>
+            <a href="#trayectoria" class="nav-link block">Trayectoria</a>
+            <a href="#portfolio" class="nav-link block">Galería</a>
+            <a href="#ia-projects" class="nav-link block">Proyectos IA</a>
+            <a href="#education" class="nav-link block">Formación</a>
+            <a href="#contact" class="nav-link block">Contacto</a>
         </div>
     </nav>
 
-    
-<section id="node-banner">
+    <!-- Hero / Banner -->
+    <section id="node-banner" class="relative">
         <canvas id="nodes-canvas"></canvas>
         <div class="hero-content">
             <div class="hero-main">
-                <div class="flex flex-col items-center md:items-start animate-fadeIn delay-100">
-                    <img src="https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/15_foto%20ok.jpg" alt="Foto de Perfil de Manuel Palacio" class="profile-picture rounded-xl shadow-2xl w-48 h-48 md:w-64 md:h-64 object-cover">
+                <div class="flex flex-col items-center md:items-start z-10 w-full md:w-auto">
+                    <div class="relative group">
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-cyan-400 to-sky-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+                        <img src="https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/15_foto%20ok.jpg" alt="Manuel José Palacio Alzate" class="relative rounded-2xl shadow-2xl w-48 h-48 md:w-56 md:h-56 object-cover filter transition duration-500 hover:scale-[1.03]">
+                    </div>
                 </div>
-                <div class="hero-text-block">
-                    <h1 class="animate-fadeInUp delay-200">MANUEL PALACIO</h1>
-                    <div class="hero-titles animate-fadeInUp delay-300">
-                        <p>| Artista Visual</p>
-                        <p>| Diseñador Gráfico</p>
-                        <p>| Ilustrador</p>
-                        <p>| Creador Digital con IA</p>
+                <div class="hero-text-block z-10 w-full md:w-2/3 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-cyan-950/40 border border-cyan-800/30 text-cyan-300 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                        <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
+                        Disponible para Proyectos
+                    </div>
+                    <h1>MANUEL JOSÉ PALACIO ALZATE</h1>
+                    <div class="hero-titles mt-2 flex flex-col md:flex-row flex-wrap gap-2 md:gap-4 justify-center md:justify-start">
+                        <p class="text-cyan-400 font-bold uppercase tracking-wider">| Director de Arte</p>
+                        <p class="text-sky-400 font-bold uppercase tracking-wider">| Productor Digital</p>
+                        <p class="text-indigo-400 font-bold uppercase tracking-wider">| Key Visual Designer</p>
+                    </div>
+                    <p class="hero-description text-slate-400">
+                        Especializado en la creación y adaptación de <span>Key Visuals multicapas</span>, dirección artística corporativa y la <span>integración avanzada de Inteligencia Artificial (IA)</span> para acelerar flujos creativos y de performance digital.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+                        <a href="#portfolio" class="btn-gradient px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2">
+                            Explorar Portafolio
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                        <a href="https://github.com/NucleoColectivo/PORTAFOLIO/raw/main/CV_ManuelPalacio_2026.pdf" target="_blank" download class="bg-cyan-950/40 border border-cyan-800/60 hover:border-cyan-400 text-cyan-300 hover:text-white px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Descargar CV PDF
+                        </a>
+                        <button id="ats-cv-copy-hero" class="bg-slate-900 border border-slate-700 hover:border-cyan-400 hover:text-white px-5 py-3 rounded-xl text-sm font-bold text-slate-300 transition-all flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                            Copiar CV para ATS
+                        </button>
                     </div>
                 </div>
             </div>
-            <p class="hero-description animate-fadeInUp delay-400">
-                Transformando ideas en <span>experiencias visuales y narrativas</span> a través de la <span>creatividad</span>, el diseño y la inteligencia artificial.
-            </p>
         </div>
     </section>
 
-    
-<main class="container mx-auto px-4">
-        
-<section id="about" class="py-24" data-scroll-section>
-            <h2 class="section-title mx-auto animate-on-scroll">
+    <!-- Main Container -->
+    <main class="container mx-auto px-4 md:px-6">
+
+        <!-- ATS FILTERING CONTROL CENTER (EXCLUSIVO RECLUTADORES) -->
+        <section class="py-10 mt-10">
+            <div class="bg-slate-950/60 border border-cyan-500/10 rounded-2xl p-6 md:p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 bg-cyan-950/30 text-cyan-400 font-extrabold text-[10px] uppercase tracking-wider rounded-bl-xl border-l border-b border-cyan-800/20">
+                    Módulo de Filtro ATS v1.2
+                </div>
+                <div class="max-w-3xl">
+                    <h3 class="text-xl font-bold text-slate-100 flex items-center gap-2.5 mb-2">
+                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        Buscador y Filtro de Palabras Clave ATS
+                    </h3>
+                    <p class="text-sm text-slate-400 mb-6">
+                        Diseñado especialmente para headhunters y software de selección. Haz clic en cualquier etiqueta técnica para resaltar instantáneamente en mi perfil dónde, cuándo y en qué proyectos he aplicado dicha competencia.
+                    </p>
+                </div>
+                
+                <!-- Buscador de entrada directa -->
+                <div class="relative max-w-xl mb-6">
+                    <input type="text" id="ats-search-input" placeholder="Escribe un término (ej: 'Key Visual', 'Photoshop', 'IA', 'BTL')..." class="w-full bg-slate-900/90 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-white rounded-xl px-4 py-3 pl-11 outline-none transition-all">
+                    <svg class="absolute left-4 top-3.5 w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <button id="clear-ats-filter" class="absolute right-3 top-2.5 px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded-lg transition-all hidden">Limpiar</button>
+                </div>
+
+                <!-- ATS Tags Cloud -->
+                <div class="flex flex-wrap gap-2" id="ats-tags-cloud">
+                    <button class="ats-tag" data-tag="Key Visual">Key Visual</button>
+                    <button class="ats-tag" data-tag="Branding">Branding</button>
+                    <button class="ats-tag" data-tag="Identidad Visual">Identidad Visual</button>
+                    <button class="ats-tag" data-tag="Inteligencia Artificial">Inteligencia Artificial</button>
+                    <button class="ats-tag" data-tag="Performance">Performance</button>
+                    <button class="ats-tag" data-tag="e-commerce">e-commerce</button>
+                    <button class="ats-tag" data-tag="Arte Final">Arte Final</button>
+                    <button class="ats-tag" data-tag="Preprensa">Preprensa</button>
+                    <button class="ats-tag" data-tag="BTL">BTL</button>
+                    <button class="ats-tag" data-tag="OOH">OOH</button>
+                    <button class="ats-tag" data-tag="Motion Graphics">Motion Graphics</button>
+                    <button class="ats-tag" data-tag="Storytelling">Storytelling</button>
+                    <button class="ats-tag" data-tag="Diseño Publicitario">Diseño Publicitario</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfil Profesional / Sobre Mí -->
+        <section id="about" class="py-20 border-t border-slate-900">
+            <h2 class="section-title">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-                <span>Sobre Mí</span>
+                <span>Perfil Profesional</span>
             </h2>
-            <div class="flex flex-col md:flex-row items-start md:space-x-12">
-                <div class="md:w-1/2 mb-8 md:mb-0 animate-on-scroll">
-                    <p class="text-lg leading-relaxed mb-4">
-                        Con una sólida formación en Bellas Artes y Artes Plásticas, mi trayectoria se ha centrado en la intersección del arte, el diseño y la tecnología. A lo largo de más de 20 años, he desarrollado una amplia gama de productos visuales y narrativos, siempre buscando la innovación y la excelencia creativa.
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-7 space-y-6">
+                    <p class="text-lg leading-relaxed text-slate-300">
+                        Director de Arte y Productor Digital con <span class="text-cyan-400 font-semibold">más de 20 años de experiencia</span> en agencias de publicidad y consultoría creativa, especializado en el diseño e ilustración de alto impacto aplicados a campañas digitales.
                     </p>
-                    <p class="text-lg leading-relaxed">
-                        Mi experiencia abarca áreas como el <span class="font-semibold text-blue-400">diseño gráfico</span>, la <span class="font-semibold text-blue-400">ilustración</span>, diseño de personajes, storyboard, imagen corporativa y dirección de arte.
+                    <p class="text-lg leading-relaxed text-slate-300">
+                        Cuento con una amplia trayectoria en la producción, escalado y adaptación ágil de piezas para múltiples formatos y canales (incluyendo <span class="text-cyan-400 font-semibold">redes sociales, display banners, e-commerce y landing pages</span>). 
+                    </p>
+                    <p class="text-lg leading-relaxed text-slate-300">
+                        Domino las suites clásicas de diseño (Adobe Creative Cloud) y lidero la <span class="text-cyan-400 font-semibold">integración activa de flujos de Inteligencia Artificial (IA) generativa y conversacional</span> para optimizar tiempos de entrega, conceptualizar ideas disruptivas y mantener altos estándares visuales en equipos colaborativos multidisciplinares.
                     </p>
                 </div>
-                <div class="md:w-1/2 bg-gray-900 p-6 rounded-lg border border-gray-700 animate-on-scroll">
-                    <h3 class="text-2xl font-semibold mb-6 text-blue-400">Habilidades Clave</h3>
-                    <div class="grid grid-cols-2 gap-6 text-lg">
-                        <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
-                            <span>Diseño Gráfico</span>
+                <div class="lg:col-span-5 bg-slate-900/50 border border-slate-800 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-4 text-cyan-400">Datos Clave de Contacto</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2.5 border-b border-slate-800">
+                            <span class="text-slate-400 text-sm">Ubicación</span>
+                            <span class="text-slate-200 font-semibold text-sm">Medellín, Colombia</span>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
-                            <span>Ilustración</span>
+                        <div class="flex justify-between items-center py-2.5 border-b border-slate-800">
+                            <span class="text-slate-400 text-sm">Teléfono</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-slate-200 font-semibold text-sm">+57 300 610 1221</span>
+                                <button onclick="copyToClipboard('+573006101221', 'teléfono')" class="text-slate-400 hover:text-cyan-400" title="Copiar teléfono">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                                </button>
+                            </div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-hover-bg);"><path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
-                            <span>Video Arte</span>
+                        <div class="flex justify-between items-center py-2.5 border-b border-slate-800">
+                            <span class="text-slate-400 text-sm">E-mail</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-slate-200 font-semibold text-sm break-all">d.manuelpalacio@gmail.com</span>
+                                <button onclick="copyToClipboard('d.manuelpalacio@gmail.com', 'correo')" class="text-slate-400 hover:text-cyan-400" title="Copiar correo">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                                </button>
+                            </div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--btn-primary-bg);"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
-                            <span>Creación Digital</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--nav-link-hover-color);"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z"/></svg>
-                            <span>Chatbots y PLN</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--nav-link-hover-color);"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4" /></svg>
-                            <span>Prototipado Web</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div id="trayectoria" class="mt-16 animate-on-scroll" data-scroll-section>
-                <h3 class="text-2xl font-semibold mb-6 text-blue-400" style="color: var(--nav-link-hover-color);">Trayectoria Profesional</h3>
-                <div class="relative pl-8 md:pl-0">
-                    
-<div class="absolute left-4 md:left-1/2 w-0.5 bg-gray-700 h-full -translate-x-1/2 md:block hidden"></div>
-
-                    <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
-                        <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Diseñador e Ilustrador Freelance</h4>
-                            <p class="text-gray-400">2021 - Presente</p>
-                            <p class="text-md leading-relaxed mt-2">Múltiples proyectos de diseño gráfico e ilustración para fines editoriales, web, educativos y publicitarios.</p>
-                        </div>
-                        <div class="md:w-1/2 flex justify-start md:justify-end order-1 md:order-2">
-                            <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="flex justify-between items-center py-2.5">
+                            <span class="text-slate-400 text-sm">Sitio Web</span>
+                            <a href="https://nucleocolectivo.com" target="_blank" class="text-cyan-400 hover:underline font-semibold text-sm">nucleocolectivo.com</a>
                         </div>
                     </div>
-
-                    <div class="flex flex-col md:flex-row items-center md:justify-end mb-8">
-                        <div class="md:w-1/2 text-left md:pl-12 order-2 md:order-2">
-                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Contratista de Diseño - Universidad Nacional de Colombia</h4>
-                            <p class="text-gray-400">2023 - 2024</p>
-                            <p class="text-md leading-relaxed mt-2">Estrategias visuales, museografía, kits pedagógicos e identidades gráficas institucionales.</p>
-                        </div>
-                        <div class="md:w-1/2 flex justify-start md:justify-start order-1 md:order-1">
-                            <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
-                        <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Ilustrador de Experiencias - SELECU</h4>
-                            <p class="text-gray-400">2021 - 2023</p>
-                            <p class="text-md leading-relaxed mt-2">Diseño para videojuegos educativos, contenidos digitales y personajes interactivos.</p>
-                        </div>
-                        <div class="md:w-1/2 flex justify-start md:justify-end order-1 md:order-2">
-                            <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-center md:justify-end mb-8">
-                        <div class="md:w-1/2 text-left md:pl-12 order-2 md:order-2">
-                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Diseñador - Universidad de Antioquia Televisión</h4>
-                            <p class="text-gray-400">2011 - 2012</p>
-                            <p class="text-md leading-relaxed mt-2">Coordinación de graficación y animación, desarrollo de contenidos audiovisuales.</p>
-                        </div>
-                        <div class="md:w-1/2 flex justify-start md:justify-start order-1 md:order-1">
-                            <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-center md:justify-start">
-                        <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                            <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Director Creativo - Beyond Big Branding</h4>
-                            <p class="text-gray-400">2009 - 2010</p>
-                            <p class="text-md leading-relaxed mt-2">Dirección de arte, ilustración para prendas, campañas publicitarias y supervisión de proyectos en el área textil.</p>
-                        </div>
-                        <div class="md:w-1/2 flex justify-start md:justify-end order-1 md:order-2">
-                            <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
-                        </div>
+                    <div class="mt-6">
+                        <a href="https://github.com/NucleoColectivo/PORTAFOLIO/raw/main/CV_ManuelPalacio_2026.pdf" target="_blank" download class="w-full text-center bg-cyan-950/20 border border-cyan-800/40 hover:border-cyan-400 py-3 rounded-xl text-sm font-bold text-cyan-300 hover:text-white transition-all flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Descargar CV (PDF)
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        
-<section id="portfolio" class="py-24" data-scroll-section>
-            <h2 class="section-title mx-auto animate-on-scroll">
+        <!-- Competencias Clave -->
+        <section id="skills" class="py-20 border-t border-slate-900">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.954-8.955M21 12h-9m9 0H3m12-9L12 9" /></svg>
+                <span>Competencias Clave</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Competencia 1 -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Dirección de Arte,Performance,Campañas Digitales">
+                    <div>
+                        <div class="w-12 h-12 bg-cyan-950/40 text-cyan-400 rounded-xl flex items-center justify-center mb-4 border border-cyan-800/20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 mb-2">Campañas de Performance</h3>
+                        <p class="text-slate-400 text-sm">Dirección de arte y producción digital optimizada para altas tasas de conversión en campañas visuales.</p>
+                    </div>
+                </div>
+
+                <!-- Competencia 2 -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Key Visual,Adaptación Multiformato,e-commerce">
+                    <div>
+                        <div class="w-12 h-12 bg-cyan-950/40 text-cyan-400 rounded-xl flex items-center justify-center mb-4 border border-cyan-800/20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 mb-2">Desarrollo de Key Visual (KV)</h3>
+                        <p class="text-slate-400 text-sm">Creación de conceptos visuales maestros y su adaptación masiva para plataformas e-commerce, banners y landing pages.</p>
+                    </div>
+                </div>
+
+                <!-- Competencia 3 -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Arte Final,Preprensa,Producción Gráfica">
+                    <div>
+                        <div class="w-12 h-12 bg-cyan-950/40 text-cyan-400 rounded-xl flex items-center justify-center mb-4 border border-cyan-800/20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 mb-2">Arte Final Técnico</h3>
+                        <p class="text-slate-400 text-sm">Aseguramiento de calidad técnica impecable para producción gráfica impresa (preprensa tradicional) y activos digitales.</p>
+                    </div>
+                </div>
+
+                <!-- Competencia 4 -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Inteligencia Artificial,IA Aplicada al Diseño,Storytelling">
+                    <div>
+                        <div class="w-12 h-12 bg-cyan-950/40 text-cyan-400 rounded-xl flex items-center justify-center mb-4 border border-cyan-800/20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 mb-2">IA en Flujos Creativos</h3>
+                        <p class="text-slate-400 text-sm">Integración estratégica de tecnologías de IA como Adobe Firefly, Midjourney y Google AI Studio para acelerar ideaciones.</p>
+                    </div>
+                </div>
+
+                <!-- Competencia 5 -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Motion Graphics,Redes Sociales,Contenido Digital">
+                    <div>
+                        <div class="w-12 h-12 bg-cyan-950/40 text-cyan-400 rounded-xl flex items-center justify-center mb-4 border border-cyan-800/20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 mb-2">Video & Motion Graphics</h3>
+                        <p class="text-slate-400 text-sm">Edición dinámica de video y elementos gráficos en movimiento orientados a redes sociales mediante Premiere y CapCut.</p>
+                    </div>
+                </div>
+
+                <!-- Competencia 6 -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Branding,Identidad Visual,Diseño Publicitario">
+                    <div>
+                        <div class="w-12 h-12 bg-cyan-950/40 text-cyan-400 rounded-xl flex items-center justify-center mb-4 border border-cyan-800/20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 mb-2">Branding y Sistemas de Marca</h3>
+                        <p class="text-slate-400 text-sm">Desarrollo conceptual completo de marcas, estructuración de manuales corporativos y su despliegue multiplataforma.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trayectoria Profesional (Línea de Tiempo) -->
+        <section id="trayectoria" class="py-20 border-t border-slate-900">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Trayectoria Profesional</span>
+            </h2>
+            <div class="relative pl-6 md:pl-0">
+                <!-- Central vertical line for desktop, left line for mobile -->
+                <div class="absolute left-2.5 md:left-1/2 w-0.5 h-full timeline-line -translate-x-1/2"></div>
+
+                <!-- 2023 - Actualidad -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12" data-ats-tags="Key Visual,e-commerce,Arte Final,Preprensa,BTL,Motion Graphics,Identidad Visual,Inteligencia Artificial">
+                    <div class="md:w-1/2 text-left md:text-right md:pr-12 order-2 md:order-1 mt-1 md:mt-0">
+                        <span class="inline-block px-3 py-1 bg-cyan-950/60 border border-cyan-800/40 text-cyan-300 rounded-full text-xs font-bold uppercase mb-2">2023 - Presente</span>
+                        <h4 class="text-xl font-bold text-slate-100">Diseñador Gráfico Independiente</h4>
+                        <p class="text-sm text-cyan-400 font-semibold mb-3">Proyectos Clave: Núcleo Colectivo | El Semanario Hoy | Cosiaca 350</p>
+                        <ul class="text-sm text-slate-400 space-y-2 text-left md:inline-block md:text-right max-w-lg">
+                            <li class="flex items-start gap-2 justify-end"><span class="text-cyan-400 font-bold mt-0.5">•</span> Análisis de brief y desarrollo de conceptos creativos multiplataforma.</li>
+                            <li class="flex items-start gap-2 justify-end"><span class="text-cyan-400 font-bold mt-0.5">•</span> Desarrollo de Key Visuals (KV) y adaptación a más de 10 formatos por campaña digital.</li>
+                            <li class="flex items-start gap-2 justify-end"><span class="text-cyan-400 font-bold mt-0.5">•</span> Pre-prensa técnica detallada y salida final de artes para impresión y activaciones BTL.</li>
+                        </ul>
+                    </div>
+                    <div class="absolute left-2.5 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-cyan-400 border-4 border-slate-950 z-10 order-1"></div>
+                    <div class="md:w-1/2 order-3 hidden md:block"></div>
+                </div>
+
+                <!-- 2021 - 2023 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12" data-ats-tags="Identidad Visual,e-commerce,Branding">
+                    <div class="md:w-1/2 order-1 hidden md:block"></div>
+                    <div class="absolute left-2.5 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-sky-500 border-4 border-slate-950 z-10 order-1"></div>
+                    <div class="md:w-1/2 text-left md:pl-12 order-2 mt-1 md:mt-0">
+                        <span class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 text-sky-400 rounded-full text-xs font-bold uppercase mb-2">2021 - 2023</span>
+                        <h4 class="text-xl font-bold text-slate-100">Diseñador Gráfico & Ilustrador de Experiencias</h4>
+                        <p class="text-sm text-sky-400 font-semibold mb-3">SELECU | Cosmo School | Comfama</p>
+                        <ul class="text-sm text-slate-400 space-y-2 max-w-lg">
+                            <li class="flex items-start gap-2"><span class="text-sky-400 font-bold mt-0.5">•</span> Diseño de interfaces didácticas, personajes e ilustraciones para entornos interactivos.</li>
+                            <li class="flex items-start gap-2"><span class="text-sky-400 font-bold mt-0.5">•</span> Gestión de identidad visual corporativa de plataformas educativas coordinando 3 clientes simultáneos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2018 - 2021 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12" data-ats-tags="Branding,Identidad Visual,Preprensa,Arte Final,Campañas Digitales,BTL,OOH">
+                    <div class="md:w-1/2 text-left md:text-right md:pr-12 order-2 md:order-1 mt-1 md:mt-0">
+                        <span class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 text-indigo-400 rounded-full text-xs font-bold uppercase mb-2">2018 - 2021</span>
+                        <h4 class="text-xl font-bold text-slate-100">Diseñador Gráfico Independiente</h4>
+                        <p class="text-sm text-indigo-400 font-semibold mb-3">Branding, Identidad Visual y Producción Creativa (Clientes locales)</p>
+                        <ul class="text-sm text-slate-400 space-y-2 text-left md:inline-block md:text-right max-w-lg">
+                            <li class="flex items-start gap-2 justify-end"><span class="text-indigo-400 font-bold mt-0.5">•</span> Desarrollo completo de imagen de marca y adaptación de formatos multicanales.</li>
+                            <li class="flex items-start gap-2 justify-end"><span class="text-indigo-400 font-bold mt-0.5">•</span> Arte final detallado y supervisión técnica en entregas a proveedores de impresión (POP/OOH).</li>
+                        </ul>
+                    </div>
+                    <div class="absolute left-2.5 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-indigo-500 border-4 border-slate-950 z-10 order-1"></div>
+                    <div class="md:w-1/2 order-3 hidden md:block"></div>
+                </div>
+
+                <!-- 2017 - 2018 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12" data-ats-tags="Dirección de Arte,Storytelling">
+                    <div class="md:w-1/2 order-1 hidden md:block"></div>
+                    <div class="absolute left-2.5 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-slate-600 border-4 border-slate-950 z-10 order-1"></div>
+                    <div class="md:w-1/2 text-left md:pl-12 order-2 mt-1 md:mt-0">
+                        <span class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 text-slate-400 rounded-full text-xs font-bold uppercase mb-2">2017 - 2018</span>
+                        <h4 class="text-xl font-bold text-slate-100">Director de Arte</h4>
+                        <p class="text-sm text-slate-400 font-semibold mb-3">Panther Films | Garu & Ponki</p>
+                        <p class="text-sm text-slate-400 max-w-lg leading-relaxed">
+                            Lideré la estética integral de proyectos audiovisuales y el diseño de material promocional de difusión. Modelado y bocetado de storyboards, personajes e iluminación de escenas animadas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2012 - 2017 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12" data-ats-tags="Branding,Identidad Visual,Key Visual,Arte Final,Preprensa,BTL,OOH">
+                    <div class="md:w-1/2 text-left md:text-right md:pr-12 order-2 md:order-1 mt-1 md:mt-0">
+                        <span class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 text-slate-400 rounded-full text-xs font-bold uppercase mb-2">2012 - 2017</span>
+                        <h4 class="text-xl font-bold text-slate-100">Diseñador Gráfico Independiente</h4>
+                        <p class="text-sm text-slate-400 font-semibold mb-3">Moda, Comercio, Cultura y Educación</p>
+                        <p class="text-sm text-slate-400 max-w-lg leading-relaxed md:text-right md:inline-block">
+                            Especialista de imagen y diseño editorial impreso para clientes corporativos. Adaptación de Key Visuals e ilustraciones para campañas BTL externas y piezas digitales publicitarias.
+                        </p>
+                    </div>
+                    <div class="absolute left-2.5 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-slate-700 border-4 border-slate-950 z-10 order-1"></div>
+                    <div class="md:w-1/2 order-3 hidden md:block"></div>
+                </div>
+
+                <!-- 2011 - 2012 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12" data-ats-tags="Campañas Digitales,Storytelling">
+                    <div class="md:w-1/2 order-1 hidden md:block"></div>
+                    <div class="absolute left-2.5 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-slate-600 border-4 border-slate-950 z-10 order-1"></div>
+                    <div class="md:w-1/2 text-left md:pl-12 order-2 mt-1 md:mt-0">
+                        <span class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 text-slate-400 rounded-full text-xs font-bold uppercase mb-2">2011 - 2012</span>
+                        <h4 class="text-xl font-bold text-slate-100">Diseñador Gráfico</h4>
+                        <p class="text-sm text-slate-400 font-semibold mb-3">Universidad de Antioquia Televisión</p>
+                        <p class="text-sm text-slate-400 max-w-lg leading-relaxed">
+                            Producción de material gráfico corporativo, creación de storyboards promocionales y optimización de flujos de distribución audiovisual.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Historial más antiguo agrupado para compactar -->
+                <div class="relative flex flex-col md:flex-row items-start" data-ats-tags="Dirección de Arte,BTL,OOH,Storytelling,Diseño Publicitario,Campañas Digitales">
+                    <div class="md:w-1/2 text-left md:text-right md:pr-12 order-2 md:order-1 mt-1 md:mt-0">
+                        <span class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 text-slate-500 rounded-full text-xs font-bold uppercase mb-2">2000 - 2010</span>
+                        <h4 class="text-xl font-bold text-slate-100">Directores Creativos & Agencias Multinacionales</h4>
+                        <div class="text-xs text-slate-400 mt-2 space-y-2 text-left md:inline-block md:text-right max-w-lg">
+                            <p><strong>2009-2010: Beyond Big Branding</strong> - Director Creativo. Conceptualización de campañas textiles, dirección de arte e ilustraciones BTL / OOH.</p>
+                            <p><strong>2006-2009: DDB Worldwide Colombia (Fire Advertainment)</strong> - Creativo Gráfico. Campañas de consumo masivo, material POP y storyboards.</p>
+                            <p><strong>2000-2006: Zape Pelele Advertainment</strong> - Creativo Gráfico Junior. Desarrollo de contenido publicitario e ilustración BTL.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-2.5 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-slate-800 border-4 border-slate-950 z-10 order-1"></div>
+                    <div class="md:w-1/2 order-3 hidden md:block"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Galería de Portafolio Dinámico -->
+        <section id="portfolio" class="py-20 border-t border-slate-900">
+            <h2 class="section-title">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/></svg>
-                <span>Portafolio</span>
+                <span>Galería de Portafolio</span>
             </h2>
-            <div id="portfolio-container">Cargando proyectos...</div>
+            <div id="portfolio-container" class="w-full">Cargando proyectos desde el servidor...</div>
         </section>
-
         
-<section id="ia-projects" class="py-24" data-scroll-section>
-            <h2 class="section-title mx-auto animate-on-scroll">
+        <!-- Proyectos Destacados IA & Proyectos Recientes -->
+        <section id="ia-projects" class="py-20 border-t border-slate-900">
+            <h2 class="section-title">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-1.25-3.75M3 10h18M5 14h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2zm4.5-4h5.25" /></svg>
                 <span>Proyectos Destacados IA</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-<div class="card p-6 animate-on-scroll">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Núcleo Colectivo IA 4.0</h3>
-                    <p class="mb-4 text-gray-400">Plataforma educativa para artistas y creativos, con talleres, recursos y comunidad.</p>
-                    <div class="flex justify-center mt-4">
-                        <a href="https://82hvn07yaf.space.minimax.io/" target="_blank" class="btn-primary">Ver Proyecto</a>
-                    </div>
-                </div>
-                
-<div class="card p-6 animate-on-scroll">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">IA Básica - Fundamentos Visuales</h3>
-                    <p class="mb-4 text-gray-400">Juego interactivo de 15 minutos que enseña redes neuronales, arte generativo y ética en IA.</p>
-                    <div class="flex justify-center mt-4">
-                        <a href="https://7b8m3siua7.space.minimax.io/" target="_blank" class="btn-primary">Ver Juego</a>
-                    </div>
-                </div>
-                
-<div class="card p-6 animate-on-scroll">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Aventura IA Creativa</h3>
-                    <p class="mb-4 text-gray-400">Experiencia gamificada para explorar la IA creativa, aprender y experimentar con herramientas avanzadas.</p>
-                    <div class="flex justify-center mt-4">
-                        <a href="https://vq4u9s8bj7.space.minimax.io/" target="_blank" class="btn-primary">Ver Aventura</a>
-                    </div>
-                </div>
-                 <div class="card p-6 animate-on-scroll">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">Núcleo Radio y Channel</h3>
-                    <p class="mb-4 text-gray-400">Emisora y canal audiovisual con inteligencia artificial narrativa y locutores virtuales.</p>
-                    <div class="flex justify-center mt-4 space-x-2">
-                        <a href="https://jaekg09fdy.space.minimax.io/" target="_blank" class="btn-primary">Ver Radio</a>
-                        <a href="https://rgrlhopkbj.space.minimax.io/" target="_blank" class="btn-primary">Ver Channel</a>
-                    </div>
-                </div>
-                
-<div class="card p-6 animate-on-scroll">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">COSIACA 350</h3>
-                    <p class="mb-4 text-gray-400">Plataforma transmedia para celebrar los 350 años de Medellín, con chatbot, trivias y IA narrativa.</p>
-                    <div class="flex justify-center mt-4">
-                        <a href="https://nucleocolectivo.github.io/Cosiaca/" target="_blank" class="btn-primary">Ver Proyecto</a>
-                    </div>
-                </div>
-                
-<div class="card p-6 animate-on-scroll">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">PROMPTS CREATOR</h3>
-                    <p class="mb-4 text-gray-400">Herramienta avanzada para creación de prompts con 6 tipos, ejemplos y sistema educativo gamificado.</p>
-                    <div class="flex justify-center mt-4">
-                        <a href="https://hypccay6jz.space.minimax.io/" target="_blank" class="btn-primary">Ver Herramienta</a>
-                    </div>
-                </div>
-                
-<div class="card p-6 animate-on-scroll">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">COTIZADOR DIGITAL</h3>
-                    <p class="mb-4 text-gray-400">Serie de prototipos de agentes conversacionales que simulan cotizaciones para diversos servicios.</p>
-                    <div class="flex justify-center mt-4 space-x-2">
-                        <a href="https://nucleocolectivo.github.io/QUOTER/" target="_blank" class="btn-primary">Ver Prototipo</a>
-                        <a href="https://nucleocolectivo.github.io/GYM/" target="_blank" class="btn-primary">Ver GYM Bot</a>
-                    </div>
-                </div>
-                
-<div class="card p-6 animate-on-scroll">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-400" style="color: var(--nav-link-hover-color);">CosiacaBot</h3>
-                    <p class="mb-4 text-gray-400">Chatbot cultural basado en el personaje "Cosiaca" con trivias, storytelling y guía educativa sobre Medellín.</p>
-                    <div class="flex justify-center mt-4">
-                        <a href="https://elevenlabs.io/app/talk-to?agent_id=agent_01jwdmjmkafg78dja7dm0yfgva" target="_blank" class="btn-primary">Hablar con Cosiaca</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-<section id="education" class="py-24" data-scroll-section>
-            <h2 class="section-title mx-auto animate-on-scroll">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253" /></svg>
-                <span>Educación</span>
-            </h2>
-            <div class="relative pl-8 md:pl-0 animate-on-scroll">
-                <div class="absolute left-4 md:left-1/2 w-0.5 bg-gray-700 h-full -translate-x-1/2 md:block hidden"></div>
-
-                <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
-                    <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                        <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Ruta Formativa - Herramientas de IA para Procesos Creativos</h4>
-                        <p class="text-gray-400">CENDI/SAPIENCIA/ITM, 2025</p>
-                    </div>
-                    <div class="md:w-1/2 flex justify-start md:justify-end order-1 md:order-2">
-                        <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center md:justify-end mb-8">
-                    <div class="md:w-1/2 text-left md:pl-12 order-2 md:order-2">
-                        <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Artes Plásticas</h4>
-                        <p class="text-gray-400">Universidad de Antioquia, Medellín, 2019</p>
-                    </div>
-                    <div class="md:w-1/2 flex justify-start md:justify-start order-1 md:order-1">
-                        <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center md:justify-start mb-8">
-                    <div class="md:w-1/2 text-right md:pr-12 order-2 md:order-1">
-                        <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Diseño Gráfico Publicitario</h4>
-                        <p class="text-gray-400">Instituto de Bellas Artes, Medellín, 2011</p>
-                    </div>
-                    <div class="md:w-1/2 flex justify-start md:justify-end order-1 md:order-2">
-                        <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center md:justify-end mb-8">
-                    <div class="md:w-1/2 text-left md:pl-12 order-2 md:order-2">
-                        <h4 class="text-xl font-semibold text-blue-300" style="color: var(--nav-link-hover-color);">Workshop de Animación 3D</h4>
-                        <p class="text-gray-400">Ruta N, Medellín, 201</p>
-                    </div>
-                    <div class="md:w-1/2 flex justify-start md:justify-start order-1 md:order-1">
-                        <div class="w-4 h-4 rounded-full bg-blue-500 absolute left-3 md:left-1/2 md:-translate-x-1/2"></div>
+                <!-- 1. Núcleo Colectivo -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Identidad Visual,e-commerce,Inteligencia Artificial">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate-100">Núcleo Colectivo</h3>
+                            <span class="text-xs text-cyan-400 font-bold bg-cyan-950/40 px-2 py-1 rounded">2025-2026</span>
                         </div>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Plataforma interdisciplinaria sobre arte, tecnología y software de IA generativa. Diseño UX/UI avanzado y experiencias web completas.</p>
+                    </div>
+                    <div class="flex justify-start mt-4">
+                        <a href="https://nucleocolectivo.com" target="_blank" class="btn-gradient px-4 py-2 rounded-lg text-xs font-bold uppercase">Ver Proyecto</a>
+                    </div>
                 </div>
+
+                <!-- 2. El Semanario Hoy -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Storytelling,Identidad Visual,Diseño Publicitario">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate-100">El Semanario Hoy</h3>
+                            <span class="text-xs text-cyan-400 font-bold bg-cyan-950/40 px-2 py-1 rounded">2026</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Revitalización y rescate digital del archivo histórico cultural (1990-2000). Identidad corporativa adaptativa, conceptualización de maquetado y dirección editorial.</p>
+                    </div>
+                    <div class="flex justify-start mt-4">
+                        <a href="https://www.elsemanariohoy.com/" target="_blank" class="btn-gradient px-4 py-2 rounded-lg text-xs font-bold uppercase">Ver Semanario</a>
+                    </div>
+                </div>
+
+                <!-- 3. COSIACA 350 -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Storytelling,Inteligencia Artificial,Motion Graphics">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate-100">COSIACA 350</h3>
+                            <span class="text-xs text-cyan-400 font-bold bg-cyan-950/40 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Proyecto transmedia inmersivo que celebra los 350 años de Medellín. Narrativa estructurada con IA generativa y diseño audiovisual reactivo.</p>
+                    </div>
+                    <div class="flex justify-start mt-4">
+                        <a href="https://cosiaca350.vercel.app/" target="_blank" class="btn-gradient px-4 py-2 rounded-lg text-xs font-bold uppercase">Ver Proyecto</a>
+                    </div>
+                </div>
+
+                <!-- 4. NÚCLEO REACTOR -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Inteligencia Artificial,Key Visual">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate-100">NÚCLEO REACTOR</h3>
+                            <span class="text-xs text-cyan-400 font-bold bg-cyan-950/40 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Espacio tridimensional experimental interactivo para testeo y renderizado acelerado de interfaces visuales asistidas por IA.</p>
+                    </div>
+                    <div class="flex justify-start mt-4">
+                        <a href="https://reactor-mocha-three.vercel.app/" target="_blank" class="btn-gradient px-4 py-2 rounded-lg text-xs font-bold uppercase">Ver Reactor</a>
+                    </div>
+                </div>
+
+                <!-- 5. Conecta 2024 (U. Nacional) -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Identidad Visual,Diseño Publicitario,Redes Sociales">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate-100">Conecta 2024</h3>
+                            <span class="text-xs text-cyan-400 font-bold bg-cyan-950/40 px-2 py-1 rounded">2024</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Identidad de marca y piezas visuales para la divulgación científica institucional de la Universidad Nacional de Colombia.</p>
+                    </div>
+                    <div class="flex justify-start mt-4">
+                        <a href="https://investigacionyextension.medellin.unal.edu.co/extension/conecta.html" target="_blank" class="btn-gradient px-4 py-2 rounded-lg text-xs font-bold uppercase">Ver Proyecto</a>
+                    </div>
+                </div>
+
+                <!-- 6. Gravedad Sonora -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Motion Graphics,Inteligencia Artificial">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate-100">Gravedad Sonora</h3>
+                            <span class="text-xs text-cyan-400 font-bold bg-cyan-950/40 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Lienzo interactivo que asocia modelado físico de partículas, dinámicas sonoras e interfaces interactivas avanzadas de audio.</p>
+                    </div>
+                    <div class="flex justify-start mt-4">
+                        <a href="https://nucleocolectivo.github.io/gravedad-sonora/" target="_blank" class="btn-gradient px-4 py-2 rounded-lg text-xs font-bold uppercase">Explorar Sonido</a>
+                    </div>
+                </div>
+
+                <!-- 7. ART03 -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Identidad Visual,Inteligencia Artificial">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate-100">ART03</h3>
+                            <span class="text-xs text-cyan-400 font-bold bg-cyan-950/40 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Laboratorio y lienzo interactivo geométrico. Desarrollo algorítmico abstracto para generación matemática de texturas.</p>
+                    </div>
+                    <div class="flex justify-start mt-4">
+                        <a href="https://nucleocolectivo.github.io/art03/" target="_blank" class="btn-gradient px-4 py-2 rounded-lg text-xs font-bold uppercase">Ver Lienzo</a>
+                    </div>
+                </div>
+
+                <!-- 8. Núcleo Radio -->
+                <div class="card-custom p-6 flex flex-col justify-between" data-ats-tags="Contenido Digital,Redes Sociales,Inteligencia Artificial">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate-100">Núcleo Radio</h3>
+                            <span class="text-xs text-cyan-400 font-bold bg-cyan-950/40 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Emisora virtual experimental de streaming continuo con integración de síntesis de voz, clonación y locución automatizada.</p>
+                    </div>
+                    <div class="flex justify-start mt-4">
+                        <a href="https://nucleocolectivo.com/radio" target="_blank" class="btn-gradient px-4 py-2 rounded-lg text-xs font-bold uppercase">Ver Radio</a>
+                    </div>
+                </div>
+
             </div>
         </section>
-
         
-<section id="languages" class="py-24" data-scroll-section>
-            <h2 class="section-title mx-auto animate-on-scroll">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l-6-6m0 0l6-6m-6 6h18" /></svg>
-                <span>Idiomas</span>
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 animate-on-scroll">
-                    <span class="font-semibold text-blue-400" style="color: var(--nav-link-hover-color);">Español</span>
-                    <span class="text-gray-300">Nativo</span>
+        <!-- Educación & Herramientas -->
+        <section id="education" class="py-20 border-t border-slate-900">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Educación (Left) -->
+                <div class="lg:col-span-6 space-y-8">
+                    <h2 class="section-title mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253" /></svg>
+                        <span>Formación</span>
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="border-l-2 border-cyan-400 pl-4">
+                            <h4 class="text-lg font-bold text-slate-100">Artes Plásticas</h4>
+                            <p class="text-slate-400 text-sm">Universidad de Antioquia, Medellín</p>
+                        </div>
+                        <div class="border-l-2 border-cyan-400 pl-4">
+                            <h4 class="text-lg font-bold text-slate-100">Diseño Gráfico Publicitario</h4>
+                            <p class="text-slate-400 text-sm">Fundación Universitaria Bellas Artes, Medellín</p>
+                        </div>
+                        <div class="border-l-2 border-cyan-400 pl-4">
+                            <h4 class="text-lg font-bold text-slate-100">IA Aplicada a Procesos Creativos</h4>
+                            <p class="text-slate-400 text-sm">Formación complementaria continua (Adobe Firefly, Gemini, Google AI Studio)</p>
+                        </div>
+                    </div>
+
+                    <!-- Idiomas -->
+                    <div class="pt-8">
+                        <h3 class="text-xl font-bold mb-4 text-slate-100">Idiomas</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-xl">
+                                <span class="block text-xs text-slate-400">Español</span>
+                                <span class="text-sm font-bold text-slate-200">Nativo</span>
+                            </div>
+                            <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-xl">
+                                <span class="block text-xs text-slate-400">Inglés</span>
+                                <span class="text-sm font-bold text-slate-200">B1 (Lectura técnica)</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 animate-on-scroll">
-                    <span class="font-semibold text-blue-400" style="color: var(--nav-link-hover-color);">Inglés</span>
-                    <span class="text-gray-300">Bueno (lectura, escritura y escucha)</span>
+
+                <!-- Herramientas Digitales & Blandas (Right) -->
+                <div class="lg:col-span-6 space-y-8">
+                    <h2 class="section-title mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.67 2.67 0 1113.5 17.25l5.83-5.83m-5.83 3.75l-5.83-5.83M11.42 9.17L5.58 3A2.67 2.67 0 119.33 6.75L3.5 12.58M11.42 9.17l5.83-5.83m-5.83 3.75l5.83 5.83" /></svg>
+                        <span>Herramientas & Soft Skills</span>
+                    </h2>
+
+                    <!-- Skills Grid -->
+                    <div class="space-y-4">
+                        <div>
+                            <span class="block text-xs font-bold text-cyan-400 uppercase tracking-wider mb-2">Diseño, Branding & Producción</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-900 text-slate-200 text-xs font-semibold rounded-lg border border-slate-800">Adobe Photoshop</span>
+                                <span class="px-3 py-1 bg-slate-900 text-slate-200 text-xs font-semibold rounded-lg border border-slate-800">Adobe Illustrator</span>
+                                <span class="px-3 py-1 bg-slate-900 text-slate-200 text-xs font-semibold rounded-lg border border-slate-800">Adobe InDesign</span>
+                                <span class="px-3 py-1 bg-slate-900 text-slate-200 text-xs font-semibold rounded-lg border border-slate-800">Figma</span>
+                                <span class="px-3 py-1 bg-slate-900 text-slate-200 text-xs font-semibold rounded-lg border border-slate-800">Blender (3D Básico)</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-cyan-400 uppercase tracking-wider mb-2">Edición de Video</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-900 text-slate-200 text-xs font-semibold rounded-lg border border-slate-800">Adobe Premiere</span>
+                                <span class="px-3 py-1 bg-slate-900 text-slate-200 text-xs font-semibold rounded-lg border border-slate-800">CapCut</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-cyan-400 uppercase tracking-wider mb-2">Flujos de Inteligencia Artificial</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-cyan-950/20 text-cyan-300 text-xs font-bold rounded-lg border border-cyan-800/20">Adobe Firefly</span>
+                                <span class="px-3 py-1 bg-cyan-950/20 text-cyan-300 text-xs font-bold rounded-lg border border-cyan-800/20">Gemini</span>
+                                <span class="px-3 py-1 bg-cyan-950/20 text-cyan-300 text-xs font-bold rounded-lg border border-cyan-800/20">Google AI Studio</span>
+                                <span class="px-3 py-1 bg-cyan-950/20 text-cyan-300 text-xs font-bold rounded-lg border border-cyan-800/20">ElevenLabs</span>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <span class="block text-xs font-bold text-cyan-400 uppercase tracking-wider mb-2">Habilidades Blandas</span>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-slate-300">
+                                <div class="flex items-center gap-2"><span class="text-cyan-400 font-bold">✓</span> Gestión autónoma de solicitudes</div>
+                                <div class="flex items-center gap-2"><span class="text-cyan-400 font-bold">✓</span> Trabajo en equipo interdisciplinario</div>
+                                <div class="flex items-center gap-2"><span class="text-cyan-400 font-bold">✓</span> Resolución práctica de problemas</div>
+                                <div class="flex items-center gap-2"><span class="text-cyan-400 font-bold">✓</span> Honestidad y transparencia</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
     </main>
 
-    
-<footer id="contact" class="bg-gray-900 text-white pt-20 pb-10 px-4 mt-16" data-scroll-section>
-        <div class="container mx-auto text-center">
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-990 text-slate-300 pt-20 pb-10 px-4 mt-16 border-t border-slate-900 relative">
+        <div class="container mx-auto text-center max-w-4xl">
              <h2 class="section-title mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                <span>Contacto</span>
+                <span>Contacto Profesional</span>
             </h2>
-            <p class="text-xl mb-8 font-light text-gray-400">Busco integrarme a un equipo donde pueda aportar mi experiencia en diseño gráfico y desarrollo de soluciones creativas con inteligencia artificial.</p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mb-12">
-                
-<a href="tel:+573006101221" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors"><span>+57 300 610 1221</span></a>
-                <a href="mailto:d.manuelpalacio@gmail.com" class="text-lg text-blue-400 hover:text-blue-300 hover:underline transition-colors"><span>d.manuelpalacio@gmail.com</span></a>
+            <p class="text-lg mb-8 text-slate-400 font-light">
+                Busco integrarme a equipos de alto rendimiento para liderar e implementar soluciones de dirección de arte y producción adaptadas a los flujos de optimización modernos.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                <a href="tel:+573006101221" class="text-lg bg-slate-900 border border-slate-800 hover:border-cyan-400 px-6 py-3 rounded-xl font-bold text-cyan-300 transition-all flex items-center gap-2">
+                    <span>(+57) 300 610 1221</span>
+                </a>
+                <a href="mailto:d.manuelpalacio@gmail.com" class="text-lg bg-slate-900 border border-slate-800 hover:border-cyan-400 px-6 py-3 rounded-xl font-bold text-cyan-300 transition-all flex items-center gap-2">
+                    <span>d.manuelpalacio@gmail.com</span>
+                </a>
             </div>
             <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://www.facebook.com/manuelpalacio" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-1.723c0-2.042 1.131-3.344 3.252-3.344h2.748v3z"/></svg>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/manuel-palacio-b0729644" target="_blank" class="text-slate-500 hover:text-cyan-400 transition-all scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/manuelpalacio/" target="_blank" class="text-gray-400 hover:text-pink-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.069c-3.251-.148-4.77-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/manuelpalacio/" target="_blank" class="text-slate-500 hover:text-cyan-400 transition-all scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.069c-3.251-.148-4.77-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
-                <a href="https://manuelpalacioart.wordpress.com/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--footer-social-color);"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.454 17.514l-3.232-9.827h2.383l1.932 6.943 1.979-6.943h2.463l-3.284 9.827h-2.115z"/></svg>
-                </a>
-                <a href="https://wa.me/573006101221" target="_blank" class="text-gray-400 hover:text-green-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" style="color: var(--footer-social-color);"><path d="M.058 21.564l1.455-5.338a9.364 9.364 0 0 1-1.513-4.888C0 5.085 5.085 0 11.364 0S22.67 5.085 22.67 11.364c0 6.278-5.085 11.363-11.305 11.363h-.005a9.367 9.367 0 0 1-4.48-.965L.058 21.564zM11.364 2.273c-5.045 0-9.148 4.103-9.148 9.148 0 1.682.455 3.273 1.273 4.637l-.864 3.155 3.245-1.064a9.14 9.14 0 0 0 5.494 1.545h.005c5.045 0 9.148-4.103 9.148-9.148S16.41 2.273 11.364 2.273zm4.272 6.137c-.236-.118-1.39-.682-1.608-.763-.218-.082-.373-.118-.536.118-.164.237-.609.764-.745.918-.137.164-.273.182-.518.064-.245-.118-.99-.364-1.89-1.173-.7-.627-1.172-1.39-1.317-1.636-.146-.245-.018-.373.109-.482.11-.09.237-.218.355-.345.118-.118.164-.218.237-.382.072-.163.045-.3-.018-.418-.063-.118-.536-1.272-.727-1.745-.182-.454-.382-.382-.536-.39-.145-.009-.3-.009-.454-.009a.86.86 0 0 0-.627.29c-.218.237-.827.809-.827 1.963 0 1.155.845 2.264.954 2.418.11.164 1.654 2.527 4.018 3.545.555.245 1 .382 1.345.49.563.182 1.072.155 1.481.09.455-.073 1.39-.564 1.59-.99.2-.437.2-.818.137-.99-.072-.09-.218-.155-.454-.273z"/></svg>
+                <!-- Wordpress Art -->
+                <a href="https://manuelpalacioart.wordpress.com/" target="_blank" class="text-slate-500 hover:text-cyan-400 transition-all scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.454 17.514l-3.232-9.827h2.383l1.932 6.943 1.979-6.943h2.463l-3.284 9.827h-2.115z"/></svg>
                 </a>
             </div>
-            <p class="text-sm text-gray-500">&copy; 2025 Manuel Palacio. Todos los derechos reservados.</p>
+            <p class="text-xs text-slate-500">&copy; 2026 Manuel José Palacio Alzate. Todos los derechos reservados. Diseñado con IA.</p>
         </div>
     </footer>
 
-    
-<div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Galería de imágenes">
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Galería de imágenes">
         <button class="close-button" aria-label="Cerrar galería">&times;</button>
         <div class="modal-content">
             <img id="modal-image-content" class="modal-image" alt="Imagen ampliada">
@@ -760,39 +1000,155 @@
         <button class="next-button" aria-label="Imagen siguiente">&#10095;</button>
     </div>
     
-<a id="whatsapp-fab" href="https://wa.me/573006101221" target="_blank" title="Contactar por WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+    <!-- Floating WhatsApp FAB -->
+    <a id="whatsapp-fab" href="https://wa.me/573006101221" target="_blank" title="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.068-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.1-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
-     <a id="fixed-scroll-down" href="#" class="scroll-down-btn" style="display: flex;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+
+    <!-- Floating Navigation Scroll Arrow -->
+    <a id="fixed-scroll-down" href="#" class="scroll-down-btn" style="display: flex;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
         </svg>
     </a>
 
+    <!-- Custom Modal Feedback System -->
+    <div id="toast-feedback" class="fixed bottom-6 left-6 bg-slate-900 border border-cyan-500 text-slate-100 px-4 py-3 rounded-xl shadow-2xl z-[9999] opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2 flex items-center gap-2.5">
+        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+        <span id="toast-message" class="text-sm font-semibold"></span>
+    </div>
+
+    <!-- MAIN JAVASCRIPT SYSTEM -->
     <script>
+        // Preloader Closer
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.classList.add('hidden');
-            }
+            if (preloader) preloader.classList.add('hidden');
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Lógica para animación en scroll ---
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        scrollObserver.unobserve(entry.target);
+            // --- Mobile Dropdown Controller ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileDropdown = document.getElementById('mobile-dropdown');
+            if (mobileMenuBtn && mobileDropdown) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileDropdown.classList.toggle('hidden');
+                });
+                mobileDropdown.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => mobileDropdown.classList.add('hidden'));
+                });
+            }
+
+            // --- ATS Filter System Logic ---
+            const atsInput = document.getElementById('ats-search-input');
+            const atsTags = document.querySelectorAll('.ats-tag');
+            const clearAtsBtn = document.getElementById('clear-ats-filter');
+            const filterableElements = document.querySelectorAll('[data-ats-tags]');
+
+            function applyAtsFilter(filterText) {
+                if (!filterText) {
+                    clearFilters();
+                    return;
+                }
+                
+                const terms = filterText.toLowerCase().split(',').map(t => t.trim()).filter(Boolean);
+                let matchesFound = 0;
+
+                filterableElements.forEach(el => {
+                    const elTags = el.getAttribute('data-ats-tags').toLowerCase();
+                    const isMatch = terms.every(term => elTags.includes(term));
+
+                    if (isMatch) {
+                        el.classList.add('highlight-item');
+                        el.classList.remove('dim-item');
+                        matchesFound++;
+                    } else {
+                        el.classList.add('dim-item');
+                        el.classList.remove('highlight-item');
                     }
                 });
-            }, { threshold: 0.1 });
-            animatedElements.forEach(element => scrollObserver.observe(element));
-            
-            // --- Lógica del Portafolio Dinámico ---
+
+                if (clearAtsBtn) clearAtsBtn.classList.remove('hidden');
+            }
+
+            function clearFilters() {
+                filterableElements.forEach(el => {
+                    el.classList.remove('highlight-item', 'dim-item');
+                });
+                atsTags.forEach(tag => tag.classList.remove('active'));
+                if (atsInput) atsInput.value = '';
+                if (clearAtsBtn) clearAtsBtn.classList.add('hidden');
+            }
+
+            if (atsInput) {
+                atsInput.addEventListener('input', (e) => {
+                    applyAtsFilter(e.target.value);
+                });
+            }
+
+            atsTags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    const activeState = tag.classList.toggle('active');
+                    if (activeState) {
+                        // Deactivate others
+                        atsTags.forEach(other => { if (other !== tag) other.classList.remove('active'); });
+                        const tagValue = tag.getAttribute('data-tag');
+                        if (atsInput) atsInput.value = tagValue;
+                        applyAtsFilter(tagValue);
+                    } else {
+                        clearFilters();
+                    }
+                });
+            });
+
+            if (clearAtsBtn) clearAtsBtn.addEventListener('click', clearFilters);
+
+            // --- ATS Markdown CV Copier ---
+            const copyAtsBtnHero = document.getElementById('ats-cv-copy-hero');
+            const cvPlaintext = `MANUEL JOSÉ PALACIO ALZATE
+DIRECTOR DE ARTE / PRODUCTOR DIGITAL I BRANDING I KEY VISUAL CONTENIDO DIGITAL
+(+57) 300 610 1221 | d.manuelpalacio@gmail.com | nucleocolectivo.com | linkedin.com/in/manuel-palacio-b0729644
+
+PERFIL PROFESIONAL
+Director de Arte y Productor Digital con más de 20 años de experiencia en agencias de publicidad y consultoría creativa, especializado en diseño e ilustración aplicada a campañas digitales. Amplia trayectoria en producción y adaptación de piezas para múltiples formatos y canales. Integración activa de IA (Adobe Firefly, Gemini, Google AI Studio) para optimizar flujos creativos.
+
+COMPETENCIAS CLAVE
+- Dirección de arte y producción digital para campañas de performance.
+- Desarrollo y adaptación de Key Visual (KV) a múltiples formatos.
+- Arte final para producción digital e impresa (preprensa).
+- Edición de video y motion graphics (Premiere, CapCut).
+- Integración avanzada de herramientas de Inteligencia Artificial.
+
+EXPERIENCIA PROFESIONAL
+- 2023-Actualidad: Diseñador Gráfico Independiente (Núcleo Colectivo, El Semanario Hoy, Cosiaca 350).
+- 2021-2023: Diseñador Gráfico / Ilustrador de Experiencias (SELECU, Cosmo School, Comfama).
+- 2018-2021: Diseñador Gráfico Independiente (Proyectos de branding, identidad visual y producción creativa).
+- 2017-2018: Director de Arte (Panther Films - Garu & Ponki).
+- 2012-2017: Diseñador Gráfico Independiente (Sectores comercial, moda, cultura y educativo).
+- 2011-2012: Diseñador Gráfico (Universidad de Antioquia Televisión).
+- 2009-2010: Director Creativo (Beyond Big Branding).
+- 2006-2009: Creativo Gráfico (Fire Advertainment DDB Worldwide Colombia).
+- 2000-2006: Creativo Gráfico Junior (Zape Pelele Advertainment).
+
+FORMACIÓN
+- Artes Plásticas (Universidad de Antioquia).
+- Diseñador Gráfico Publicitario (Fundación Universitaria Bellas Artes).
+- Certificaciones continuas en IA aplicada a procesos creativos.`;
+
+            if (copyAtsBtnHero) {
+                copyAtsBtnHero.addEventListener('click', () => {
+                    const copied = copyTextFallback(cvPlaintext);
+                    if (copied) {
+                        showToast('CV estructurado para ATS copiado al portapapeles');
+                    } else {
+                        showToast('Error al copiar el CV');
+                    }
+                });
+            }
+
+            // --- Lógica del Portafolio Dinámico desde GitHub ---
             const githubApiBase = 'https://api.github.com/repos/NucleoColectivo/PORTAFOLIO/contents/IMG';
             async function initPortfolio() {
                 try {
@@ -801,7 +1157,7 @@
                     setupModal(projects);
                 } catch (err) {
                     const container = document.getElementById('portfolio-container');
-                    if(container) container.textContent = 'Error al cargar proyectos.';
+                    if(container) container.innerHTML = '<p class="text-sm text-slate-500 text-center">Para ver la galería extendida de imágenes, visita nuestros canales oficiales.</p>';
                     console.error(err);
                 }
             }
@@ -825,7 +1181,7 @@
                     const contents = await dirRes.json();
                     const urls = contents.filter(f => f.type === 'file' && /\.(jpg|jpeg|png|gif)$/i.test(f.name)).map(f => f.download_url);
                     if (urls.length) {
-                        let cover = urls[0]; // Default cover
+                        let cover = urls[0];
                         if (dir.name === 'prototipos') {
                             cover = 'https://raw.githubusercontent.com/NucleoColectivo/PORTAFOLIO/main/IMG/prototipos/weogame01.png';
                         } else if (dir.name === 'videoarte') {
@@ -844,49 +1200,60 @@
                 const container = document.getElementById('portfolio-container');
                 if (!container) return;
                 container.innerHTML = '';
+                
+                // Grilla responsiva moderna de 12 columnas
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
+                
                 projects.forEach((proj, idx) => {
                     const card = document.createElement('div');
-                    card.className = 'project-card';
+                    card.className = 'project-card card-custom overflow-hidden cursor-pointer relative group aspect-[4/3]';
                     card.dataset.index = idx;
                     card.innerHTML = `
-                        <img src="${proj.coverImage}" alt="Portada ${proj.title}" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="overlay-content">
+                        <img src="${proj.coverImage}" alt="Portada ${proj.title}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-all duration-400">
+                            <div class="overlay-content flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                                 <div>
-                                    <h3 class="project-title">${proj.title}</h3>
-                                    <p class="project-subtitle">Ver Galería</p>
+                                    <h3 class="text-xl font-bold text-white uppercase">${proj.title}</h3>
+                                    <p class="text-xs text-cyan-400 font-bold uppercase tracking-widest mt-1">Ver Galería</p>
                                 </div>
-                                ${proj.link ? `<a href="${proj.link}" target="_blank" class="project-link-button">Ver +</a>` : ''}
+                                ${proj.link ? `<a href="${proj.link}" target="_blank" class="px-3 py-1.5 bg-cyan-400 text-slate-950 rounded-lg text-xs font-bold transition-all hover:bg-white">Ver +</a>` : ''}
                             </div>
                         </div>
                     `;
-                    const linkButton = card.querySelector('.project-link-button');
+                    const linkButton = card.querySelector('a');
                     if (linkButton) {
                         linkButton.addEventListener('click', (e) => e.stopPropagation());
                     }
-                    container.appendChild(card);
+                    grid.appendChild(card);
                 });
+                container.appendChild(grid);
             }
 
             function setupModal(projects) {
                 const modal = document.getElementById('image-modal');
+                if (!modal) return;
+                
                 const modalImg = document.getElementById('modal-image-content');
                 const closeBtn = modal.querySelector('.close-button');
                 const prevBtn = modal.querySelector('.prev-button');
                 const nextBtn = modal.querySelector('.next-button');
                 let currentGallery = [], currentIndex = 0;
 
-                document.getElementById('portfolio-container').addEventListener('click', (e) => {
-                    const card = e.target.closest('.project-card');
-                    if (card) {
-                        const projectIndex = parseInt(card.dataset.index, 10);
-                        currentGallery = projects[projectIndex].gallery;
-                        if (!currentGallery.length) return;
-                        modal.setAttribute('aria-hidden', 'false');
-                        document.body.style.overflow = 'hidden';
-                        showImage(0);
-                    }
-                });
+                const portfolioContainer = document.getElementById('portfolio-container');
+                if (portfolioContainer) {
+                    portfolioContainer.addEventListener('click', (e) => {
+                        const card = e.target.closest('.project-card');
+                        if (card) {
+                            const projectIndex = parseInt(card.dataset.index, 10);
+                            currentGallery = projects[projectIndex].gallery;
+                            if (!currentGallery.length) return;
+                            modal.setAttribute('aria-hidden', 'false');
+                            document.body.style.overflow = 'hidden';
+                            showImage(0);
+                        }
+                    });
+                }
 
                 const closeModal = () => {
                     modal.setAttribute('aria-hidden', 'true');
@@ -894,43 +1261,44 @@
                 };
                 
                 const showImage = i => {
+                    if(!modalImg) return;
                     currentIndex = (i + currentGallery.length) % currentGallery.length;
                     modalImg.src = currentGallery[currentIndex];
-                    prevBtn.style.display = nextBtn.style.display = currentGallery.length > 1 ? 'block' : 'none';
+                    if (prevBtn && nextBtn) {
+                        prevBtn.style.display = nextBtn.style.display = currentGallery.length > 1 ? 'block' : 'none';
+                    }
                 };
 
-                closeBtn.onclick = closeModal;
+                if (closeBtn) closeBtn.onclick = closeModal;
                 modal.onclick = e => { if (e.target === modal) closeModal(); };
-                prevBtn.onclick = () => showImage(currentIndex - 1);
-                nextBtn.onclick = () => showImage(currentIndex + 1);
+                if (prevBtn) prevBtn.onclick = () => showImage(currentIndex - 1);
+                if (nextBtn) nextBtn.onclick = () => showImage(currentIndex + 1);
                 
                 document.addEventListener('keydown', e => {
                     if (modal.getAttribute('aria-hidden') === 'false') {
                         if (e.key === 'Escape') closeModal();
-                        if (e.key === 'ArrowLeft') prevBtn.onclick();
-                        if (e.key === 'ArrowRight') nextBtn.onclick();
+                        if (e.key === 'ArrowLeft' && prevBtn) prevBtn.onclick();
+                        if (e.key === 'ArrowRight' && nextBtn) nextBtn.onclick();
                     }
                 });
             }
             
             initPortfolio();
 
-            // --- Lógica de Three.js ---
+            // --- Lógica de Three.js (Visual Fibras Neuronales) ---
             const banner = document.getElementById('node-banner');
             const canvas = document.getElementById('nodes-canvas');
             if(banner && canvas) initThreeJsAnimation();
 
-            // --- Lógica de Navegación Secuencial Corregida ---
+            // --- Lógica de Navegación Secuencial de Secciones ---
             const scrollBtn = document.getElementById('fixed-scroll-down');
-            const sectionsOrder = ['about', 'trayectoria', 'portfolio', 'ia-projects', 'education', 'languages', 'contact'];
+            const sectionsOrder = ['about', 'skills', 'trayectoria', 'portfolio', 'ia-projects', 'education', 'contact'];
             const sectionElements = sectionsOrder.map(id => document.getElementById(id));
             const contactSection = document.getElementById('contact');
 
             if (scrollBtn && contactSection && sectionElements.every(el => el)) {
-                // 1. Lógica para la visibilidad del botón
                 const observer = new IntersectionObserver(entries => {
                     const entry = entries[0];
-                    // Si la sección de contacto está a la vista, oculta el botón.
                     if (entry.isIntersecting) {
                         scrollBtn.style.opacity = '0';
                         scrollBtn.style.pointerEvents = 'none';
@@ -939,37 +1307,26 @@
                         scrollBtn.style.pointerEvents = 'auto';
                     }
                 }, {
-                    rootMargin: "0px 0px -50% 0px", // Se activa cuando el 50% superior de la sección de contacto entra en la vista
+                    rootMargin: "0px 0px -50% 0px",
                     threshold: 0
                 });
                 observer.observe(contactSection);
 
-                // 2. Lógica para el desplazamiento secuencial al hacer clic
                 scrollBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-
                     let currentSectionIndex = -1;
 
-                    // Encuentra qué sección está actualmente a la vista
                     for (let i = sectionElements.length - 1; i >= 0; i--) {
                         const section = sectionElements[i];
                         const rect = section.getBoundingClientRect();
-                        // Una sección es "actual" si su parte superior está en o por encima del centro vertical de la ventana
                         if (rect.top <= window.innerHeight / 2) {
                             currentSectionIndex = i;
                             break;
                         }
                     }
 
-                    let nextSectionIndex;
-                    // Si no se encuentra ninguna sección (estamos en el banner principal), la siguiente es la primera.
-                    if (currentSectionIndex === -1) {
-                        nextSectionIndex = 0;
-                    } else {
-                        nextSectionIndex = currentSectionIndex + 1;
-                    }
+                    let nextSectionIndex = currentSectionIndex === -1 ? 0 : currentSectionIndex + 1;
 
-                    // Desplázate a la siguiente sección si existe
                     if (nextSectionIndex < sectionsOrder.length) {
                         const nextSectionId = sectionsOrder[nextSectionIndex];
                         document.getElementById(nextSectionId).scrollIntoView({
@@ -977,26 +1334,67 @@
                         });
                     }
                 });
-            } else {
-                console.error("No se encontraron todos los elementos necesarios para la navegación secuencial.");
-                if(scrollBtn) scrollBtn.style.display = 'none';
             }
         });
 
-        // --- FUNCIONES DE THREE.JS ---
+        // --- FUNCIONES INTERACTIVAS DE CONTACTO (SISTEMA TOAST) ---
+        function copyTextFallback(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            let successful = false;
+            try {
+                successful = document.execCommand('copy');
+            } catch (err) {
+                console.error('Error en fallback de copiado:', err);
+            }
+            document.body.removeChild(textArea);
+            return successful;
+        }
+
+        function copyToClipboard(text, elementLabel) {
+            const copied = copyTextFallback(text);
+            if (copied) {
+                showToast(`El ${elementLabel} se ha copiado al portapapeles.`);
+            } else {
+                showToast(`No se pudo copiar el ${elementLabel}.`);
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast-feedback');
+            const toastMsg = document.getElementById('toast-message');
+            if (toast && toastMsg) {
+                toastMsg.textContent = message;
+                toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+                toast.classList.add('opacity-100', 'translate-y-0');
+                
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+                    toast.classList.remove('opacity-100', 'translate-y-0');
+                }, 3500);
+            }
+        }
+
+        // --- FUNCIONES DE ANIMACIONES THREE.JS (RED NEURONAL DIGITAL) ---
         let scene, camera, renderer, particles, lines;
         let mouse = new THREE.Vector2();
         const particlesData = [];
-        const particlesCount = 200;
-        const connectDistance = 40;
-        const repulsionDistance = 60;
-        const boxSize = 200;
+        const particlesCount = 140;
+        const connectDistance = 45;
+        const repulsionDistance = 70;
+        const boxSize = 250;
 
         function initThreeJsAnimation() {
             const banner = document.getElementById('node-banner');
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, banner.offsetWidth / banner.offsetHeight, 0.1, 1000);
-            camera.position.z = 100;
+            camera = new THREE.PerspectiveCamera(60, banner.offsetWidth / banner.offsetHeight, 1, 1000);
+            camera.position.z = 110;
 
             renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('nodes-canvas'), antialias: true, alpha: true });
             renderer.setSize(banner.offsetWidth, banner.offsetHeight);
@@ -1006,30 +1404,36 @@
             const particlesGeometry = new THREE.BufferGeometry();
             const positions = new Float32Array(particlesCount * 3);
             const colors = new Float32Array(particlesCount * 3);
-            const colorPalette = [new THREE.Color(0x007bff), new THREE.Color(0x00c853), new THREE.Color(0x6200ea), new THREE.Color(0x00bcd4), new THREE.Color(0x3f51b5), new THREE.Color(0x4caf50)];
+            
+            // Paleta de colores Neon Cyberpunk
+            const colorPalette = [
+                new THREE.Color('#22d3ee'), 
+                new THREE.Color('#0ea5e9'), 
+                new THREE.Color('#6366f1'),
+                new THREE.Color('#06b6d4')
+            ];
 
             for (let i = 0; i < particlesCount; i++) {
-                const x = Math.random() * boxSize - boxSize / 2;
-                const y = Math.random() * boxSize - boxSize / 2;
-                const z = Math.random() * boxSize - boxSize / 2;
-                positions[i * 3] = x;
-                positions[i * 3 + 1] = y;
-                positions[i * 3 + 2] = z;
+                positions[i * 3] = Math.random() * boxSize - boxSize / 2;
+                positions[i * 3 + 1] = Math.random() * boxSize - boxSize / 2;
+                positions[i * 3 + 2] = Math.random() * boxSize - boxSize / 2;
+                
                 const color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
                 colors[i * 3] = color.r;
                 colors[i * 3 + 1] = color.g;
                 colors[i * 3 + 2] = color.b;
-                particlesData.push({ velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.1) });
+                
+                particlesData.push({ velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.08) });
             }
 
             particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-            const particlesMaterial = new THREE.PointsMaterial({ size: 2.5, map: particleTexture, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false, vertexColors: true });
+            const particlesMaterial = new THREE.PointsMaterial({ size: 3.5, map: particleTexture, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false, vertexColors: true });
             particles = new THREE.Points(particlesGeometry, particlesMaterial);
             scene.add(particles);
 
             const lineGeometry = new THREE.BufferGeometry();
-            const lineMaterial = new THREE.LineBasicMaterial({ vertexColors: true, blending: THREE.AdditiveBlending, transparent: true, opacity: 0.7 });
+            const lineMaterial = new THREE.LineBasicMaterial({ vertexColors: true, blending: THREE.AdditiveBlending, transparent: true, opacity: 0.45 });
             lines = new THREE.LineSegments(lineGeometry, lineMaterial);
             scene.add(lines);
 
@@ -1041,15 +1445,14 @@
 
         function createParticleTexture() {
             const canvas = document.createElement('canvas');
-            canvas.width = 128; canvas.height = 128;
+            canvas.width = 64; canvas.height = 64;
             const context = canvas.getContext('2d');
-            const gradient = context.createRadialGradient(64, 64, 0, 64, 64, 64);
+            const gradient = context.createRadialGradient(32, 32, 0, 32, 32, 32);
             gradient.addColorStop(0, 'rgba(255,255,255,1)');
-            gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)');
-            gradient.addColorStop(0.6, 'rgba(255,255,255,0.2)');
-            gradient.addColorStop(1, 'rgba(255,255,255,0)');
+            gradient.addColorStop(0.3, 'rgba(34,211,238,0.8)');
+            gradient.addColorStop(1, 'rgba(0,0,0,0)');
             context.fillStyle = gradient;
-            context.fillRect(0, 0, 128, 128);
+            context.fillRect(0, 0, 64, 64);
             return new THREE.CanvasTexture(canvas);
         }
 
@@ -1080,13 +1483,15 @@
                 const i3 = i * 3;
                 const particleData = particlesData[i];
                 const particlePos = new THREE.Vector3(positions[i3], positions[i3 + 1], positions[i3 + 2]);
+                
                 if (mouse.x > -2 && mouse.y > -2) {
                     const distToMouse = particlePos.distanceTo(mouse3D);
                     if (distToMouse < repulsionDistance) {
-                        const repulsionForce = new THREE.Vector3().subVectors(particlePos, mouse3D).normalize().multiplyScalar((repulsionDistance - distToMouse) * 0.05);
+                        const repulsionForce = new THREE.Vector3().subVectors(particlePos, mouse3D).normalize().multiplyScalar((repulsionDistance - distToMouse) * 0.03);
                         particleData.velocity.add(repulsionForce);
                     }
                 }
+                
                 particlePos.add(particleData.velocity);
                 if (Math.abs(particlePos.x) > boxSize / 2) particleData.velocity.x *= -1;
                 if (Math.abs(particlePos.y) > boxSize / 2) particleData.velocity.y *= -1;
@@ -1103,15 +1508,15 @@
                         linePositions.push(particlePos.x, particlePos.y, particlePos.z, otherParticlePos.x, otherParticlePos.y, otherParticlePos.z);
                         const alpha = 1.0 - (distance / connectDistance);
                         const color1 = particles.geometry.attributes.color;
-                        lineColors.push(color1.getX(i), color1.getY(i), color1.getZ(i), alpha, color1.getX(j), color1.getY(j), color1.getZ(j), alpha);
+                        lineColors.push(color1.getX(i), color1.getY(i), color1.getZ(i), alpha * 0.4, color1.getX(j), color1.getY(j), color1.getZ(j), alpha * 0.4);
                     }
                 }
             }
             lines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
             lines.geometry.setAttribute('color', new THREE.Float32BufferAttribute(lineColors, 4));
             particles.geometry.attributes.position.needsUpdate = true;
-            camera.position.x += (mouse.x * 20 - camera.position.x) * 0.02;
-            camera.position.y += (-mouse.y * 20 - camera.position.y) * 0.02;
+            camera.position.x += (mouse.x * 15 - camera.position.x) * 0.01;
+            camera.position.y += (-mouse.y * 15 - camera.position.y) * 0.01;
             camera.lookAt(scene.position);
             renderer.render(scene, camera);
         }
