@@ -1401,6 +1401,362 @@ section {
     }
 }
 
+
+/* =========================================================
+   MOBILE FALLBACK — funciona incluso si Tailwind CDN falla
+   Evita menús, SVG, botones e imágenes gigantes.
+   ========================================================= */
+
+/* Navegación: estado independiente de Tailwind */
+#mobile-dropdown {
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+
+#mobile-dropdown.is-open {
+    display: flex !important;
+}
+
+#mobile-dropdown.is-closed {
+    display: none !important;
+}
+
+#mobile-dropdown a {
+    display: block !important;
+    width: 100% !important;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+#mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    #mobile-menu-btn {
+        display: flex !important;
+    }
+
+    #desktop-nav {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    #mobile-menu-btn,
+    #mobile-dropdown {
+        display: none !important;
+    }
+
+    #desktop-nav {
+        display: flex !important;
+        align-items: center;
+        gap: .25rem;
+    }
+}
+
+/* Hero: no depende de las clases flex/grid de Tailwind */
+.hero-main {
+    display: grid !important;
+    grid-template-columns: minmax(150px, 224px) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 5vw, 4rem);
+}
+
+.hero-main > div:first-child {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    width: auto !important;
+}
+
+.hero-main > div:first-child > div {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.hero-photo {
+    display: block !important;
+    width: clamp(150px, 20vw, 224px) !important;
+    height: clamp(150px, 20vw, 224px) !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+}
+
+.hero-text-block {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.hero-text-block > div:first-child {
+    display: inline-flex !important;
+    align-items: center;
+    gap: .5rem;
+}
+
+.hero-text-block h1 {
+    width: 100%;
+    max-width: 100%;
+}
+
+.hero-titles {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .25rem .75rem;
+}
+
+.hero-text-block .mt-6 {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: .75rem;
+}
+
+.hero-text-block .mt-6 > a,
+.hero-text-block .mt-6 > button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text-block svg {
+    flex: 0 0 auto;
+}
+
+/* SVG: límites explícitos para que nunca aparezcan gigantes */
+.section-title > svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    min-width: 1.5rem !important;
+    min-height: 1.5rem !important;
+    flex: 0 0 1.5rem !important;
+}
+
+#mobile-menu-btn svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    min-width: 1.5rem !important;
+    min-height: 1.5rem !important;
+}
+
+#ats-search-input + svg {
+    position: absolute !important;
+    left: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    width: 1rem !important;
+    height: 1rem !important;
+    min-width: 1rem !important;
+    min-height: 1rem !important;
+    pointer-events: none;
+}
+
+#ats-search-input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    background: rgba(15, 23, 42, .9);
+    color: white;
+    border: 1px solid #334155;
+    border-radius: .75rem;
+    padding: .875rem 1rem .875rem 2.75rem;
+    outline: none;
+}
+
+#clear-ats-filter {
+    position: absolute !important;
+    right: .75rem !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+}
+
+/* Iconos flotantes */
+#fixed-scroll-down {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+#fixed-scroll-down svg {
+    width: 1.35rem !important;
+    height: 1.35rem !important;
+    min-width: 1.35rem !important;
+    min-height: 1.35rem !important;
+}
+
+#whatsapp-fab {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+#whatsapp-fab svg {
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+    min-width: 1.6rem !important;
+    min-height: 1.6rem !important;
+}
+
+/* Botones y links: tamaño estable aun sin utilidades de Tailwind */
+.btn-gradient {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    min-height: 48px;
+    padding: .75rem 1.5rem;
+    border-radius: .75rem;
+}
+
+.btn-gradient svg {
+    width: 1rem !important;
+    height: 1rem !important;
+}
+
+/* Galería */
+#portfolio-container {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+.portfolio-grid {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 1rem;
+}
+
+.portfolio-card {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 80dvh !important;
+    object-fit: contain !important;
+}
+
+/* Tags */
+#ats-tags-cloud {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: stretch;
+    gap: .5rem;
+}
+
+.ats-tag {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    max-width: 100%;
+    white-space: normal;
+}
+
+/* Responsive mobile */
+@media (max-width: 767px) {
+    .hero-main {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        justify-items: center;
+    }
+
+    .hero-main > div:first-child {
+        width: 100% !important;
+    }
+
+    .hero-photo {
+        width: min(48vw, 185px) !important;
+        height: min(48vw, 185px) !important;
+    }
+
+    .hero-text-block {
+        text-align: center !important;
+    }
+
+    .hero-text-block > div:first-child {
+        margin-inline: auto;
+    }
+
+    .hero-titles {
+        justify-content: center !important;
+    }
+
+    .hero-text-block .mt-6 {
+        flex-direction: column !important;
+        width: 100%;
+    }
+
+    .hero-text-block .mt-6 > a,
+    .hero-text-block .mt-6 > button {
+        width: 100%;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    #ats-tags-cloud {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero-main {
+        grid-template-columns: minmax(170px, 220px) minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 640px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 2rem;
+    }
+}
+
 </style>
 </head>
 <body class="antialiased">
@@ -2030,20 +2386,37 @@ section {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileDropdown = document.getElementById('mobile-dropdown');
             if (mobileMenuBtn && mobileDropdown) {
+                // Estado explícito independiente de Tailwind.
+                mobileDropdown.classList.remove('is-open');
+                mobileDropdown.classList.add('is-closed');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
                 mobileMenuBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    mobileDropdown.classList.toggle('hidden');
-                });
-                
-                // Cerrar menu al pulsar en cualquier enlace
-                mobileDropdown.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => mobileDropdown.classList.add('hidden'));
+                    const isOpen = !mobileDropdown.classList.contains('is-open');
+                    mobileDropdown.classList.toggle('is-open', isOpen);
+                    mobileDropdown.classList.toggle('is-closed', !isOpen);
+                    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+                    mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
                 });
 
-                // Cerrar menu al pulsar fuera de él
+                mobileDropdown.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileDropdown.classList.remove('is-open');
+                        mobileDropdown.classList.add('is-closed');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        mobileMenuBtn.setAttribute('aria-label', 'Abrir menú');
+                    });
+                });
+
                 document.addEventListener('click', (e) => {
-                    if (!mobileDropdown.classList.contains('hidden') && !mobileDropdown.contains(e.target) && e.target !== mobileMenuBtn) {
-                        mobileDropdown.classList.add('hidden');
+                    if (mobileDropdown.classList.contains('is-open') &&
+                        !mobileDropdown.contains(e.target) &&
+                        !mobileMenuBtn.contains(e.target)) {
+                        mobileDropdown.classList.remove('is-open');
+                        mobileDropdown.classList.add('is-closed');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        mobileMenuBtn.setAttribute('aria-label', 'Abrir menú');
                     }
                 });
             }
