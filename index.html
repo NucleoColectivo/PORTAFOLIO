@@ -851,6 +851,46 @@ main {
     }
 }
 
+    
+/* Frase de posicionamiento del Hero */
+.hero-positioning {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-positioning p {
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+@media (max-width: 767px) {
+    .hero-positioning {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .hero-positioning p:first-child {
+        font-size: .86rem;
+        line-height: 1.6;
+    }
+
+    .hero-positioning p:last-child {
+        font-size: .72rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-positioning {
+        margin-top: 1.25rem;
+        padding-top: .85rem;
+    }
+
+    .hero-positioning p:first-child {
+        font-size: .78rem;
+    }
+}
+
     </style>
 </head>
 <body class="antialiased">
@@ -930,6 +970,19 @@ main {
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
                             Copiar CV para ATS
                         </button>
+                    </div>
+
+                    <!-- Frase de posicionamiento: amplía el perfil más allá de la IA -->
+                    <div class="hero-positioning mt-8 max-w-3xl border-t border-slate-800/80 pt-5 text-center md:text-left">
+                        <p class="text-sm sm:text-base md:text-lg leading-relaxed text-slate-400">
+                            Una práctica <span class="text-slate-200 font-semibold">interdisciplinaria</span> que conecta
+                            <span class="text-cyan-300 font-semibold">diseño gráfico, ilustración, artes plásticas, audiovisual,
+                            programación creativa e Inteligencia Artificial</span> para crear experiencias digitales,
+                            interactivas y experimentales.
+                        </p>
+                        <p class="mt-2 text-xs sm:text-sm text-slate-500">
+                            Del concepto al prototipo: imagen · narrativa · código · sonido · interacción.
+                        </p>
                     </div>
                 </div>
             </div>
