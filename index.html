@@ -468,6 +468,389 @@
             box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
             border-color: var(--text-cyan);
         }
+    
+/* =========================================================
+   RESPONSIVE HARDENING — móvil, tablet y escritorio
+   ========================================================= */
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+img, svg, video, canvas {
+    max-width: 100%;
+}
+
+button, a, input {
+    font: inherit;
+}
+
+a {
+    overflow-wrap: anywhere;
+}
+
+/* Evita que textos largos rompan tarjetas o grids */
+h1, h2, h3, h4, h5, h6, p, li, span {
+    overflow-wrap: anywhere;
+}
+
+/* Contenedores seguros en pantallas estrechas */
+.container {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+}
+
+section {
+    scroll-margin-top: 5rem;
+}
+
+/* Hero realmente fluido */
+.hero-content {
+    box-sizing: border-box;
+    width: 100%;
+    padding: clamp(1rem, 4vw, 2rem);
+}
+
+.hero-main {
+    width: 100%;
+    min-width: 0;
+}
+
+.hero-text-block {
+    min-width: 0;
+}
+
+.hero-text-block h1 {
+    max-width: 100%;
+    font-size: clamp(1.65rem, 7vw, 4.5rem);
+    line-height: 1.05;
+    text-wrap: balance;
+}
+
+.hero-titles {
+    max-width: 100%;
+}
+
+.hero-description {
+    max-width: 70ch;
+}
+
+/* Navegación: nombre no empuja el botón */
+.navbar > .container {
+    min-width: 0;
+}
+
+.navbar .container > div:first-child {
+    min-width: 0;
+}
+
+.navbar .container > div:first-child a {
+    min-width: 0;
+    max-width: 70vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Menú móvil */
+#mobile-dropdown {
+    width: 100%;
+    box-sizing: border-box;
+    max-height: calc(100dvh - 4rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Tags: mejor comportamiento táctil */
+#ats-tags-cloud {
+    align-items: stretch;
+}
+
+.ats-tag {
+    min-height: 44px;
+    max-width: 100%;
+    line-height: 1.25;
+}
+
+/* Búsqueda */
+#ats-search-input {
+    min-height: 48px;
+    box-sizing: border-box;
+    padding-right: 5rem;
+}
+
+/* Timeline */
+.timeline-line {
+    z-index: 0;
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: min(100% - 1.25rem, 1200px);
+    }
+
+    .navbar {
+        padding-inline: .5rem;
+    }
+
+    #node-banner {
+        min-height: max(680px, 100dvh);
+        align-items: center;
+    }
+
+    .hero-main {
+        gap: 1.25rem;
+    }
+
+    .hero-main > div:first-child {
+        width: 100%;
+    }
+
+    .hero-main > div:first-child img {
+        width: clamp(132px, 42vw, 190px);
+        height: clamp(132px, 42vw, 190px);
+    }
+
+    .hero-text-block {
+        width: 100%;
+    }
+
+    .hero-titles {
+        gap: .25rem .75rem;
+    }
+
+    .hero-titles p {
+        font-size: clamp(.78rem, 3.3vw, .95rem);
+        letter-spacing: .03em;
+    }
+
+    .hero-description {
+        margin-top: 1rem;
+        font-size: .92rem;
+        line-height: 1.65;
+    }
+
+    .hero-text-block .mt-6 {
+        margin-top: 1.25rem;
+    }
+
+    .hero-text-block .mt-6 > * {
+        width: 100%;
+    }
+
+    .section-title {
+        max-width: 100%;
+        font-size: clamp(1.45rem, 7vw, 2rem);
+        line-height: 1.15;
+        gap: .55rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-title svg {
+        flex: 0 0 auto;
+    }
+
+    /* Timeline móvil: línea y contenido nunca se pisan */
+    #trayectoria .relative.pl-6 {
+        padding-left: 2rem;
+    }
+
+    #trayectoria .timeline-line {
+        left: 1rem;
+    }
+
+    #trayectoria .relative.pl-6 > .relative {
+        padding-left: 0;
+    }
+
+    #trayectoria .relative.pl-6 > .relative > .absolute {
+        left: 1rem;
+    }
+
+    #trayectoria .relative.pl-6 > .relative .text-left,
+    #trayectoria .relative.pl-6 > .relative .md\:text-right {
+        text-align: left;
+    }
+
+    #trayectoria .relative.pl-6 > .relative ul {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Modal */
+    .modal {
+        padding: .75rem;
+        box-sizing: border-box;
+    }
+
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: calc(100dvh - 1.5rem);
+    }
+
+    .modal-image {
+        max-width: calc(100vw - 1.5rem);
+        max-height: 72dvh;
+    }
+
+    .close-button {
+        top: .5rem;
+        right: .5rem;
+        font-size: 2rem;
+    }
+
+    .prev-button,
+    .next-button {
+        width: 42px;
+        height: 42px;
+    }
+
+    .prev-button { left: .25rem; }
+    .next-button { right: .25rem; }
+
+    /* Elementos flotantes: evitar choque entre controles */
+    #fixed-scroll-down {
+        width: 42px;
+        height: 42px;
+        left: auto;
+        right: 4.5rem;
+        bottom: 1rem;
+    }
+
+    #fixed-scroll-down svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    #whatsapp-fab {
+        width: 46px;
+        height: 46px;
+        right: .75rem;
+        bottom: 1rem;
+    }
+}
+
+/* Teléfonos muy pequeños */
+@media (max-width: 380px) {
+    .container {
+        width: calc(100% - 1rem);
+    }
+
+    .hero-content {
+        padding-inline: .75rem;
+    }
+
+    #node-banner {
+        min-height: 700px;
+    }
+
+    .hero-text-block h1 {
+        font-size: clamp(1.45rem, 8vw, 2rem);
+    }
+
+    .hero-titles {
+        flex-direction: column;
+        align-items: center;
+        gap: .15rem;
+    }
+
+    .hero-titles p {
+        font-size: .75rem;
+    }
+
+    .card-custom {
+        border-radius: 1rem;
+    }
+
+    .card-custom.p-6 {
+        padding: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    #ats-search-input {
+        font-size: .82rem;
+        padding-left: 2.6rem;
+        padding-right: 4.5rem;
+    }
+}
+
+/* Tablet: equilibrio entre densidad y legibilidad */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        width: min(100% - 2rem, 900px);
+    }
+
+    .hero-main {
+        gap: 2rem;
+    }
+
+    .hero-main > div:first-child img {
+        width: clamp(180px, 27vw, 230px);
+        height: clamp(180px, 27vw, 230px);
+    }
+
+    .hero-text-block h1 {
+        font-size: clamp(2.2rem, 5.2vw, 3.4rem);
+    }
+
+    .hero-text-block {
+        width: 100%;
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+    
+/* Last-mile overflow protection for generated portfolio content */
+#portfolio-container,
+#portfolio-container > *,
+#ia-projects .grid,
+#portfolio .grid,
+main {
+    min-width: 0;
+    max-width: 100%;
+}
+
+#portfolio-container img,
+#portfolio-container iframe,
+#portfolio-container video {
+    max-width: 100%;
+}
+
+@media (max-width: 767px) {
+    #portfolio-container {
+        overflow-x: hidden;
+    }
+
+    #portfolio-container > * {
+        width: 100%;
+    }
+}
+
     </style>
 </head>
 <body class="antialiased">
@@ -491,12 +874,12 @@
                 <a href="#skills" class="nav-link">Áreas</a>
                 <a href="#trayectoria" class="nav-link">Trayectoria</a>
                 <a href="#portfolio" class="nav-link">Galería</a>
-                <a href="#ia-projects" class="nav-link">Proyectos IA</a>
+                <a href="#ia-projects" class="nav-link">Proyectos</a>
                 <a href="#education" class="nav-link">Formación</a>
                 <a href="#contact" class="nav-link">Contacto</a>
             </div>
             <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Abrir Menú">
+            <button type="button" id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Abrir Menú">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
@@ -506,7 +889,7 @@
             <a href="#skills" class="nav-link block py-3">Competencias</a>
             <a href="#trayectoria" class="nav-link block py-3">Trayectoria</a>
             <a href="#portfolio" class="nav-link block py-3">Galería</a>
-            <a href="#ia-projects" class="nav-link block py-3">Proyectos IA</a>
+            <a href="#ia-projects" class="nav-link block py-3">Proyectos</a>
             <a href="#education" class="nav-link block py-3">Formación</a>
             <a href="#contact" class="nav-link block py-3">Contacto</a>
         </div>
